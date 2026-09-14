@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 
@@ -87,9 +88,14 @@ class AdminEditTourScreen extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: ElevatedButton.icon(
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cambios guardados')));
-                      context.pop();
+                    onPressed: () async {
+                      await FirebaseFirestore.instance.collection('tours').doc(widget.tour.id).update({
+                        'isActive': true, // Mock update
+                      });
+                      if (mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cambios guardados')));
+                        context.pop();
+                      }
                     },
                     icon: const Icon(Icons.save_outlined, color: AppTheme.onPrimary),
                     label: const Text('Save\nChanges', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 
@@ -37,7 +38,7 @@ class AdminAddTourScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildFieldLabel('Tour Title'),
-            _buildTextField(hintText: 'e.g. Historic Downtown Walking Tour'),
+            _buildTextField(hintText: 'e.g. Historic Downtown Walking Tour', controller: _titleController),
             const SizedBox(height: 16),
             
             _buildFieldLabel('Category'),
@@ -128,10 +129,25 @@ class AdminAddTourScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
-                onPressed: () {
-                  context.pop();
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tour guardado exitosamente')));
-                },
+                onPressed: () async {
+                    final data = {
+                      'title': _titleController.text,
+                      'description': _descriptionController.text,
+                      'category': selectedCategory,
+                      'durationMinutes': selectedDuration != null ? (double.parse(selectedDuration!) * 60).toInt() : 120,
+                      'price': double.tryParse(_priceController.text) ?? 0.0,
+                      'maxCapacity': int.tryParse(_maxCapacityController.text) ?? 10,
+                      'isActive': true,
+                      'pointsToEarn': 150,
+                      'createdAt': FieldValue.serverTimestamp(),
+                      'stops': stops,
+                    };
+                    await FirebaseFirestore.instance.collection('tours').add(data);
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tour guardado exitosamente')));
+                      context.pop();
+                    }
+                  },
                 icon: const Icon(Icons.save_outlined, color: AppTheme.onPrimary),
                 label: const Text('Save Tour', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 style: ElevatedButton.styleFrom(
