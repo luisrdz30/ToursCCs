@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Tour - Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#5f1900",
+                      "on-tertiary-fixed": "#001f28",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "surface-dim": "#eed5cd",
+                      "inverse-primary": "#ffb59d",
+                      "inverse-surface": "#3c2d28",
+                      "on-secondary-fixed": "#001f29",
+                      "surface-tint": "#ab3500",
+                      "surface-variant": "#f7ddd5",
+                      "outline": "#8d7168",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "inverse-on-surface": "#ffede8",
+                      "on-background": "#261814",
+                      "surface-container-high": "#fde3db",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#bce9ff",
+                      "on-error": "#ffffff",
+                      "background": "#fff8f6",
+                      "surface-container": "#ffe9e3",
+                      "on-primary-fixed-variant": "#832600",
+                      "primary": "#ab3500",
+                      "on-primary-fixed": "#390c00",
+                      "surface-container-highest": "#f7ddd5",
+                      "surface-container-low": "#fff1ed",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#00a7cb",
+                      "on-secondary-container": "#28667d",
+                      "primary-fixed": "#ffdbd0",
+                      "secondary": "#27657c",
+                      "on-surface": "#261814",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "surface": "#fff8f6",
+                      "outline-variant": "#e1bfb5",
+                      "secondary-container": "#a8e2fd",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#b5ebff",
+                      "on-surface-variant": "#594139",
+                      "tertiary": "#00677e",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "on-tertiary-container": "#003744",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#ffb59d",
+                      "primary-container": "#ff6b35",
+                      "surface-bright": "#fff8f6",
+                      "on-secondary-fixed-variant": "#004d63"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "40px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "margin-desktop": "120px",
+                      "md": "24px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "xl": "64px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        
+        /* Ambient Shadows */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(0, 78, 100, 0.15);
+        }
+        .shadow-level-2 {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.25);
+        }
+        .shadow-hover:hover {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.25);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Input Focus Ring */
+        .input-focus-ring:focus-within {
+            border-color: #27657c; /* Deep Teal / Secondary */
+            box-shadow: 0 0 0 1px #27657c;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative pb-24 md:pb-0">
+<!-- TopAppBar Mobile -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm dark:bg-surface-container-high flex items-center justify-between px-margin-mobile py-sm w-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl">arrow_back</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">Add New Tour</h1>
+</div>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+</header>
+<!-- TopAppBar Desktop (Navigation Shell) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm dark:bg-surface-container-high items-center justify-between px-margin-desktop py-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+                BL
+            </div>
+<h1 class="font-headline-lg text-primary dark:text-primary-fixed-dim font-extrabold tracking-tight">Partner Portal</h1>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-title-md text-title-md hover:opacity-80 transition-opacity" href="#">Business</a>
+<a class="text-on-surface-variant font-title-md text-title-md hover:opacity-80 transition-opacity" href="#">Promos</a>
+<a class="text-on-surface-variant font-title-md text-title-md hover:opacity-80 transition-opacity" href="#">Stats</a>
+<a class="text-primary font-title-md text-title-md border-b-2 border-primary pb-1" href="#">Tours</a>
+<a class="text-on-surface-variant font-title-md text-title-md hover:opacity-80 transition-opacity" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity cursor-pointer">notifications</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[80px] md:pt-[100px] px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pb-lg md:pb-xl">
+<div class="hidden md:block mb-lg">
+<div class="flex items-center gap-sm text-secondary hover:opacity-80 transition-opacity cursor-pointer inline-flex">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-md text-label-md">Back to Tours</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-background mt-sm">Create a New Experience</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Fill out the details below to add a new tour to your catalog.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Left Column: Core Details -->
+<div class="md:col-span-8 flex flex-col gap-md">
+<!-- Basic Info Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-level-1">
+<h3 class="font-title-md text-title-md text-on-background mb-md">Basic Information</h3>
+<div class="flex flex-col gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="tour-title">Tour Title</label>
+<div class="bg-surface-container-low rounded-[16px] border border-transparent input-focus-ring overflow-hidden">
+<input class="w-full bg-transparent border-none font-body-md text-body-md text-on-background p-sm focus:ring-0" id="tour-title" placeholder="e.g. Historic Downtown Walking Tour" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="category">Category</label>
+<div class="bg-surface-container-low rounded-[16px] border border-transparent input-focus-ring overflow-hidden relative">
+<select class="w-full bg-transparent border-none font-body-md text-body-md text-on-background p-sm focus:ring-0 appearance-none pr-10" id="category">
+<option disabled="" selected="" value="">Select a category</option>
+<option value="adventure">Adventure</option>
+<option value="culture">Culture</option>
+<option value="gastronomy">Gastronomy</option>
+<option value="nature">Nature</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="duration">Duration (hours)</label>
+<div class="bg-surface-container-low rounded-[16px] border border-transparent input-focus-ring overflow-hidden relative">
+<input class="w-full bg-transparent border-none font-body-md text-body-md text-on-background p-sm focus:ring-0" id="duration" min="0.5" placeholder="e.g. 2.5" step="0.5" type="number"/>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">schedule</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="price">Price per person ($)</label>
+<div class="bg-surface-container-low rounded-[16px] border border-transparent input-focus-ring overflow-hidden relative">
+<span class="absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">$</span>
+<input class="w-full bg-transparent border-none font-body-md text-body-md text-on-background p-sm pl-[32px] focus:ring-0" id="price" min="0" placeholder="0.00" step="0.01" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Description Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-level-1">
+<h3 class="font-title-md text-title-md text-on-background mb-md">Description</h3>
+<div class="flex flex-col gap-xs">
+<div class="bg-surface-container-low rounded-[16px] border border-transparent input-focus-ring overflow-hidden">
+<textarea class="w-full bg-transparent border-none font-body-md text-body-md text-on-background p-sm focus:ring-0 resize-y" id="description" placeholder="Describe the experience in detail..." rows="5"></textarea>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-right">0 / 1000 characters</p>
+</div>
+</section>
+<!-- Itinerary Builder Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-level-1">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-title-md text-title-md text-on-background">Itinerary / Stops</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs hover:opacity-80 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                            Add Stop
+                        </button>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Itinerary Item 1 -->
+<div class="flex items-start gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/30 relative group">
+<div class="flex flex-col items-center mt-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm">1</div>
+<div class="w-[2px] h-12 bg-secondary-container/50 my-1"></div>
+</div>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-sm">
+<div class="sm:col-span-2">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 font-title-md text-title-md text-on-background px-0 py-1" placeholder="Stop Title (e.g. Central Plaza)" type="text" value="Meeting Point"/>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface-variant px-0 py-1 mt-1 text-sm" placeholder="Brief description of activity here..." type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 font-body-md text-body-md text-on-background px-0 py-1" type="time" value="09:00"/>
+</div>
+</div>
+<button class="text-error hover:opacity-80 opacity-0 group-hover:opacity-100 transition-opacity absolute right-sm top-sm" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Itinerary Item 2 -->
+<div class="flex items-start gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/30 relative group">
+<div class="flex flex-col items-center mt-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm">2</div>
+</div>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-sm">
+<div class="sm:col-span-2">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 font-title-md text-title-md text-on-background px-0 py-1" placeholder="Stop Title (e.g. Central Plaza)" type="text"/>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface-variant px-0 py-1 mt-1 text-sm" placeholder="Brief description of activity here..." type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 font-body-md text-body-md text-on-background px-0 py-1" type="time"/>
+</div>
+</div>
+<button class="text-error hover:opacity-80 opacity-0 group-hover:opacity-100 transition-opacity absolute right-sm top-sm" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Media & Actions -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<!-- Cover Image Upload -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-level-1">
+<h3 class="font-title-md text-title-md text-on-background mb-md">Cover Image</h3>
+<div class="border-2 border-dashed border-secondary/30 rounded-lg p-md flex flex-col items-center justify-center text-center cursor-pointer hover:bg-secondary-container/5 transition-colors group relative overflow-hidden min-h-[200px]">
+<!-- Placeholder State -->
+<div class="flex flex-col items-center z-10 pointer-events-none">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-2xl">add_photo_alternate</span>
+</div>
+<p class="font-title-md text-title-md text-secondary">Upload Cover Image</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">PNG, JPG up to 5MB</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Recommended size: 1200x800px</p>
+</div>
+<!-- Hidden File Input -->
+<input accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" type="file"/>
+</div>
+</section>
+<!-- Actions -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-level-1 flex flex-col gap-sm sticky top-[100px]">
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-sm rounded-full shadow-level-1 shadow-hover relative overflow-hidden group" type="button">
+<span class="relative z-10 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">save</span>
+                            Save Tour
+                        </span>
+<div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+</button>
+<button class="w-full bg-transparent border border-outline-variant text-on-surface-variant font-title-md text-title-md py-sm rounded-full hover:bg-surface-container transition-colors" type="button">
+                        Save as Draft
+                    </button>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center mt-xs">Changes are automatically saved locally.</p>
+</section>
+</div>
+</form>
+</main>
+<!-- BottomNavBar Mobile -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-[0_-4px_12px_rgba(0,78,100,0.15)] bg-surface/80 dark:bg-surface-dim/80 border-t border-outline-variant/20 fixed bottom-0 left-0 w-full h-16 flex justify-around items-center px-margin-mobile pb-safe">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">storefront</span>
+<span class="font-label-sm text-label-sm">Business</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">campaign</span>
+<span class="font-label-sm text-label-sm">Promos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">group</span>
+<span class="font-label-sm text-label-sm">Users</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-primary-container/20 rounded-xl px-4 py-1 hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">tour</span>
+<span class="font-label-sm text-label-sm">Tours</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>TravelSmart AI - Souvenir Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#5f1900",
+                        "on-surface": "#261814",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface-variant": "#f7ddd5",
+                        "on-secondary-container": "#28667d",
+                        "inverse-surface": "#3c2d28",
+                        "on-tertiary-fixed": "#001f28",
+                        "surface-container": "#ffe9e3",
+                        "outline": "#8d7168",
+                        "tertiary-fixed": "#b5ebff",
+                        "on-tertiary-container": "#003744",
+                        "secondary-container": "#a8e2fd",
+                        "secondary": "#27657c",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "on-secondary-fixed": "#001f29",
+                        "surface-dim": "#eed5cd",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "surface-container-high": "#fde3db",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#261814",
+                        "primary-container": "#ff6b35",
+                        "primary-fixed-dim": "#ffb59d",
+                        "background": "#fff8f6",
+                        "tertiary": "#00677e",
+                        "on-surface-variant": "#594139",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ffede8",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fff8f6",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface": "#fff8f6",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#832600",
+                        "inverse-primary": "#ffb59d",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "on-primary-fixed": "#390c00",
+                        "primary": "#ab3500",
+                        "tertiary-container": "#00a7cb",
+                        "surface-container-low": "#fff1ed",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e1bfb5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "120px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "title-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Level 1 Shadow */
+        .elevation-1 {
+            box-shadow: 0 4px 14px 0 rgba(0, 78, 100, 0.15);
+        }
+        
+        /* Level 2 Shadow */
+        .elevation-2 {
+            box-shadow: 0 8px 24px 0 rgba(0, 78, 100, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-scrim {
+            background: linear-gradient(to top, rgba(38, 24, 20, 0.8) 0%, rgba(38, 24, 20, 0) 100%);
+        }
+        
+        .progress-bar-track {
+            background-color: #fff8f6; /* surface */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .progress-bar-fill {
+            background-color: #06D6A0; /* Emerald from style guide */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base w-full sticky top-0 z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300" id="top-app-bar">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden elevation-1 border-2 border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, brightly lit portrait of a young professional smiling softly against a pristine white background. The image has a clean, modern aesthetic with soft, diffuse lighting emphasizing approachability and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACkA3094sIdKX_AhLOMdnqzqxQ52KGxbCOq4TiGJmkOLgm22DKEF2jBMpEHZA1kyGDHx6typPmezmiqibjaYq-YUItK_MTDluwTblQmkRgIKbrDiE-GUMkYQd3ospsCfeCTz_5qFfBYAIFYxXh2JcqkN1eQ-89aPYFPrhU8Aj91zzbECnag3pRxnhA63ZXGjJtgQYf99JXA8IOFMJ2QCXcBi3z1Nb72bacbrIoqbZavuKUEv_N5rlOrw"/>
+</div>
+<span class="font-display-lg text-title-md md:text-headline-lg text-primary tracking-tight">TravelSmart AI</span>
+</div>
+<button class="flex items-center gap-xs px-sm py-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors elevation-1 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-secondary text-sm filled">stars</span>
+<span class="font-label-md text-label-md text-on-surface">1,250 pts</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-md flex flex-col gap-lg max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<section class="flex flex-col gap-sm mt-md">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Souvenir Studio</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Design your perfect memory. Describe your dream keepsake, and our AI will craft it into a beautiful 3D-printable object shipped straight to your door.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg">
+<!-- Left Column: 3D Preview (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 flex flex-col gap-md">
+<!-- 3D Viewer Container -->
+<div class="relative w-full h-[60vh] md:h-[500px] rounded-lg elevation-1 bg-surface-container-lowest overflow-hidden flex items-center justify-center group">
+<!-- Placeholder for actual 3D viewer -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, photorealistic 3D render of a traditional Japanese Torii gate floating in a bright, modern studio environment. The gate is painted in a vibrant, slightly glossy vermilion red, contrasting beautifully with the soft, diffused white light of the studio. A subtle, soft shadow grounds the object on an invisible plane. The aesthetic is clean, minimalist, and focuses entirely on the pristine quality of the 3D model." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6fPnHuJ8s_cnJYec1i6eims9Sp820YyJjrjVyidDT62DwiOR0-FQEvxhXIDLhJOUtibuOpoxr3HbfTSTRbTuSF1DFnb1WA3Xsegjk3YOGD6Nfca76nmLc_Seyuhfd_kljOkGuRD8SapihMrM90tCYjjrgcoKAgls0GLH8PePgVHB6z76FVyEA6cJHMDxXMna7hxH4NYFKrKW-Uk9EwPCuhVOJfpaSDefXMfEMxrk8-x5CjmzkBsxHkw')"></div>
+<!-- Gradient overlay for controls visibility -->
+<div class="absolute bottom-0 w-full h-1/3 gradient-scrim flex items-end justify-between p-md">
+<div class="text-white">
+<h2 class="font-title-md text-title-md">Kyoto Torii Gate</h2>
+<p class="font-label-md text-label-md opacity-80 text-white">Resin • Matte Finish • 15cm</p>
+</div>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/20 transition-colors backdrop-blur-md">
+<span class="material-symbols-outlined filled">360</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/20 transition-colors backdrop-blur-md">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- AI Badge -->
+<div class="absolute top-md left-md glass-panel px-sm py-xs rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-sm filled">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-on-surface">AI Generated</span>
+</div>
+</div>
+<!-- AI Prompt Input -->
+<div class="bg-surface-container-lowest rounded-lg p-md elevation-1 flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs" for="ai-prompt">
+<span class="material-symbols-outlined text-secondary text-sm">edit</span>
+                        Describe your souvenir
+                    </label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-high border-2 border-transparent focus:border-secondary rounded-DEFAULT p-sm font-body-md text-body-md text-on-surface placeholder:text-outline transition-colors resize-none" id="ai-prompt" placeholder="e.g., A minimalist ceramic matcha bowl with a subtle cherry blossom motif engraved on the side..." rows="3"></textarea>
+<button class="absolute bottom-sm right-sm bg-primary hover:bg-surface-tint text-on-primary rounded-full p-xs elevation-1 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-xs mt-xs">
+<span class="font-label-sm text-label-sm text-outline px-sm py-xs rounded-full border border-outline-variant cursor-pointer hover:bg-surface-container transition-colors">"Miniature Colosseum"</span>
+<span class="font-label-sm text-label-sm text-outline px-sm py-xs rounded-full border border-outline-variant cursor-pointer hover:bg-surface-container transition-colors">"Abstract Wave Sculpture"</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Status & Options (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<!-- Manufacturing Status Card -->
+<div class="bg-surface-container-lowest rounded-lg p-md elevation-1 flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-background">Order Status</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/20 px-xs py-xs rounded-full">Printing</span>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Layer 450 / 1200</span>
+<span class="font-bold text-on-surface">38%</span>
+</div>
+<div class="h-3 w-full rounded-full progress-bar-track overflow-hidden">
+<div class="h-full progress-bar-fill rounded-full" style="width: 38%;"></div>
+</div>
+<p class="font-label-sm text-label-sm text-outline mt-xs">Estimated completion: 4h 20m</p>
+</div>
+<!-- Status Timeline -->
+<div class="flex flex-col gap-sm mt-sm">
+<div class="flex items-start gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center mt-xs z-10 shrink-0">
+<span class="material-symbols-outlined text-on-surface text-[14px] filled">check_circle</span>
+</div>
+<div class="flex flex-col pb-sm border-l-2 border-surface-variant -ml-[13px] pl-lg">
+<span class="font-label-md text-label-md text-on-surface">Design Finalized</span>
+<span class="font-label-sm text-label-sm text-outline">Today, 10:42 AM</span>
+</div>
+</div>
+<div class="flex items-start gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center mt-xs z-10 shrink-0 elevation-1">
+<span class="material-symbols-outlined text-on-primary-container text-[14px] filled">print</span>
+</div>
+<div class="flex flex-col pb-sm border-l-2 border-surface-variant -ml-[13px] pl-lg">
+<span class="font-label-md text-label-md text-on-surface font-bold">3D Printing</span>
+<span class="font-label-sm text-label-sm text-primary">In progress...</span>
+</div>
+</div>
+<div class="flex items-start gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center mt-xs z-10 shrink-0">
+<span class="material-symbols-outlined text-outline text-[14px]">local_shipping</span>
+</div>
+<div class="flex flex-col pl-sm">
+<span class="font-label-md text-label-md text-outline">Shipping</span>
+<span class="font-label-sm text-label-sm text-outline">Pending</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Material Options (Skeuomorphic touches) -->
+<div class="bg-surface-container-lowest rounded-lg p-md elevation-1 flex flex-col gap-sm">
+<h3 class="font-title-md text-title-md text-on-background">Material</h3>
+<div class="grid grid-cols-2 gap-sm mt-xs">
+<button class="flex flex-col items-center justify-center p-sm rounded-DEFAULT border-2 border-secondary bg-surface-container-low elevation-1 transition-all">
+<div class="w-12 h-12 rounded-full mb-xs shadow-inner bg-gradient-to-br from-gray-200 to-gray-400"></div>
+<span class="font-label-md text-label-md text-on-surface">Resin</span>
+</button>
+<button class="flex flex-col items-center justify-center p-sm rounded-DEFAULT border-2 border-transparent hover:border-outline-variant bg-surface-container-highest transition-all opacity-70 hover:opacity-100">
+<div class="w-12 h-12 rounded-full mb-xs shadow-inner bg-gradient-to-br from-amber-700 to-amber-900"></div>
+<span class="font-label-md text-label-md text-on-surface">Wood Fill</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Semantic Shell) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/90 backdrop-blur-lg dark:bg-surface-container-lowest/90 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-lg md:hidden">
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-xs">explore</span>
+<span class="font-label-sm text-label-sm-mobile">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-xs">map</span>
+<span class="font-label-sm text-label-sm-mobile">Travel</span>
+</button>
+<!-- Central FAB-style Pass Button -->
+<div class="relative -top-6 flex justify-center items-center">
+<button class="w-16 h-16 rounded-full bg-primary text-on-primary elevation-2 flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px] filled">qr_code_scanner</span>
+</button>
+</div>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-container bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-xs filled">sports_esports</span>
+<span class="font-label-sm text-label-sm-mobile font-bold text-primary">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-xs">route</span>
+<span class="font-label-sm text-label-sm-mobile">Journey</span>
+</button>
+</nav>
+<!-- Desktop Sidebar Placeholder (Hidden on mobile, represents full nav structure on web if implemented) -->
+<aside class="hidden md:flex flex-col w-64 fixed left-0 top-0 h-screen bg-surface-container-lowest border-r border-outline-variant z-40 pt-[80px] opacity-0 pointer-events-none">
+<!-- Kept semantic structure in mind, but prioritizing the Canvas layout requested -->
+</aside>
+<script>
+        // Simple ambient shadow adjustment on scroll for TopBar
+        window.addEventListener('scroll', () => {
+            const topBar = document.getElementById('top-app-bar');
+            if (window.scrollY > 10) {
+                topBar.classList.add('shadow-md');
+                topBar.classList.remove('shadow-sm');
+                topBar.style.backgroundColor = 'rgba(255, 248, 246, 0.95)'; // solid surface color
+            } else {
+                topBar.classList.add('shadow-sm');
+                topBar.classList.remove('shadow-md');
+                topBar.style.backgroundColor = 'rgba(255, 248, 246, 0.8)';
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>TravelSmart AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#5f1900",
+                      "on-surface": "#261814",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "surface-variant": "#f7ddd5",
+                      "on-secondary-container": "#28667d",
+                      "inverse-surface": "#3c2d28",
+                      "on-tertiary-fixed": "#001f28",
+                      "surface-container": "#ffe9e3",
+                      "outline": "#8d7168",
+                      "tertiary-fixed": "#b5ebff",
+                      "on-tertiary-container": "#003744",
+                      "secondary-container": "#a8e2fd",
+                      "secondary": "#27657c",
+                      "secondary-fixed": "#bce9ff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#ab3500",
+                      "on-secondary-fixed": "#001f29",
+                      "surface-dim": "#eed5cd",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "surface-container-high": "#fde3db",
+                      "primary-fixed": "#ffdbd0",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#261814",
+                      "primary-container": "#ff6b35",
+                      "primary-fixed-dim": "#ffb59d",
+                      "background": "#fff8f6",
+                      "tertiary": "#00677e",
+                      "on-surface-variant": "#594139",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ffede8",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fff8f6",
+                      "surface-container-highest": "#f7ddd5",
+                      "surface": "#fff8f6",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#832600",
+                      "inverse-primary": "#ffb59d",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "on-primary-fixed": "#390c00",
+                      "primary": "#ab3500",
+                      "tertiary-container": "#00a7cb",
+                      "surface-container-low": "#fff1ed",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#e1bfb5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "120px",
+                      "md": "24px",
+                      "xl": "64px",
+                      "sm": "12px",
+                      "lg": "40px",
+                      "xs": "4px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Level 1 Shadow */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(0, 78, 100, 0.15);
+        }
+        
+        /* Level 2 Shadow (Hover/Interactive) */
+        .shadow-level-2:hover {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.20);
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .gradient-scrim {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        body {
+            background-color: theme('colors.background');
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ambient background glow */
+        .ambient-glow {
+            position: fixed;
+            top: 10%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, theme('colors.primary-container') 0%, transparent 70%);
+            opacity: 0.15;
+            filter: blur(40px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen pb-32">
+<div class="ambient-glow"></div>
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md shadow-sm full-width sticky top-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base w-full">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up portrait of a young adult traveler with a warm, genuine smile, wearing modern casual clothing. Soft, natural daylight illuminates their face against a blurred, bright urban background. The overall aesthetic is optimistic, high-quality, and modern, fitting a high-end light mode app design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3YQSlRyzmofDv98jN6BwrIQMzNuF_JbmHEqm_OQEFmX4z0jf8RBQlCldsml-hbFjxD8PYscw00cx5Ltqw_V1q4eMxo4_lzG24KHrmrnyEnhbd6-khBTm0EhUZR5fPM0tva1gf8Lp2z__b13tfxUGXWIS9aMRZlRaD32rJsZqa-lbnqTF1MP_mA01hg3FKIPVpsrh9xS7eeTghHI8nN1OZqAUv8TZEN3vgz9NyDf8FY8fXD6co4qu_kw"/>
+</div>
+<h1 class="font-display-lg text-title-md text-primary tracking-tight font-extrabold">TravelSmart AI</h1>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-high px-4 py-2 rounded-full shadow-level-1 hover:bg-surface-variant transition-colors cursor-pointer active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">1,250 pts</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile md:px-margin-desktop pt-lg pb-xl max-w-7xl mx-auto flex flex-col gap-lg">
+<!-- Greeting & Quick Actions Section -->
+<section class="flex flex-col gap-md"><div class="flex items-center gap-md mb-2">
+<div class="w-20 h-20 flex-shrink-0 rounded-full bg-surface-container-high shadow-level-1 overflow-hidden border-2 border-primary/20">
+<img alt="TravelSmart AI Mascot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSrymLaU2tQ3LB1orI4MdS3bxhQ7RLvdIUzIYjiUxJC1RCz7byTTX0TOST3QzOcu7ap1LFIkb6IM7L5RkxLF8fdhl80CgRqz4i9jFIOeZoiXzzMUS5wv9lMDpwnl7vCdq6cQnqTHTdWjuMuylFGTjR3Kpu2W8LI5NP9A_6SawpPKZE_kxZIJ90L35SjNGKvjlp8HaKYJfeX_22yPOIUPAX9a8sVGYMujYz9OOuKqVgweTne7BFZl1jc4flhFROE98Iars"/>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Hello, Explorer!</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ready for your next adventure?</p>
+</div>
+</div>
+<!-- Bento Grid: Quick Actions -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-sm">
+<!-- Safe Taxi -->
+<button class="bg-surface-container-lowest p-md rounded-DEFAULT shadow-level-1 shadow-level-2 flex flex-col items-start gap-sm transition-all text-left">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container mb-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Safe Taxi</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal opacity-80 mt-1">Book verified rides</p>
+</div>
+</button>
+<!-- Metro Map -->
+<button class="bg-surface-container-lowest p-md rounded-DEFAULT shadow-level-1 shadow-level-2 flex flex-col items-start gap-sm transition-all text-left">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container mb-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">subway</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Metro Map</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal opacity-80 mt-1">Live transit routes</p>
+</div>
+</button>
+<!-- Weather/Local Info Widget (Bento large item on mobile) -->
+<div class="col-span-2 bg-primary rounded-DEFAULT shadow-level-1 p-md flex items-center justify-between relative overflow-hidden text-on-primary">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at top right, #fff 0%, transparent 60%);"></div>
+<div class="relative z-10">
+<p class="font-label-md text-label-md opacity-90 mb-1">Current Location</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-2">24°C, Sunny</h3>
+<p class="font-body-md text-body-md flex items-center gap-1 opacity-90">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Barcelona, Spain
+                        </p>
+</div>
+<div class="relative z-10 text-on-primary opacity-90">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Experiences Section -->
+<section class="flex flex-col gap-md mt-sm">
+<div class="flex justify-between items-end">
+<h2 class="font-title-md text-title-md text-on-surface">Featured Experiences</h2>
+<button class="font-label-md text-label-md text-primary font-bold hover:opacity-80 transition-opacity">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1: Historic Center Tour -->
+<div class="relative h-64 rounded-lg overflow-hidden shadow-level-1 shadow-level-2 group cursor-pointer transition-all">
+<img alt="Historic Center Tour" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A stunning, high-resolution wide shot of a beautiful historic European city center at golden hour. Warm sunlight bathes ancient stone buildings and a vibrant plaza. The scene is bright, inviting, and bustling with light activity. High-end travel photography aesthetic with soft, optimistic lighting fitting a modern UI layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP7AAnADIDFx00CqBJ7dVqhnVrOEkCrA6V9CrzR3IFcNiMaUexP1ghvoxS4UlgPNU55UW3M7HgxK8Ztdj_CPVDpfjxBUgZkdlYJcuslfL9dPGIM4vQyRaZPYbPCOLvXgG-zKHGoEJYuIac_uyP9gcvjv_UvguvVpLwv77DRqHfbAJhq3CN0x3OJyrbYBHWfuKvlwTvMcCkJTrDRTeop9sa7ezg-GDE_2I4B08e92wnd9sUPZH8SRrYTQ"/>
+<div class="absolute inset-0 gradient-scrim flex flex-col justify-end p-md">
+<div class="flex justify-between items-end">
+<div>
+<span class="bg-primary/90 backdrop-blur-sm text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-full mb-2 inline-block">Culture</span>
+<h3 class="font-title-md text-title-md text-white mb-1">Historic Center Tour</h3>
+<p class="font-body-md text-body-md text-white/80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 2.5 Hours
+                                </p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Local Tastes -->
+<div class="relative h-64 rounded-lg overflow-hidden shadow-level-1 shadow-level-2 group cursor-pointer transition-all">
+<img alt="Local Tastes" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A close-up, high-end culinary photo of delicious local street food or tapas arranged beautifully on a rustic table. The lighting is bright and appetizing, with soft highlights and warm tones. The background is a gently blurred, lively outdoor cafe setting. The visual style is premium, tactile, and mouth-watering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Qtx-xyJtxspoNxzMEg96bDUzMIX4YS15sqi5vVdbYAtl93fYZG4hsVDkmXJRbNETfyjRuiDt7QZ-POrrfuJKKfutSgVOhZSf4sMNMVLMMLdgRyZO1fYQF5kUQndN-IJSFvy8Wj8Hf_6DszrdKtEdLdttzVk8TGuoFHQyokpsMPCHR6gDtF29oE1k5nN1kAIlCSABeiXovPqOwNsFBoKK4Uh2i5ML1u7aj1ykvApCOllSebmEwbPInQ"/>
+<div class="absolute inset-0 gradient-scrim flex flex-col justify-end p-md">
+<div class="flex justify-between items-end">
+<div>
+<span class="bg-secondary/90 backdrop-blur-sm text-on-secondary font-label-sm text-label-sm px-2 py-1 rounded-full mb-2 inline-block">Culinary</span>
+<h3 class="font-title-md text-title-md text-white mb-1">Local Tastes &amp; Tapas</h3>
+<p class="font-body-md text-body-md text-white/80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">star</span> 4.9 (120 reviews)
+                                </p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] shadow-lg docked full-width bottom-0 rounded-t-lg fixed w-full z-50 flex justify-around items-center px-4 pb-safe h-20 md:hidden">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-container bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm-mobile mt-1 font-bold">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]">map</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Travel</span>
+</button>
+<!-- Central FAB-style Pass Button -->
+<div class="relative -top-6">
+<button class="bg-primary hover:bg-surface-tint text-on-primary w-16 h-16 rounded-full flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all active:scale-90 duration-150 border-4 border-surface border-opacity-50">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-label-sm text-[10px] mt-0.5 font-bold leading-tight">Pass</span>
+</button>
+</div>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]">route</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Journey</span>
+</button>
+</nav>
+<!-- Desktop Sidebar (Hidden on mobile, showing Nav items for completeness of design system logic) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-surface shadow-sm pt-24 px-md z-40">
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-sm px-4 py-3 bg-primary-container/10 text-primary font-bold rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">map</span>
+<span class="font-label-md text-label-md">Travel</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">qr_code_scanner</span>
+<span class="font-label-md text-label-md">Pass</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+<span class="font-label-md text-label-md">Play</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">route</span>
+<span class="font-label-md text-label-md">Journey</span>
+</a>
+</nav>
+</aside>
+</body></html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulario Local</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#fff1ed",
+                      "surface-dim": "#eed5cd",
+                      "on-secondary-container": "#28667d",
+                      "on-background": "#261814",
+                      "primary-fixed": "#ffdbd0",
+                      "background": "#fff8f6",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "inverse-on-surface": "#ffede8",
+                      "secondary-fixed": "#bce9ff",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "tertiary": "#00677e",
+                      "tertiary-container": "#00a7cb",
+                      "tertiary-fixed": "#b5ebff",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "surface-bright": "#fff8f6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fff8f6",
+                      "on-primary-container": "#5f1900",
+                      "surface-container-high": "#fde3db",
+                      "on-secondary-fixed": "#001f29",
+                      "surface-tint": "#ab3500",
+                      "on-primary-fixed": "#390c00",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#e1bfb5",
+                      "primary-container": "#ff6b35",
+                      "surface-container": "#ffe9e3",
+                      "primary-fixed-dim": "#ffb59d",
+                      "primary": "#ab3500",
+                      "inverse-surface": "#3c2d28",
+                      "surface-variant": "#f7ddd5",
+                      "secondary": "#27657c",
+                      "secondary-container": "#a8e2fd",
+                      "on-surface": "#261814",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#594139",
+                      "on-primary-fixed-variant": "#832600",
+                      "inverse-primary": "#ffb59d",
+                      "surface-container-highest": "#f7ddd5",
+                      "on-secondary": "#ffffff",
+                      "outline": "#8d7168",
+                      "on-tertiary-container": "#003744",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#001f28",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "xl": "64px",
+                      "margin-desktop": "120px",
+                      "base": "8px",
+                      "margin-mobile": "20px",
+                      "md": "24px",
+                      "lg": "40px",
+                      "xs": "4px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "title-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .flip-card-inner { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        
+        .shadow-level-1 { box-shadow: 0 4px 20px rgba(0, 78, 100, 0.15); }
+        .shadow-level-2 { box-shadow: 0 8px 30px rgba(0, 78, 100, 0.25); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container-low/80 backdrop-blur-md shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">translate</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim font-bold tracking-tight">Vocabulario Local</h1>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto flex flex-col items-center">
+<!-- Progress Bar -->
+<div class="w-full max-w-md mb-lg">
+<div class="flex justify-between items-end mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Daily Goal</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">5 of 20 words</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden shadow-inner">
+<div class="h-full bg-[#06D6A0] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Flip Card Container -->
+<div class="relative w-full max-w-md h-[420px] perspective-1000 cursor-pointer flip-card" id="slangCard" onclick="this.classList.toggle('flipped')">
+<div class="w-full h-full relative transform-style-3d flip-card-inner shadow-level-1 hover:shadow-level-2 rounded-[2rem] transition-all duration-300">
+<!-- Front of Card (Standard) -->
+<div class="absolute inset-0 w-full h-full backface-hidden bg-surface-container-lowest rounded-[2rem] border border-surface-container-high overflow-hidden flex flex-col">
+<div class="h-[60%] w-full relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="A bright, cheerful digital illustration in a modern light-mode style featuring an exhausted person holding their head with a swirling abstract background. Warm oranges and soft blues dominate the palette, evoking a relatable, slightly chaotic morning after a long journey or celebration." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAu-ARg8WCPupBS2JKXXHN6ZPCPHobmKnoH_DMdGMkFFVWvr5Bis3IOCywsYuuK9_X6AeMXBFxTww-aVw4Hoa02x3o1OfopD9AyMAa0J6g-3BK2IKM1EEExscpG7yP4iHphdFLWPYIUMQEHTb18JApIdaXn9bkeNorpNg5DCsd0tocCKHQtPENoTP8B7mIcQvOpFbe2mc-ZN4a68yVMwA9ZVm7iBlQKHg1i5MRgZTnDbE3vmWfDimq6Qg')"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="flex-1 p-md flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-xs">English / Standard Spanish</span>
+<h2 class="font-display-lg text-display-lg text-on-background">Hangover</h2>
+<span class="text-on-surface-variant mt-sm flex items-center gap-2">
+                            Tap to reveal translation <span class="material-symbols-outlined text-sm">touch_app</span>
+</span>
+</div>
+</div>
+<!-- Back of Card (Slang) -->
+<div class="absolute inset-0 w-full h-full backface-hidden bg-primary-fixed rounded-[2rem] border-2 border-primary rotate-y-180 p-md flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
+<!-- Decorative background pattern -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ab3500 2px, transparent 2px); background-size: 24px 24px;"></div>
+<div class="relative z-10 w-full">
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-md shadow-level-1 text-on-primary-container">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-primary-fixed mb-xs">Chuchaqui</h2>
+<div class="h-px w-16 bg-primary/30 mx-auto my-md"></div>
+<p class="font-body-lg text-body-lg text-on-primary-fixed-variant mb-md leading-relaxed italic">
+                            "A severe hangover, usually requiring strong coffee and ceviche."
+                        </p>
+<div class="bg-surface-container-lowest/60 rounded-xl p-sm backdrop-blur-sm border border-white/20">
+<span class="font-label-sm text-label-sm text-primary uppercase mb-1 block">Example</span>
+<p class="font-body-md text-body-md text-on-background font-medium">
+                                "Tengo un chuchaqui terrible después de las fiestas de Quito."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Controls -->
+<div class="w-full max-w-md mt-lg flex items-center justify-center gap-sm">
+<button class="h-14 w-14 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant transition-colors flex items-center justify-center active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">replay</span>
+</button>
+<button class="h-14 px-8 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-level-1 hover:shadow-level-2 active:scale-95 transition-all flex items-center gap-2">
+                Next Word <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-lg z-50 bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-lg shadow-[0_-4px_20px_rgba(39,101,124,0.15)] md:hidden">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full transition-transform duration-150 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim py-2 hover:bg-secondary-container/30 rounded-xl transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">flight_takeoff</span>
+<span class="font-label-sm text-label-sm mt-1">Travel</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim py-2 hover:bg-secondary-container/30 rounded-xl transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">confirmation_number</span>
+<span class="font-label-sm text-label-sm mt-1">Pass</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim py-2 hover:bg-secondary-container/30 rounded-xl transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">sports_esports</span>
+<span class="font-label-sm text-label-sm mt-1">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim py-2 hover:bg-secondary-container/30 rounded-xl transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm mt-1">Journey</span>
+</button>
+</div>
+</nav>
+<!-- Mascota IA FAB -->
+<div class="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40">
+<button class="w-16 h-16 rounded-full bg-gradient-to-br from-secondary to-tertiary shadow-[0_8px_30px_rgba(0,103,126,0.4)] flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-all animate-[bounce_3s_infinite_ease-in-out]">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+</body></html>

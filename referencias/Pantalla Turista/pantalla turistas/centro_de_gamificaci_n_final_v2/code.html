@@ -1,0 +1,472 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>TravelSmart AI - Play</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#5f1900",
+                    "on-surface": "#261814",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "surface-variant": "#f7ddd5",
+                    "on-secondary-container": "#28667d",
+                    "inverse-surface": "#3c2d28",
+                    "on-tertiary-fixed": "#001f28",
+                    "surface-container": "#ffe9e3",
+                    "outline": "#8d7168",
+                    "tertiary-fixed": "#b5ebff",
+                    "on-tertiary-container": "#003744",
+                    "secondary-container": "#a8e2fd",
+                    "secondary": "#27657c",
+                    "secondary-fixed": "#bce9ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#ab3500",
+                    "on-secondary-fixed": "#001f29",
+                    "surface-dim": "#eed5cd",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "surface-container-high": "#fde3db",
+                    "primary-fixed": "#ffdbd0",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#261814",
+                    "primary-container": "#ff6b35",
+                    "primary-fixed-dim": "#ffb59d",
+                    "background": "#fff8f6",
+                    "tertiary": "#00677e",
+                    "on-surface-variant": "#594139",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ffede8",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fff8f6",
+                    "surface-container-highest": "#f7ddd5",
+                    "surface": "#fff8f6",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#832600",
+                    "inverse-primary": "#ffb59d",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "on-primary-fixed": "#390c00",
+                    "primary": "#ab3500",
+                    "tertiary-container": "#00a7cb",
+                    "surface-container-low": "#fff1ed",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#e1bfb5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "120px",
+                    "md": "24px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom UI Patterns */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 24px rgba(0, 78, 100, 0.08); /* Level 1 Ambient Shadow using Deep Teal equivalent */
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .bento-item-large {
+            grid-column: span 2;
+        }
+        
+        /* Progress Bar override to match Emerald instruction */
+        .progress-fill-emerald {
+            background-color: #06D6A0; 
+        }
+
+        /* Ambient Shadows */
+        .ambient-shadow-1 {
+            box-shadow: 0 4px 12px rgba(39, 101, 124, 0.15); /* secondary tint */
+        }
+        .ambient-shadow-2 {
+            box-shadow: 0 8px 24px rgba(39, 101, 124, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mascota AI Widget Glow */
+        .mascota-glow {
+            box-shadow: 0 8px 32px rgba(171, 53, 0, 0.3); /* primary color glow */
+            animation: breath 3s ease-in-out infinite;
+        }
+
+        @keyframes breath {
+            0% { box-shadow: 0 8px 32px rgba(171, 53, 0, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 12px 48px rgba(171, 53, 0, 0.5); transform: scale(1.05); }
+            100% { box-shadow: 0 8px 32px rgba(171, 53, 0, 0.3); transform: scale(1); }
+        }
+
+        /* Sticker Slots */
+        .sticker-slot-empty {
+            border: 2px dashed rgba(89, 65, 57, 0.2); /* on-surface-variant */
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sticker-slot-filled {
+            border: none;
+            background-color: #ffffff;
+            box-shadow: 0 8px 24px rgba(39, 101, 124, 0.2); /* Level 2 */
+        }
+        
+        /* Floating Central FAB Fix for Bottom Nav */
+        .nav-fab-wrapper {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Hide scrollbar for horizontal scroll areas */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Padding safe area for iOS */
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile py-base w-full sticky top-0 z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-colors">
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-full p-2 -ml-2">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A small, circular profile picture of a young professional smiling warmly, set against a bright, modern, minimalist background with soft white lighting. The image emphasizes approachability and high-end modern lifestyle, consistent with a clean, light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc8RXe3UadcbNM2ilX6QUto9CmB55oDWHJGxn8kJd3stG2p0w9A2a9koZEPYflXHpzvIRqF7NixPP73p3b2WZHYIWyCRGTobxlIG1hDquKSA_TYLpAx-dWS78y7B_bBFkJ-VhPj_2C3-1GcUZ2DJYN6tUyl6bx-JfWKDr-4lHBK15vF-ChEh2hqLLQ5SXbkK88LMyTT42i3TB_-VTJANuibqj17wlDsDK4Jvv20x_ug4aTTYlIrNFtmA">
+<h1 class="font-display-lg text-headline-lg text-primary tracking-tight font-extrabold" style="font-size: 24px; line-height: 32px;">TravelSmart AI</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="px-3 py-1.5 bg-surface-container-high rounded-full flex items-center gap-2 ambient-shadow-1">
+<span class="material-symbols-outlined text-primary text-[18px]">stars</span>
+<span class="font-label-md text-label-md text-primary">1,250 pts</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-md md:py-lg flex flex-col gap-lg relative">
+<!-- Page Header -->
+<section class="flex flex-col gap-sm"><div class="flex items-center gap-4 mb-2"><div class="w-20 h-20 shrink-0 mascota-glow rounded-full overflow-hidden bg-surface-container-high"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Cute sea lion mascot in a poncho" class="w-full h-full object-contain"></div><div class="bg-primary-container/10 p-3 rounded-2xl rounded-tl-none border border-primary-container/20 relative"><p class="font-label-md text-primary">¡Hola! Ready to earn some stickers today?</p><div class="absolute -left-2 top-0 w-0 h-0 border-t-[8px] border-t-transparent border-r-[8px] border-r-primary-container/10 border-b-[8px] border-b-transparent"></div></div></div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Play &amp; Collect</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Earn points, unlock cultural stickers, and pass the time during transit with our travel-friendly games.</p>
+</section>
+<!-- Daily Challenge Card (Hero Bento) -->
+<section class="w-full">
+<div class="glass-card rounded-[32px] p-md md:p-lg flex flex-col md:flex-row gap-lg items-center relative overflow-hidden group hover:ambient-shadow-2 transition-all duration-300">
+<!-- Background decorative element -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl group-hover:bg-primary-container/30 transition-colors duration-500"></div>
+<div class="flex-1 flex flex-col gap-sm relative z-10">
+<div class="inline-flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1 rounded-full w-fit mb-2">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm">DAILY CHALLENGE</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Kyoto Slang Wordle</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Guess the daily local word in 6 tries to win a unique holographic sticker. Test your knowledge of Kyoto's unique dialect and phrases.</p>
+<div class="mt-4 flex items-center gap-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full ambient-shadow-1 hover:ambient-shadow-2 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_arrow</span>
+                            Start Challenge
+                        </button>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+                            24h Remaining
+                        </span>
+</div>
+</div>
+<div class="w-full md:w-1/3 aspect-video md:aspect-square rounded-2xl overflow-hidden relative ambient-shadow-1">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern, isometric 3D illustration of a complex subway station map, featuring bright neon accents against a pristine white background. The aesthetic is clean, playful, and high-tech, resembling a minimalist puzzle game level. Soft ambient shadows give depth to the platforms and trains." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa-juYG0z8xgmUJxMVcYZH3k9cQoYVkEN7dpy2_EKS8b0HhDq5Wml50WOeklE3MeNtR8p_lT020BlCQMMw7aHDDFfAWqny_ny666AI1Qtp0gk8Tzwjts0M4eE8dGKQj6OszBrsTRDZ-AEzuMcvqSQIKCGNgA74dKKSZ6DTBD5JVYYqehcYIiCznlFWy_djoxMhi7uz8UAVukmYyKIuluq2uW49LKQSZ6nXSdY3CK6UaWZLLIFs6lhlyQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<span class="text-white font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">emoji_events</span>
+                            Reward: +150 pts
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Virtual Sticker Album -->
+<section class="flex flex-col gap-md">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Japan Explorer Album</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">12 of 30 Stickers Unlocked</p>
+</div>
+<button class="text-tertiary font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-1">
+                    View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Progress Bar -->
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full progress-fill-emerald rounded-full w-[40%]"></div>
+</div>
+<!-- Sticker Slots Horizontal Scroll -->
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 pt-2 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Filled Sticker 1 -->
+<div class="min-w-[120px] aspect-square sticker-slot-filled rounded-2xl p-2 flex flex-col items-center justify-center relative cursor-pointer hover:-translate-y-1 transition-transform">
+<img class="w-16 h-16 object-contain mb-2" data-alt="A vibrant, high-quality vector illustration style sticker of a bowl of ramen with chopsticks, set on a clean white background. The colors are rich and warm, fitting a modern travel app's playful UI. The sticker has a subtle white border and soft drop shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4FT7thCd7tZzztEaYjAoXEY8zrlB1SwL8YPyD2ZIzqj-OwgUkONUxYicyKY-FTDHfg6T-JFGdghk8EFCby6dzCh3KwVyzJtY1szBOFK8aa2n5uUUMggOkyfsdn8euvxxDZVCdTDPeodPxPQKzCrqGbTRreuXHCuBvAUPpoiTQWIZig3N08XoLEv2RFxgVDpf0mcBm-IWB8h0FNMYsi2QGOhDJaI7cm0TWKgahc-74L7WqRAxvnzh9IQ">
+<span class="font-label-sm text-label-sm text-center line-clamp-1">Ramen Lover</span>
+</div>
+<!-- Filled Sticker 2 -->
+<div class="min-w-[120px] aspect-square sticker-slot-filled rounded-2xl p-2 flex flex-col items-center justify-center relative cursor-pointer hover:-translate-y-1 transition-transform">
+<img class="w-16 h-16 object-contain mb-2" data-alt="A vibrant, high-quality vector illustration style sticker of the iconic red Tokyo Tower against a minimal sky background. The illustration is clean, optimistic, and modern, with a distinct white border making it look like a physical peel-off sticker." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoRp4wqZHQJv6GW_kV2doyx-Ujtg8PKFEBeqbkE6zYG7fjdKxQb7V8UOwEXOsGSnFiSfp_d7u2t27tX15vc3EQ7XkQDrXpjRKVelZPg1S_42mQeRMsDj4f8-M2oEWjiRl0mDoP_h0-4rfzaBfl9Xo6NQgs9CyBA_x9vI3mNWQNOcu2kZpc1yGC0itk1AKiWn8u6YxNelRgW2jsSav7_Lq5bMBRKlsWmTnzS_psooA8XiXgil0jg_IU6Q">
+<span class="font-label-sm text-label-sm text-center line-clamp-1">Tokyo Tower</span>
+</div>
+<!-- Filled Sticker 3 -->
+<div class="min-w-[120px] aspect-square sticker-slot-filled rounded-2xl p-2 flex flex-col items-center justify-center relative cursor-pointer hover:-translate-y-1 transition-transform">
+<img class="w-16 h-16 object-contain mb-2" data-alt="A cute, stylized vector sticker of a bullet train (Shinkansen) zooming forward. The color palette features clean whites, deep teals, and soft blues, aligning with a modern, friendly travel application aesthetic. It includes a soft, tactile drop shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAENmTfAu-ny1lC7loMeKfsU8BqpHIOeugMt6hMz2SGEUg446u-JU61Xcsv0Dmh44iWfxhN05zdYUz1ihF8thzjWv8AUd-Xh4Qol7fDlqnwk8sM39FZXrPa2ssw4ZUJaXe7YjIohwCwmia6shm3SyshzmyRlOxgYaG1DotH3kJEchczWUhY6-iQz8AWeZrj8Dv07wM6jGHB3h18J9RvZi14UZABgs1QpvxO04PoKQm5LYPYWzcuVlyhrw">
+<span class="font-label-sm text-label-sm text-center line-clamp-1">Speedster</span>
+</div>
+<!-- Empty Slot 1 -->
+<div class="min-w-[120px] aspect-square sticker-slot-empty rounded-2xl p-2 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-outline opacity-50 mb-2">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-50 text-center">Kyoto Shrine</span>
+</div>
+<!-- Empty Slot 2 -->
+<div class="min-w-[120px] aspect-square sticker-slot-empty rounded-2xl p-2 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-outline opacity-50 mb-2">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-50 text-center">Mt. Fuji</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Games -->
+<section class="flex flex-col gap-md">
+<h3 class="font-title-md text-title-md text-on-surface">Local Flavor Games</h3>
+<div class="bento-grid">
+<!-- GPS Trivias -->
+<div class="bg-surface-container rounded-[24px] p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-48 cursor-pointer hover:ambient-shadow-1 transition-shadow relative overflow-hidden group">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-tertiary to-transparent group-hover:opacity-20 transition-opacity"></div>
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shadow-sm relative z-10">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+</div>
+<div class="relative z-10">
+<h4 class="font-title-md text-title-md text-on-surface mb-1">GPS Trivias</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant hidden md:block mb-2">Unlock facts based on your current location.</p>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-2 py-1 rounded-md">
+                            Nearby: Shibuya
+                        </span>
+</div>
+</div>
+<!-- Slang Wordle -->
+<div class="bg-surface-container rounded-[24px] p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-48 cursor-pointer hover:ambient-shadow-1 transition-shadow relative overflow-hidden group">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shadow-sm relative z-10">
+<span class="material-symbols-outlined text-secondary">spellcheck</span>
+</div>
+<div class="relative z-10">
+<h4 class="font-title-md text-title-md text-on-surface mb-1">Slang Wordle</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant hidden md:block mb-2">Guess the daily local phrase.</p>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-secondary-fixed px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">history</span> Try #3
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Offline Classics Section -->
+<section class="flex flex-col gap-md mb-8">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">wifi_off</span> Offline Classics
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant -mt-2 mb-2">Perfect for long flights and train rides. No connection needed.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Solitaire -->
+<div class="glass-card rounded-[24px] p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]">style</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Solitaire</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal">Resume game</p>
+</div>
+<span class="material-symbols-outlined text-outline">play_circle</span>
+</div>
+<!-- Sudoku -->
+<div class="glass-card rounded-[24px] p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]">grid_on</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Sudoku</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal">New game • Hard</p>
+</div>
+<span class="material-symbols-outlined text-outline">play_circle</span>
+</div>
+<!-- Dominoes -->
+<div class="glass-card rounded-[24px] p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]">dashboard</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Dominoes</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal">Play vs AI</p>
+</div>
+<span class="material-symbols-outlined text-outline">play_circle</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Mascota IA Floating Widget -->
+<button class="fixed bottom-28 right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center mascota-glow z-40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined filled text-[28px]">smart_toy</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">explore</span>
+<span class="font-label-sm text-label-sm-mobile">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">map</span>
+<span class="font-label-sm text-label-sm-mobile">Travel</span>
+</a>
+<!-- Central Pass Button (QR) -->
+<div class="flex-1 relative flex justify-center">
+<div class="nav-fab-wrapper">
+<button class="w-16 h-16 bg-surface text-primary rounded-full flex items-center justify-center shadow-lg border-4 border-surface-bright active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[32px]">qr_code_scanner</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm-mobile text-secondary absolute bottom-0">Pass</span>
+</div>
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-3 py-1 flex-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined filled mb-1 text-[24px]">sports_esports</span>
+<span class="font-label-sm text-label-sm-mobile">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 flex-1" href="#"><span class="material-symbols-outlined mb-1 text-[24px]">recommend</span><span class="font-label-sm text-label-sm-mobile">Journey</span></a>
+</nav>
+<!-- Desktop Navigation Alternative (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed top-0 left-1/2 -translate-x-1/2 z-50 h-16 items-center gap-8 mt-4 px-8 bg-surface/90 backdrop-blur-lg rounded-full shadow-sm border border-surface-variant">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Travel</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span> Pass
+        </a>
+<a class="font-label-md text-label-md text-primary font-bold flex items-center gap-2 bg-primary-container/10 px-4 py-2 rounded-full" href="#">
+<span class="material-symbols-outlined filled text-[20px]">sports_esports</span> Play
+        </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Journey</a>
+</nav>
+
+
+</body></html>

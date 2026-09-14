@@ -1,0 +1,376 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Partner Event Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#390c00",
+                      "outline-variant": "#e1bfb5",
+                      "on-secondary-fixed": "#001f29",
+                      "inverse-on-surface": "#ffede8",
+                      "surface-container-highest": "#f7ddd5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#5f1900",
+                      "surface-variant": "#f7ddd5",
+                      "tertiary-fixed": "#b5ebff",
+                      "inverse-surface": "#3c2d28",
+                      "surface-container": "#ffe9e3",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#003744",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "on-background": "#261814",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "surface-bright": "#fff8f6",
+                      "surface-dim": "#eed5cd",
+                      "outline": "#8d7168",
+                      "primary": "#ab3500",
+                      "surface-tint": "#ab3500",
+                      "on-primary-fixed-variant": "#832600",
+                      "surface": "#fff8f6",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#ffb59d",
+                      "surface-container-low": "#fff1ed",
+                      "background": "#fff8f6",
+                      "tertiary-container": "#00a7cb",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#261814",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#bce9ff",
+                      "on-secondary-container": "#28667d",
+                      "secondary": "#27657c",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "secondary-container": "#a8e2fd",
+                      "on-surface-variant": "#594139",
+                      "primary-fixed": "#ffdbd0",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#fde3db",
+                      "primary-container": "#ff6b35",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001f28",
+                      "inverse-primary": "#ffb59d",
+                      "tertiary": "#00677e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "margin-mobile": "20px",
+                      "xl": "64px",
+                      "lg": "40px",
+                      "margin-desktop": "120px",
+                      "base": "8px",
+                      "md": "24px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e1bfb5; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8d7168; 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden flex h-screen">
+<!-- DESKTOP NavigationDrawer -->
+<aside class="hidden md:flex flex-col h-full w-80 rounded-r-lg shadow-lg bg-surface-container-low dark:bg-surface-dim py-md z-40 flex-shrink-0">
+<!-- Drawer Header -->
+<div class="px-md pb-lg flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern geometric logo for a verified restaurant partner named 'La Terraza Resto', featuring warm earthy tones of terracotta and burnt orange on a pristine white background. High-quality vector art style, minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaAxNNiCFtq-afYrvxeFHVbpH6m4f2xHU1_IepyTEFwNFMdNQJ6krlRpRCQkVbb2RpmDoIRK3JZueJ_tVVIu_9bIhdInSJHihEv26tTpp_fZgxAaRWlR9tnslAjXm3VRzhWEPZ1puQy14_uDXXWIMIJGSCoWzyVmRYaweB8zkXwiEu3U4xUqqGPr8d2bCFaXVSA40yvuJd0ytsH0OCZcDmboTBiEMMw6f_RBYuppqLJ8YdTZTyi22lCw">
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim">La Terraza Resto</h2>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Verified Partner</span>
+<span class="font-label-sm text-label-sm text-tertiary">Premium Tier</span>
+</div>
+</div>
+</div>
+<!-- Drawer Navigation Items -->
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Active Item: My Business (intent fallback for Event Management within business ops) -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container font-bold rounded-full mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined icon-fill">storefront</span>
+<span class="">My Business</span>
+</a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="">Promotions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky shadow-sm bg-background dark:bg-inverse-surface z-30">
+<div class="flex justify-between items-center px-gutter py-sm w-full max-w-7xl mx-auto">
+<button class="md:hidden text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">storefront</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim font-bold tracking-tight">Partner Portal</h1>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-lg pb-24 md:pb-lg bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto space-y-lg">
+<!-- Page Title -->
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Event Requests</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Review and manage incoming cultural event proposals from local partners.</p>
+</div>
+<!-- Filter Tabs -->
+<div class="flex overflow-x-auto pb-2 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 gap-sm no-scrollbar">
+<button class="whitespace-nowrap px-6 py-2 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container shadow-sm flex items-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+                        Pendientes
+                        <span class="bg-primary text-on-primary text-xs rounded-full px-2 py-0.5 ml-1">3</span>
+</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Aprobados
+                    </button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+                        Para Cambios
+                    </button>
+</div>
+<!-- List of Requests (Cards) -->
+<div class="space-y-sm">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded p-md flex flex-col md:flex-row gap-md shadow-[0_4px_12px_rgba(0,78,100,0.05)] hover:shadow-[0_8px_24px_rgba(0,78,100,0.1)] transition-shadow border border-outline-variant/30 relative overflow-hidden group">
+<!-- Ambient left border accent -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container"></div>
+<!-- Image Thumbnail -->
+<div class="w-full md:w-32 h-32 md:h-auto rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A lively, authentic photograph of a traditional Spanish Flamenco performance taking place at 'La Mesa del Sol' restaurant. Warm, moody lighting with deep reds and crisp whites, capturing the motion of the dancer in a modern, sophisticated hospitality setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9slbIs4IJ5_wFG2LDgEOcYj6Xq6_KUsMgx7RpbQXwN576gnIUyGWFxzO3lvmKrk6sMZx6JBEtnwLH_0WxU2quTfUgFP2y-5prSaXiLmzfK38iGlT_56jzfH1ryT3CKwwSiIjKa4iPfaWTUx_4jluVW-2wPl1TrXE0DHvuv82u-V8StzEqKWUKkN3hYsv9b0BGp8RaLyCDPTZB_nsyGN87OwcKGmsJMTVckXtrjuOjjKkPeZY5pC-NQA">
+<!-- Mobile Date Badge Overlay -->
+<div class="md:hidden absolute top-2 right-2 bg-surface/90 backdrop-blur-sm rounded p-2 text-center shadow-sm">
+<span class="block font-label-sm text-label-sm text-primary">OCT</span>
+<span class="block font-title-md text-title-md leading-none text-on-surface">24</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">La Mesa del Sol</span>
+<span class="hidden md:flex items-center gap-1 font-label-sm text-label-sm bg-surface-container-highest text-on-surface px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+                                    Oct 24, 2023 • 20:00
+                                </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-background mb-2">Noche de Flamenco Auténtico</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4">
+                                A curated evening of traditional Flamenco music and dance, featuring local artists from the Andalusian collective. Requires approval for stage setup.
+                            </p>
+<!-- Action Area -->
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-surface-variant">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Status: Pending Review</span>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-full shadow-[0_4px_12px_rgba(171,53,0,0.2)] hover:shadow-[0_6px_16px_rgba(171,53,0,0.3)] transition-all active:scale-95 flex items-center gap-2">
+                                    Review
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded p-md flex flex-col md:flex-row gap-md shadow-[0_4px_12px_rgba(0,78,100,0.05)] hover:shadow-[0_8px_24px_rgba(0,78,100,0.1)] transition-shadow border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container"></div>
+<div class="w-full md:w-32 h-32 md:h-auto rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A bright, inviting photograph of a local artisanal pottery workshop set up in a modern courtyard. Sunlit atmosphere, earthy terracotta pots, soft off-white background elements, portraying a hands-on cultural experience for travelers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrvVqKDhwmLvfRQi_0alvmUd5jTvEkrmGOGfDUxLB3ypxcWXt7Obw-MSCaTGNja2C_CPwr7jlufii2RBUpbdeNxX3eFVeduva4VKZ_TUS6slm4c7gUCw6Vj3OkjQdy6pX_mcTlpjBzXNjsDyL95NzMERnARbYZqhzYJhTqfCe-k5gZDRNdztMy4xFw7fUR3EsXauVd8ze4VFVDEh_fFDJAuKlpcxEWjAwTIrPbk1hK6LjfvbedI3VAmA">
+<div class="md:hidden absolute top-2 right-2 bg-surface/90 backdrop-blur-sm rounded p-2 text-center shadow-sm">
+<span class="block font-label-sm text-label-sm text-primary">NOV</span>
+<span class="block font-title-md text-title-md leading-none text-on-surface">02</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Taller Artesano</span>
+<span class="hidden md:flex items-center gap-1 font-label-sm text-label-sm bg-surface-container-highest text-on-surface px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+                                    Nov 02, 2023 • 10:00
+                                </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-background mb-2">Masterclass de Cerámica Local</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-4">
+                                Interactive pottery workshop for up to 15 guests. Requesting coordination for material transport and courtyard space allocation.
+                            </p>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-surface-variant">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Status: Pending Review</span>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-full shadow-[0_4px_12px_rgba(171,53,0,0.2)] hover:shadow-[0_6px_16px_rgba(171,53,0,0.3)] transition-all active:scale-95 flex items-center gap-2">
+                                    Review
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- MOBILE BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-4 pt-2 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md rounded-t-lg shadow-[0_-4px_12px_rgba(0,78,100,0.15)] border-t-0"><!-- Active Item: Business -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-xl px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined icon-fill">inventory_2</span>
+<span class="font-label-sm text-label-sm mt-1">Business</span>
+</a>
+<!-- Inactive Item: Promos -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">local_activity</span>
+<span class="font-label-sm text-label-sm mt-1">Promos</span>
+</a>
+<!-- Inactive Item: Users -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm mt-1">Users</span>
+</a>
+<!-- Inactive Item: Tours -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Tours</span>
+</a></nav>
+
+
+</body></html>

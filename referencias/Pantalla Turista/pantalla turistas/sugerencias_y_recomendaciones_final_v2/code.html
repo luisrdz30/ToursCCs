@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sugerencias para tu Viaje - TravelSmart AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004d63",
+                        "secondary-container": "#a8e2fd",
+                        "primary-fixed": "#ffdbd0",
+                        "primary-fixed-dim": "#ffb59d",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface-dim": "#eed5cd",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#832600",
+                        "outline-variant": "#e1bfb5",
+                        "on-surface-variant": "#594139",
+                        "surface-variant": "#f7ddd5",
+                        "on-surface": "#261814",
+                        "background": "#fff8f6",
+                        "on-secondary-container": "#28667d",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "inverse-on-surface": "#ffede8",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "surface-bright": "#fff8f6",
+                        "primary": "#ab3500",
+                        "surface-container-high": "#fde3db",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#fff1ed",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#261814",
+                        "secondary-fixed": "#bce9ff",
+                        "surface-container": "#ffe9e3",
+                        "surface": "#fff8f6",
+                        "surface-container-highest": "#f7ddd5",
+                        "inverse-surface": "#3c2d28",
+                        "tertiary": "#00677e",
+                        "tertiary-fixed": "#b5ebff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-secondary-fixed": "#001f29",
+                        "secondary": "#27657c",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59d",
+                        "on-tertiary-container": "#003744",
+                        "surface-tint": "#ab3500",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "tertiary-container": "#00a7cb",
+                        "primary-container": "#ff6b35",
+                        "outline": "#8d7168",
+                        "on-primary-container": "#5f1900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "margin-desktop": "120px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "lg": "40px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 248, 246, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .ambient-shadow-1 {
+            box-shadow: 0 4px 20px -2px rgba(0, 78, 100, 0.08), 0 0 3px rgba(0, 78, 100, 0.04);
+        }
+        
+        .ambient-shadow-2 {
+            box-shadow: 0 12px 32px -4px rgba(0, 78, 100, 0.12), 0 4px 6px rgba(0, 78, 100, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .gradient-scrim {
+            background: linear-gradient(to top, rgba(38, 24, 20, 0.8) 0%, rgba(38, 24, 20, 0) 100%);
+        }
+
+        .mascota-glow {
+            box-shadow: 0 0 24px rgba(171, 53, 0, 0.4), 0 8px 16px rgba(171, 53, 0, 0.2);
+            animation: breath 4s ease-in-out infinite;
+        }
+
+        @keyframes breath {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 24px rgba(171, 53, 0, 0.4), 0 8px 16px rgba(171, 53, 0, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 0 32px rgba(171, 53, 0, 0.6), 0 12px 24px rgba(171, 53, 0, 0.3); }
+        }
+
+        /* Hide scrollbar for horizontal scrolling containers */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col md:pb-0 pb-[90px]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base w-full sticky top-0 z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300" id="topAppBar">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden ambient-shadow-1">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a smiling young adult traveler wearing a casual warm-toned jacket, set against a blurred, bright outdoor cityscape background. The lighting is soft and natural, emphasizing a friendly and approachable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjXcLWGN9zszQmmXwMrC8u4joeJgfb6eE-UG81TcpWqp6bhzlFZxZNGJQ5fphQ0sHDEc-QbhYv-KNv2VmEVCc134WOlcPDoYBdq5Y-tgF06ql9gRhZyfyRTA2iA3c_I9y8k_troShLH9OKttgqlB6QEtbAdTc7UHXp8BBPO8crf0PIiDh5eC4zND_FA3wTmiSZG6YDrvg8i4vmXWvzqYuQWGGSVI3DuPWqbbeyQSakQNP2Jr6Pm1Li5w">
+</div>
+</div>
+<div class="text-center">
+<h1 class="font-display-lg text-title-md md:text-headline-lg text-primary tracking-tight">TravelSmart AI</h1>
+</div>
+<div class="flex items-center">
+<button class="bg-surface-container-high px-4 py-2 rounded-full font-label-md text-label-md text-primary flex items-center gap-xs hover:bg-primary-container/20 transition-colors ambient-shadow-1">
+<span class="material-symbols-outlined text-[18px]">loyalty</span>
+                1,250 pts
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg flex flex-col gap-xl">
+<!-- Page Header -->
+<section class="flex flex-col gap-sm">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Sugerencias para tu Viaje</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Descubre lo mejor de la zona, seleccionado especialmente para ti basándonos en tus preferencias y la temporada actual.</p>
+</section>
+<!-- Restaurantes Recomendados (Horizontal Scroll Bento) -->
+<section class="flex flex-col gap-gutter">
+<div class="flex justify-between items-end">
+<h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+                    Restaurantes Recomendados
+                </h3>
+<button class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors">Ver todos</button>
+</div>
+<div class="flex overflow-x-auto gap-gutter pb-4 no-scrollbar -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 snap-x">
+<!-- Restaurant Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow-1 hover:ambient-shadow-2 transition-all duration-300 snap-center group cursor-pointer border border-surface-variant">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Bistro Local" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A warm, inviting, high-quality photograph of a bustling local bistro interior. The scene features wooden tables, warm amber lighting from pendant lamps, and plates of vibrant, colorful Mediterranean food. The aesthetic is cozy, modern, and appetizing, fitting a light-mode travel app theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO3OGt4aWV6HEB5R_CVlH3PoqF3E5ASPyHeVdfBRCfPZN2YAEVOsaMR0m4KPhe6yTrds-k1f2k4PZTdgLeF4IBXqHrBgZrDYrw-AL-IVDFebVYo3C9bwEkzH9yYBdPp1JKjOb6kstwyAAS12W5-lKkQ74dq1W4RvAeXsPwKJayQgzdBXZh-XT8bK_HuxAJBar5qX0NkH9FmztYo-YodStgB4FaYVi8ifd-SGyOzdPsydsizkGoTiLPwg">
+<div class="absolute top-sm right-sm bg-error text-on-error font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-xs shadow-md">
+<span class="material-symbols-outlined text-[14px]">local_offer</span>
+                            15% de descuento
+                        </div>
+<button class="absolute top-sm left-sm w-8 h-8 bg-surface/80 backdrop-blur-sm rounded-full flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-[18px] text-on-background leading-tight">La Mesa del Sol</h4>
+<div class="flex items-center gap-xs bg-surface-container-high px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-sm text-on-background">4.8</span>
+</div>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant line-clamp-2">Auténtica cocina local con ingredientes de temporada en un ambiente acogedor.</p>
+<div class="flex items-center gap-gutter pt-xs mt-auto">
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-md text-label-sm">A 400m</span>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span class="font-label-md text-label-sm">$$</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Restaurant Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow-1 hover:ambient-shadow-2 transition-all duration-300 snap-center group cursor-pointer border border-surface-variant">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Cafe Azul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright, airy photograph of a modern seaside cafe patio. White tables, light blue accents, and a clear view of the ocean in the background. The sunlight is crisp and morning-like, conveying a fresh, relaxed, and premium breakfast spot aesthetic suitable for a travel guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJrCP1syllVbz4qO2Cc4uZiyNwFoC77MWHtxE72NKpGy0OsWKVWt6dFka0vIC2O6eUj9CTyAH9MFsreqDC7i-Ehswjy43a5n8Ogn0RyQ_3nAJGXiW1a38wHc0lei0zuA84zFpHov_-J131zHD_QeHZOxC0Y4FAiE1h4JU6GbUeaq6Ga4gReULZQ8IJbYs1nFiv7cMfxWMoWz0O9PtzRvBZm5fotU4Bqh8gPf9l9FSCCftpMQpsm9rf8Q">
+<div class="absolute top-sm right-sm bg-primary-container text-on-primary-container font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-xs shadow-md">
+<span class="material-symbols-outlined text-[14px]">local_cafe</span>
+                            Café Gratis
+                        </div>
+</div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-[18px] text-on-background leading-tight">Brisas del Mar</h4>
+<div class="flex items-center gap-xs bg-surface-container-high px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-sm text-on-background">4.6</span>
+</div>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant line-clamp-2">Desayunos artesanales y el mejor café de especialidad con vistas al mar.</p>
+<div class="flex items-center gap-gutter pt-xs mt-auto">
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-md text-label-sm">A 1.2km</span>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span class="font-label-md text-label-sm">$</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tiendas Locales (Grid Layout) -->
+<section class="flex flex-col gap-gutter">
+<h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+<span class="material-symbols-outlined text-tertiary">storefront</span>
+                Tiendas Locales
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Shop Card 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-sm flex gap-sm ambient-shadow-1 hover:ambient-shadow-2 transition-all duration-300 border border-surface-variant cursor-pointer group">
+<div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Ceramics Shop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A close-up, high-quality shot of artisanal handcrafted ceramics displayed on a clean wooden shelf. The lighting is warm and natural, highlighting the textures of the clay and subtle glazes. The mood is authentic, culturally rich, and visually pleasing, fitting a premium travel shopping guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSu2cPvBkLWDfbTzgNRFZRqGqIjHOMAlwL34bSZjFRmHUg2Bs1jpcH3LRH0roeagBXc_moY5o2MCRNlzSWbd0XPWffUx4EavWRIuBh_xuUC2xrO4RZzXxQJ5VQJQWRXaSIIIA-w8k6KjkzSlByDQ7Mcs8oSdabUwZTCfAypa6qLWvkANVTxqpUZgZ3OedR2V1jmIOqHdoq5mX2eW1y27mHwsjkVgvYeT9ixtHfNaTp2xhE9cashA8oOw">
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-[16px] text-on-background">Artesanías El Barro</h4>
+<span class="bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] px-2 py-0.5 rounded-full">Oferta Especial</span>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant mt-1">Cerámica tradicional hecha a mano.</p>
+<div class="flex items-center gap-xs text-secondary mt-2">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+<span class="font-label-md text-label-sm">5 min caminando</span>
+</div>
+</div>
+</div>
+<!-- Shop Card 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-sm flex gap-sm ambient-shadow-1 hover:ambient-shadow-2 transition-all duration-300 border border-surface-variant cursor-pointer group">
+<div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+<img alt="Textile Boutique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant, well-lit photograph of a local textile boutique interior. Racks of colorful, woven fabrics and stylish modern-traditional clothing fill the frame. The aesthetic is trendy yet culturally rooted, with a bright, welcoming light-mode atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD_SCTxLc0KpSn5P-VE92SFgfqGGowsdocjDGnpkNLXGV5o-tR6kfaKQRUZVVq55lv7DEk0nCCRtGmIog5kB1Luzgg8uEUV-4QXeGHNp0VzSyQsM6EbkVgPCEqebg856LuqjiMEx0z8LWpwa0lmYby-L9H5zB0Fn86-ofFWD64qsCDnCofYHAW8LXRQXfjzjblKnrmwK6NfbPzb15-unDVsAe5iZ_reYRXr5jTY8hShVE-PvNzyS4mzA">
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-[16px] text-on-background">Textiles Andinos</h4>
+<span class="bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] px-2 py-0.5 rounded-full">Nuevo</span>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant mt-1">Diseños contemporáneos con telares locales.</p>
+<div class="flex items-center gap-xs text-secondary mt-2">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+<span class="font-label-md text-label-sm">12 min caminando</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Crea tu Souvenir (Large CTA) -->
+<section class="mt-sm mb-xl">
+<div class="relative w-full rounded-[32px] overflow-hidden ambient-shadow-2 group cursor-pointer">
+<!-- Background Image & Gradient Scrim -->
+<div class="absolute inset-0 z-0">
+<img alt="3D Souvenir Background" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A visually striking, modern composition featuring a 3D-printed miniature landmark glowing softly against a clean, warm-toned background. Abstract digital lines overlay the physical object, symbolizing AI and technology meeting physical souvenirs. The aesthetic is high-tech yet approachable, fitting a premium light-mode travel application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkccP79U21ps520nUWvf7R646JPUrxDvM_M_CqHOpuCy9RVz-aC7kLVfvpdOtiG6XRi2IPoN0mdGjeeBRy3W6kNy2YGfHZSFprPqiSxSGkm473DylJe0AFSWbTnX3ag73hGewbtRbY2h0vE_oRNj8nepV2_diBkXlKheeNExGtD4y4kdZXurJWCJaW8jvhgnY8qZz-tmRIpXpk_7uuAueywcqMdTmv_47g4pueGwDMilQtTmvBkablXQ">
+<div class="absolute inset-0 gradient-scrim opacity-80 md:opacity-60"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 p-lg md:p-xl flex flex-col items-start min-h-[300px] md:min-h-[400px] justify-end">
+<div class="bg-primary/90 backdrop-blur-sm text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">magic_button</span>
+                        Experiencia AI
+                    </div>
+<h3 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-primary mb-sm max-w-lg leading-tight">Diseña tu Recuerdo 3D</h3>
+<p class="font-body-lg text-body-lg text-surface-container-low mb-lg max-w-md">Convierte tus momentos en objetos únicos con nuestra IA. Escanea, personaliza y recibe en tu casa.</p>
+<button class="bg-on-primary text-primary font-label-md text-title-md px-6 py-3 rounded-full flex items-center gap-sm hover:bg-surface-container-lowest transition-colors shadow-lg active:scale-95 duration-200">
+                        Empezar Diseño
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Mascota IA Floating Widget -->
+<button class="fixed bottom-[100px] md:bottom-lg right-margin-mobile md:right-margin-desktop w-16 h-16 bg-primary rounded-full flex items-center justify-center text-on-primary mascota-glow z-40 hover:bg-surface-tint transition-colors">
+<span class="material-symbols-outlined text-[32px]">smart_toy</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-lg border-t border-white/20">
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="font-label-sm text-[10px] mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined text-[24px]">map</span>
+<span class="font-label-sm text-[10px] mt-1">Travel</span>
+</button>
+<!-- Pass (Central QR) -->
+<button class="relative -top-4 flex flex-col items-center justify-center text-on-primary bg-secondary rounded-full w-14 h-14 ambient-shadow-2 hover:bg-tertiary transition-colors active:scale-90 duration-150 border-4 border-surface border-opacity-50">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined text-[24px]">sports_esports</span>
+<span class="font-label-sm text-[10px] mt-1">Play</span>
+</button>
+<!-- Active State: Journey (Mapped to Profile slot in JSON but labeled Journey as requested) -->
+<button class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150 w-16">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">route</span>
+<span class="font-label-sm text-[10px] mt-1 font-bold">Journey</span>
+</button>
+</nav>
+<script>
+        // Simple scroll effect for TopAppBar
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+                header.style.backgroundColor = 'rgba(255, 248, 246, 0.95)';
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+                header.style.backgroundColor = 'rgba(255, 248, 246, 0.8)';
+            }
+        });
+    </script>
+</body></html>

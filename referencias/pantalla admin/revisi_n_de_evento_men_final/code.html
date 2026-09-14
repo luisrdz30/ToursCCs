@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Event Request Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#390c00",
+                    "outline-variant": "#e1bfb5",
+                    "on-secondary-fixed": "#001f29",
+                    "inverse-on-surface": "#ffede8",
+                    "surface-container-highest": "#f7ddd5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#5f1900",
+                    "surface-variant": "#f7ddd5",
+                    "tertiary-fixed": "#b5ebff",
+                    "inverse-surface": "#3c2d28",
+                    "surface-container": "#ffe9e3",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#003744",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "on-background": "#261814",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "surface-bright": "#fff8f6",
+                    "surface-dim": "#eed5cd",
+                    "outline": "#8d7168",
+                    "primary": "#ab3500",
+                    "surface-tint": "#ab3500",
+                    "on-primary-fixed-variant": "#832600",
+                    "surface": "#fff8f6",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb59d",
+                    "surface-container-low": "#fff1ed",
+                    "background": "#fff8f6",
+                    "tertiary-container": "#00a7cb",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#261814",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#bce9ff",
+                    "on-secondary-container": "#28667d",
+                    "secondary": "#27657c",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "secondary-container": "#a8e2fd",
+                    "on-surface-variant": "#594139",
+                    "primary-fixed": "#ffdbd0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#fde3db",
+                    "primary-container": "#ff6b35",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f28",
+                    "inverse-primary": "#ffb59d",
+                    "tertiary": "#00677e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "sm": "12px",
+                    "margin-mobile": "20px",
+                    "xl": "64px",
+                    "lg": "40px",
+                    "margin-desktop": "120px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background-color: theme('colors.outline-variant');
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopAppBar Shared Component -->
+<header class="w-full top-0 sticky z-40 bg-background shadow-sm transition-all duration-300" id="top-app-bar">
+<div class="flex justify-between items-center px-gutter py-sm w-full max-w-7xl mx-auto">
+<button aria-label="Menu" class="flex items-center justify-center p-2 rounded-full text-primary hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary font-bold tracking-tight">Partner Portal</h1>
+<button aria-label="Notifications" class="flex items-center justify-center p-2 rounded-full text-primary hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-xl pb-24">
+<!-- Page Header -->
+<div class="flex items-center gap-sm mb-lg">
+<button aria-label="Back" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Revisión de Evento</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Event Details (Bento Grid Style) -->
+<div class="lg:col-span-7 flex flex-col gap-sm">
+<!-- Main Image Card -->
+<div class="relative w-full h-64 md:h-80 rounded-DEFAULT overflow-hidden shadow-sm group">
+<img alt="Event Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A vibrant, high-quality promotional photo for a cultural event, showing a lively outdoor sunset gathering with warm lighting. People are interacting happily, enjoying local cuisine and music in a beautifully decorated plaza. The scene has a modern, optimistic travel vibe with a rich palette of deep teal shadows and bright sunset orange highlights, fitting a premium travel platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVcm64MHCCdu_GhbUuVFicTsD7-Um_x63_9gxZc89OurvAUxd1mLNBjsZYzEdJJILduxmpq8gpotaDVbOIxm_3LMzjtqs8UDFxSt2VUDP_G79aw5y0wjuQo_9BTGBoLNSlVk7qybmzHUlvztu5yZOyx0BgRfBxGD-dWuuJarACZyENzTYg0vx_N6gVnEbZJ7vB4WsN2_ND_WNgjggkFdrUx4EYFJ80TtNk_Yt1rq5xqtkuF1sP_O9e0g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-md w-full">
+<div class="inline-flex items-center gap-xs bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full mb-2 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary icon-fill">star</span>
+<span class="font-label-sm text-label-sm text-on-surface">Experiencia Premium</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-surface-container-lowest font-bold leading-tight">Noche de Tapas y Flamenco Bajo las Estrellas</h3>
+</div>
+</div>
+<!-- Info Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Date & Time -->
+<div class="bg-surface rounded-DEFAULT p-md shadow-sm border border-surface-container flex items-start gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined icon-fill">calendar_month</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Fecha y Hora</h4>
+<p class="font-title-md text-title-md text-on-surface">15 de Noviembre</p>
+<p class="font-body-md text-body-md text-on-surface-variant">19:00 - 23:30 Hrs</p>
+</div>
+</div>
+<!-- Location -->
+<div class="bg-surface rounded-DEFAULT p-md shadow-sm border border-surface-container flex items-start gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined icon-fill">location_on</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Ubicación</h4>
+<p class="font-title-md text-title-md text-on-surface">Terraza El Mirador</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Centro Histórico, Sevilla</p>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="bg-surface rounded-DEFAULT p-md shadow-sm border border-surface-container">
+<h4 class="font-title-md text-title-md text-on-background mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">description</span>
+                        Descripción del Evento
+                    </h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Únete a nosotros para una noche inolvidable celebrando la cultura local. Disfruta de una selección exclusiva de tapas preparadas por nuestro chef ejecutivo, acompañadas de vinos regionales seleccionados. La velada estará amenizada por un espectáculo íntimo de flamenco tradicional en nuestra terraza panorámica con vistas a la ciudad iluminada.
+                    </p>
+</div>
+<!-- Special Offer / Highlights -->
+<div class="bg-tertiary-container rounded-DEFAULT p-md shadow-sm border border-tertiary-fixed-dim/30 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary opacity-10 rounded-full blur-2xl"></div>
+<h4 class="font-title-md text-title-md text-on-tertiary-container mb-sm flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined icon-fill text-tertiary">local_activity</span>
+                        Oferta Especial Incluida
+                    </h4>
+<ul class="space-y-2 font-body-md text-body-md text-on-tertiary-container relative z-10">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            Cóctel de bienvenida de cortesía
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            Asientos preferenciales en primera fila
+                        </li>
+</ul>
+</div>
+</div>
+<!-- Right Column: Admin Actions & Feedback -->
+<div class="lg:col-span-5 relative">
+<div class="sticky top-[100px] bg-surface rounded-DEFAULT shadow-md border border-outline-variant/50 p-md flex flex-col gap-md">
+<div class="pb-sm border-b border-surface-container">
+<h3 class="font-title-md text-title-md text-on-background">Acciones de Aprobación</h3>
+<p class="font-body-sm text-body-md text-on-surface-variant mt-1">Revisa los detalles y toma una decisión sobre esta solicitud de evento.</p>
+</div>
+<!-- Feedback Textarea -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="feedback">Comentarios o Motivo de Cambio</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-md text-body-md p-sm rounded-[16px] focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all resize-y shadow-inner" id="feedback" placeholder="Ej. La imagen de portada necesita mayor resolución, o el título excede la longitud recomendada..." rows="5"></textarea>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-sm mt-2">
+<!-- Request Changes (Orange/Primary) -->
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md py-3 px-4 rounded-full shadow-sm hover:shadow-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+                            Solicitar Cambios
+                        </button>
+<!-- Approve (Teal/Secondary as 'Green' equivalent in this palette) -->
+<button class="flex-1 flex items-center justify-center gap-2 bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md py-3 px-4 rounded-full shadow-sm hover:shadow-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            Aprobar
+                        </button>
+</div>
+<div class="mt-4 text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">ID de Solicitud: #EVT-2023-8891</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple top bar shadow effect on scroll to match level 1 elevation guidance
+        const topBar = document.getElementById('top-app-bar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                topBar.classList.add('shadow-md', 'bg-surface');
+                topBar.classList.remove('shadow-sm', 'bg-background');
+            } else {
+                topBar.classList.remove('shadow-md', 'bg-surface');
+                topBar.classList.add('shadow-sm', 'bg-background');
+            }
+        });
+    </script>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest border-t border-outline-variant/50 px-gutter py-2 flex justify-around items-center shadow-md md:hidden">
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-sm text-label-sm">Business</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">sell</span>
+<span class="font-label-sm text-label-sm">Promos</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm">Users</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Tours</span>
+</a>
+</nav></body></html>

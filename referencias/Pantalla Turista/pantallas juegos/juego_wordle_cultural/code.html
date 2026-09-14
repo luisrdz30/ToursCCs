@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TravelSmart AI - Wordle Cultural</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#b5ebff",
+                        "inverse-surface": "#3c2d28",
+                        "primary-container": "#ff6b35",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container": "#ffe9e3",
+                        "primary": "#ab3500",
+                        "on-surface": "#261814",
+                        "secondary-container": "#a8e2fd",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface-container-high": "#fde3db",
+                        "surface": "#fff8f6",
+                        "on-secondary-container": "#28667d",
+                        "outline": "#8d7168",
+                        "on-secondary-fixed": "#001f29",
+                        "background": "#fff8f6",
+                        "inverse-primary": "#ffb59d",
+                        "on-surface-variant": "#594139",
+                        "secondary": "#27657c",
+                        "on-tertiary-fixed": "#001f28",
+                        "surface-dim": "#eed5cd",
+                        "on-primary-fixed": "#390c00",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "primary-fixed-dim": "#ffb59d",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "outline-variant": "#e1bfb5",
+                        "secondary-fixed": "#bce9ff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-tertiary-container": "#003744",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff1ed",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-tint": "#ab3500",
+                        "tertiary-container": "#00a7cb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#f7ddd5",
+                        "on-background": "#261814",
+                        "on-primary-container": "#5f1900",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00677e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "120px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "gutter": "16px",
+                        "lg": "40px",
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        
+        .letter-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        /* State Colors matching Design System */
+        .state-correct { background-color: #06D6A0; color: white; border-color: #06D6A0; } /* Emerald */
+        .state-present { background-color: #ffb59d; color: #390c00; border-color: #ffb59d; } /* Primary Fixed Dim */
+        .state-absent { background-color: #f7ddd5; color: #594139; border-color: #f7ddd5; } /* Surface Variant */
+        .state-empty { background-color: transparent; border: 2px solid #e1bfb5; color: #261814; } /* Outline Variant */
+        
+        .key-correct { background-color: #06D6A0; color: white; }
+        .key-present { background-color: #ffb59d; color: #390c00; }
+        .key-absent { background-color: #f7ddd5; color: #594139; }
+        .key-default { background-color: #fde3db; color: #261814; } /* Surface Container High */
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md md:font-body-lg flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-surface-dim/80 text-primary dark:text-primary-fixed shadow-sm dark:shadow-none docked full-width top-0 flex justify-between items-center px-margin-mobile py-base w-full sticky z-50">
+<div class="flex items-center gap-sm">
+<button class="p-2 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-full text-primary">
+<span aria-label="Back" class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary dark:text-primary-fixed font-extrabold tracking-tight">TravelSmart AI</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-title-md text-title-md text-primary">Wordle Cultural</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A smiling diverse young traveler with a backpack in a brightly lit modern airport terminal, high quality profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHDkBKQuiRXsbkU_mgHPZgH_CKBvIm7uS4VsEhzC_Rn-En-53mSOLQQ5t0qDxT3Let_UpRWo4cxUhgCefh_K8H8aCvy0h5dgde6-T8IMkv3ibwi6yjmVKhJmvJWLhPkTmC5KfVJYgWdDJcB0fya_maOiD8h6DGzvsGaA3VjkBpMnJID8df6MJ7rbrhh44zzJiiNHLqP-ln6-A64cc4gDYfEtUdSCaxYFpm-Fla60F_I1cfoAtcjsQ3hA">
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-lg px-margin-mobile py-lg flex flex-col items-center pb-32">
+<div class="text-center mb-md"><div class="flex justify-center mb-2"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascot" class="w-24 h-24 object-contain"></div>
+<h2 class="font-title-md text-title-md text-on-surface">Guess the Destination</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">5 letters. Clue: High altitude capital.</p>
+</div>
+<!-- Game Board -->
+<div class="grid grid-rows-6 gap-xs w-full max-w-[350px] aspect-[5/6] mb-lg">
+<!-- Row 1: V I A J E (All Absent) -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">V</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">I</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">A</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">J</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">E</div>
+</div>
+<!-- Row 2: N O R T E (O is Present, rest Absent) -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">N</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-present">O</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">R</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">T</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-absent">E</div>
+</div>
+<!-- Row 3: Q U I T O (Q,U,I correct; T,O present but simulating the win state) -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-correct">Q</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-correct">U</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-correct">I</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-correct">T</div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-correct">O</div>
+</div>
+<!-- Row 4: Empty -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+</div>
+<!-- Row 5: Empty -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+</div>
+<!-- Row 6: Empty -->
+<div class="grid grid-cols-5 gap-xs">
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+<div class="letter-box rounded-DEFAULT font-display-lg state-empty"></div>
+</div>
+</div>
+<!-- Keyboard -->
+<div class="w-full flex flex-col gap-2 select-none touch-manipulation">
+<!-- Top Row -->
+<div class="flex justify-center gap-1.5 w-full">
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-correct shadow-sm active:scale-95 transition-transform">Q</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">W</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">E</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">R</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-correct shadow-sm active:scale-95 transition-transform">T</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">Y</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-correct shadow-sm active:scale-95 transition-transform">U</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-correct shadow-sm active:scale-95 transition-transform">I</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-correct shadow-sm active:scale-95 transition-transform">O</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">P</button>
+</div>
+<!-- Middle Row -->
+<div class="flex justify-center gap-1.5 w-full px-[5%]">
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">A</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">S</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">D</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">F</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">G</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">H</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">J</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">K</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">L</button>
+</div>
+<!-- Bottom Row -->
+<div class="flex justify-center gap-1.5 w-full">
+<button class="flex-[1.5] h-12 rounded-lg font-label-md text-label-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">ENT</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">Z</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">X</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">C</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">V</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">B</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-absent shadow-sm active:scale-95 transition-transform">N</button>
+<button class="flex-1 h-12 rounded-lg font-title-md text-title-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">M</button>
+<button class="flex-[1.5] h-12 rounded-lg font-label-md text-label-md flex items-center justify-center key-default shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden bg-surface/90 backdrop-blur-lg dark:bg-surface-container-lowest/90 text-primary dark:text-primary-fixed-dim font-label-sm text-label-sm-mobile docked full-width bottom-0 rounded-t-lg shadow-lg fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<!-- Inactive: Explore -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="">Explore</span>
+</a>
+<!-- Inactive: Travel -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="">Travel</span>
+</a>
+<!-- Inactive: Pass -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">qr_code_scanner</span>
+<span class="">Pass</span>
+</a>
+<!-- Active: Play (Determined contextually as requested in prompt) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">sports_esports</span>
+<span class="font-bold">Play</span>
+</a>
+<!-- Inactive: Profile (Replaced with Journey to match standard prompt structure for 5 items, mapping Profile icon as fallback if needed, but JSON says Profile) -->
+<!-- Note: JSON specifies label_texts: ["Explore", "Travel", "Pass", "Play", "Profile"], adhering to JSON for content per instructions -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

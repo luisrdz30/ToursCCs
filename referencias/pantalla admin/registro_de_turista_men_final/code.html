@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Crear Cuenta - Cultural Explorer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#390c00",
+                    "outline-variant": "#e1bfb5",
+                    "on-secondary-fixed": "#001f29",
+                    "inverse-on-surface": "#ffede8",
+                    "surface-container-highest": "#f7ddd5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#5f1900",
+                    "surface-variant": "#f7ddd5",
+                    "tertiary-fixed": "#b5ebff",
+                    "inverse-surface": "#3c2d28",
+                    "surface-container": "#ffe9e3",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#003744",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "on-background": "#261814",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "surface-bright": "#fff8f6",
+                    "surface-dim": "#eed5cd",
+                    "outline": "#8d7168",
+                    "primary": "#ab3500",
+                    "surface-tint": "#ab3500",
+                    "on-primary-fixed-variant": "#832600",
+                    "surface": "#fff8f6",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb59d",
+                    "surface-container-low": "#fff1ed",
+                    "background": "#fff8f6",
+                    "tertiary-container": "#00a7cb",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#261814",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#bce9ff",
+                    "on-secondary-container": "#28667d",
+                    "secondary": "#27657c",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "secondary-container": "#a8e2fd",
+                    "on-surface-variant": "#594139",
+                    "primary-fixed": "#ffdbd0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#fde3db",
+                    "primary-container": "#ff6b35",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001f28",
+                    "inverse-primary": "#ffb59d",
+                    "tertiary": "#00677e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "sm": "12px",
+                    "margin-mobile": "20px",
+                    "xl": "64px",
+                    "lg": "40px",
+                    "margin-desktop": "120px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "title-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(0, 78, 100, 0.15);
+        }
+        .shadow-level-2 {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.2);
+        }
+        .input-focus-ring:focus-within {
+            border-color: theme('colors.secondary');
+            box-shadow: 0 0 0 2px theme('colors.secondary-container');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col font-body-md text-body-md">
+<!-- Top AppBar (Suppressed per rules as this is a transactional flow) -->
+<main class="flex-grow flex items-center justify-center p-gutter md:p-lg relative overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-10">
+<span class="material-symbols-outlined text-[100vw] text-primary">explore</span>
+</div>
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-lg relative z-10">
+<!-- Information Card -->
+<div class="md:col-span-5 flex flex-col justify-center h-full">
+<div class="bg-surface-container-lowest rounded-lg p-md shadow-level-1 relative overflow-hidden h-full flex flex-col justify-between border border-surface-container-high">
+<!-- Decorative Gradient Scrim -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container rounded-bl-full opacity-20 -mr-16 -mt-16 pointer-events-none"></div>
+<div class="space-y-sm z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-xs">flight_takeoff</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Registro de Nuevo Turista</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Complete los siguientes campos con la información oficial del viajero para generar su perfil en el ecosistema TravelSmart AI.</p>
+</div>
+<div class="mt-lg p-sm bg-tertiary-container/10 rounded-DEFAULT border border-tertiary/20 flex items-start gap-sm z-10">
+<span class="material-symbols-outlined text-tertiary mt-1" style="font-variation-settings: 'FILL' 1;">mark_email_unread</span>
+<div>
+<h3 class="font-title-md text-title-md text-tertiary">Credenciales Seguras</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Una vez que completes tu registro, enviaremos tus credenciales de acceso de forma segura a tu correo electrónico. Asegúrate de proporcionar una dirección válida.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Registration Form -->
+<div class="md:col-span-7">
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-2">
+<form class="space-y-md" id="registrationForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Full Name -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block" for="fullName">Nombre Completo</label>
+<div class="relative flex items-center bg-surface-container-low rounded-DEFAULT border border-transparent transition-all duration-200 input-focus-ring group">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant group-focus-within:text-secondary">person</span>
+<input class="w-full bg-transparent border-none py-3 pl-10 pr-4 text-on-surface placeholder-on-surface-variant/50 focus:ring-0 rounded-DEFAULT font-body-md" id="fullName" name="fullName" placeholder="Ej. Ana García" required="" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block" for="email">Correo Electrónico</label>
+<div class="relative flex items-center bg-surface-container-low rounded-DEFAULT border border-transparent transition-all duration-200 input-focus-ring group">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant group-focus-within:text-secondary">mail</span>
+<input class="w-full bg-transparent border-none py-3 pl-10 pr-4 text-on-surface placeholder-on-surface-variant/50 focus:ring-0 rounded-DEFAULT font-body-md" id="email" name="email" placeholder="tu@email.com" required="" type="email"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Nationality -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block" for="nationality">Nacionalidad</label>
+<div class="relative flex items-center bg-surface-container-low rounded-DEFAULT border border-transparent transition-all duration-200 input-focus-ring group">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant group-focus-within:text-secondary">public</span>
+<select class="w-full bg-transparent border-none py-3 pl-10 pr-10 text-on-surface focus:ring-0 rounded-DEFAULT font-body-md appearance-none" id="nationality" name="nationality" required="">
+<option disabled="" selected="" value="">Selecciona tu país</option>
+<option value="es">España</option>
+<option value="mx">México</option>
+<option value="ar">Argentina</option>
+<option value="co">Colombia</option>
+<option value="us">Estados Unidos</option>
+<!-- Add more options as needed -->
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<!-- Passport/ID -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block" for="documentId">Pasaporte / DNI</label>
+<div class="relative flex items-center bg-surface-container-low rounded-DEFAULT border border-transparent transition-all duration-200 input-focus-ring group">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant group-focus-within:text-secondary">badge</span>
+<input class="w-full bg-transparent border-none py-3 pl-10 pr-4 text-on-surface placeholder-on-surface-variant/50 focus:ring-0 rounded-DEFAULT font-body-md" id="documentId" name="documentId" placeholder="Número de documento" required="" type="text"/>
+</div>
+</div>
+</div>
+<!-- Role (Hidden/Read-only representation as per requirements it defaults to Tourist) -->
+<div class="p-sm bg-surface-container rounded-DEFAULT border border-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">luggage</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Perfil Asignado</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Turista</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<input name="role" type="hidden" value="Tourist"/>
+</div>
+<!-- Actions -->
+<div class="pt-sm">
+<button class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md font-bold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition-all duration-200 transform hover:-translate-y-1 shadow-level-1 hover:shadow-level-2 relative overflow-hidden group" type="submit">
+<span class="relative z-10 flex items-center gap-2">
+                                    Crear Cuenta
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+<!-- Subtle inner glow -->
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</button>
+</div>
+<p class="text-center font-body-md text-body-md text-on-surface-variant text-sm mt-4">
+                            Al crear una cuenta, aceptas nuestros <a class="text-secondary hover:underline" href="#">Términos de Servicio</a> y <a class="text-secondary hover:underline" href="#">Política de Privacidad</a>.
+                        </p>
+</form>
+</div>
+</div>
+</div>
+</main>
+<script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Basic validation simulation
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Procesando...`;
+            btn.classList.add('opacity-80', 'pointer-events-none');
+
+            setTimeout(() => {
+                // Reset form and show success state (simplified for demo)
+                btn.innerHTML = `<span class="material-symbols-outlined">check</span> ¡Cuenta Creada!`;
+                btn.classList.remove('bg-primary', 'hover:bg-on-primary-fixed-variant');
+                btn.classList.add('bg-secondary', 'text-on-secondary');
+                
+                setTimeout(() => {
+                    this.reset();
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-secondary', 'text-on-secondary', 'opacity-80', 'pointer-events-none');
+                    btn.classList.add('bg-primary', 'hover:bg-on-primary-fixed-variant');
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+<nav class="sticky bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-surface-variant px-gutter py-2 flex justify-around items-center z-50 shadow-level-2 md:hidden">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">store</span>
+<span class="text-label-sm">Business</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-label-sm">Promos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="text-label-sm">Users</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-sm">Tours</span>
+</a>
+</nav></body></html>

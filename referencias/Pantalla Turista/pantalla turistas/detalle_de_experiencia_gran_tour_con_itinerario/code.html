@@ -1,0 +1,425 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Historic Center Tour</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#b5ebff",
+                      "tertiary-container": "#00a7cb",
+                      "tertiary": "#00677e",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#fff8f6",
+                      "on-secondary-container": "#28667d",
+                      "primary-container": "#ff6b35",
+                      "surface-container-high": "#fde3db",
+                      "surface-dim": "#eed5cd",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "secondary-fixed": "#bce9ff",
+                      "primary-fixed-dim": "#ffb59d",
+                      "background": "#fff8f6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "primary": "#ab3500",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#390c00",
+                      "surface-tint": "#ab3500",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#ffdbd0",
+                      "on-surface-variant": "#594139",
+                      "surface-variant": "#f7ddd5",
+                      "inverse-surface": "#3c2d28",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#ffede8",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#fff1ed",
+                      "surface-container-highest": "#f7ddd5",
+                      "inverse-primary": "#ffb59d",
+                      "outline": "#8d7168",
+                      "on-primary-fixed-variant": "#832600",
+                      "on-surface": "#261814",
+                      "surface": "#fff8f6",
+                      "outline-variant": "#e1bfb5",
+                      "on-background": "#261814",
+                      "on-tertiary-fixed": "#001f28",
+                      "secondary": "#27657c",
+                      "on-secondary-fixed": "#001f29",
+                      "secondary-container": "#a8e2fd",
+                      "on-primary-container": "#5f1900",
+                      "surface-container": "#ffe9e3",
+                      "on-tertiary-container": "#003744"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "120px",
+                      "xl": "64px",
+                      "lg": "40px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .shadow-soft {
+            box-shadow: 0 4px 20px -2px rgba(0, 78, 100, 0.08), 0 0 3px rgba(0, 78, 100, 0.04);
+        }
+        
+        .shadow-hover {
+            box-shadow: 0 8px 30px -4px rgba(0, 78, 100, 0.12), 0 0 4px rgba(0, 78, 100, 0.06);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top App Bar - Desktop Hidden, Mobile Visible Context -->
+<header class="fixed top-0 w-full z-40 flex justify-between items-center px-margin-mobile py-base bg-surface-bright/90 backdrop-blur-md shadow-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary font-bold">Detalles del Tour</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</header>
+<main class="pt-20 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto md:pt-32">
+<!-- Bento Grid Layout for Details -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg mt-base">
+<!-- Left Column: Hero & Content -->
+<div class="md:col-span-7 lg:col-span-8 flex flex-col gap-lg">
+<!-- Hero Image -->
+<div class="w-full h-72 md:h-[450px] rounded-DEFAULT md:rounded-lg overflow-hidden relative shadow-soft">
+<img alt="Historic Center" class="w-full h-full object-cover" data-alt="A vibrant, professional high-resolution photograph of a historic city center on a sunny day. The image captures beautifully preserved colonial architecture with warm terracotta roofs, ornate balconies, and cobblestone streets. Soft, warm sunlight bathes the buildings, highlighting their rich colors and intricate details. The sky is clear blue. The composition feels inviting, conveying a sense of rich cultural history and exploration perfect for a modern travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3cCp_ACYSoaKaxXL1bMMpEIgSxdkSuJychRKNvDUaU9Qn0u3VxhjKwBQzfVUVy7yfe1SXlISoAJdKAdESuxOUI7AVNwVHu8XFo8sBChYNUD5u-Vu7lLmHfl29yN8ohTG203NLUZkmVJMEnVZKdbMHmOcAvuFx_r23lSG3y1EzHEISM2Ze7tYwxmdcExt9j0OPmWJ_81ee6GjWEnxef9ynjcbNxoMfVejFdm8Yrg6lC4U5iwwaWO1IOA">
+<div class="absolute bottom-0 left-0 w-full p-md bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+<span class="inline-block px-3 py-1 mb-2 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">Best Seller</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-2">Gran Tour por Quito: La Carita de Dios</h1>
+<div class="flex items-center gap-2 text-white/90">
+<span class="material-symbols-outlined filled text-yellow-400 text-[18px]">star</span>
+<span class="font-label-md text-label-md">4.9 (128 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Description Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-soft">
+<h2 class="font-title-md text-title-md text-primary mb-sm">Sobre el Tour</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md leading-relaxed">Un recorrido completo desde las iglesias coloniales del Centro Histórico hasta la Mitad del Mundo y las alturas del Teleférico.</p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-sm mt-md">
+<div class="flex items-start gap-3 bg-surface-container-low p-3 rounded-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant">Duración</h3>
+<p class="font-label-md text-label-md text-on-surface">2.5 horas</p>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low p-3 rounded-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant">Idiomas</h3>
+<p class="font-label-md text-label-md text-on-surface">Español / Inglés</p>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low p-3 rounded-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant">Grupo Mínimo</h3>
+<p class="font-label-md text-label-md text-on-surface">Máx. 15 pax</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Placeholder -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-soft">
+<h2 class="font-title-md text-title-md text-primary mb-sm">Punto de Encuentro</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Plaza Grande, frente al Palacio de Carondelet.</p>
+<div class="w-full h-48 rounded-lg bg-surface-variant flex items-center justify-center relative overflow-hidden">
+<img alt="Map" class="w-full h-full object-cover opacity-80" data-alt="A clean, modern top-down stylized map highlighting a historic city center plaza. The map uses warm off-white and soft teal tones consistent with a high-end modern travel app UI. A prominent, vibrant orange map pin marks a central location near a cathedral icon. The map style is minimalist, clean, and optimistic." data-location="Historic City Center Plaza" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqdVQwFfq_2ZkjCqdE_tujC2hlVtAsTVoWQM76ccI1RfJ7zWzYXI-SdUO9kxWyXVrYkuv2zf4hfrYKfy1AOzn9fSBDN4H_WZ6oTGZL0a6Zo2qXA8PM2v-NBqaztlLmHALWKoKmhidLmz26M79h-0nYL2w-qx5djo7TLjyS0kOhi1OvNJI3zzXVotLgr-h8mYR7VnqJwGIZbWBa0l8PNyC9q-kUq9IIonn4OvmGmkEUBxXMqq4ifrcGbw">
+</div>
+</section>
+</div>
+<!-- Right Column: Pricing & Sticky CTA -->
+<div class="md:col-span-5 lg:col-span-4 relative"><section class="bg-surface-container-lowest rounded-DEFAULT p-md shadow-soft mb-lg">
+<h2 class="font-title-md text-title-md text-primary mb-sm">Itinerario del Tour</h2>
+<div class="flex flex-col gap-4">
+<!-- Stop 1 -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container">check</span>
+</div>
+<div class="w-0.5 h-full bg-outline-variant/30 my-1"></div>
+</div>
+<div class="pb-2">
+<div class="flex justify-between items-center gap-2">
+<h4 class="font-label-md text-label-md text-on-surface">Centro Histórico</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Punto de partida</p>
+</div>
+</div>
+<!-- Stop 2 -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+<div class="w-0.5 h-full bg-outline-variant/30 my-1"></div>
+</div>
+<div class="pb-2">
+<div class="flex justify-between items-center gap-2">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Mirador del Panecillo</h4>
+<span class="font-label-sm text-label-sm text-primary font-bold">10:30</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Parada panorámica</p>
+</div>
+</div>
+<!-- Stop 3 -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant/50 flex items-center justify-center shrink-0"></div>
+<div class="w-0.5 h-full bg-outline-variant/30 my-1"></div>
+</div>
+<div class="pb-2">
+<div class="flex justify-between items-center gap-2">
+<h4 class="font-label-md text-label-md text-on-surface">Mitad del Mundo</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">13:00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Almuerzo y visita</p>
+</div>
+</div>
+<!-- Stop 4 -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant/50 flex items-center justify-center shrink-0"></div>
+</div>
+<div>
+<div class="flex justify-between items-center gap-2">
+<h4 class="font-label-md text-label-md text-on-surface">Teleférico de Quito</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">16:30</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Atardecer</p>
+</div>
+</div>
+</div>
+</section>
+<div class="sticky top-24 bg-surface-container-lowest rounded-DEFAULT p-md shadow-hover border border-outline-variant/30 flex flex-col gap-md">
+<div>
+<h2 class="font-title-md text-title-md text-primary mb-1">Reserva tu lugar</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Selecciona tus entradas para ver disponibilidad.</p>
+</div>
+<!-- Pricing Options -->
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between p-3 rounded-lg border border-outline-variant/50 bg-surface">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Adulto</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12+ años</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-title-md text-title-md text-primary font-bold">$45.00</span>
+<!-- Simulated Counter -->
+<div class="flex items-center gap-2 bg-surface-container-low rounded-full px-2 py-1">
+<button class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center"><span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span></button>
+<span class="font-label-md text-label-md w-4 text-center">1</span>
+<button class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[16px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-outline-variant/50 bg-surface">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Niño</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Menores de 12</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-title-md text-title-md text-primary font-bold">$30.00</span>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-full px-2 py-1">
+<button class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center opacity-50"><span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span></button>
+<span class="font-label-md text-label-md w-4 text-center">0</span>
+<button class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container"><span class="material-symbols-outlined text-[16px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-outline-variant/50 bg-surface">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Senior</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">65+ años</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-title-md text-title-md text-primary font-bold">$35.00</span>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-full px-2 py-1">
+<button class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center opacity-50"><span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span></button>
+<span class="font-label-md text-label-md w-4 text-center">0</span>
+<button class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container"><span class="material-symbols-outlined text-[16px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-outline-variant/30 my-2"></div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-title-md text-title-md text-on-surface">Total Estimado</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">$45.00</span>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full shadow-soft hover:shadow-hover hover:bg-primary/90 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="open_in_new">open_in_new</span>
+                        Reservar en la Web
+                    </button>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center opacity-80 mt-2">
+                        Serás redirigido a nuestro sitio web oficial para completar el pago y la reserva.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only per Context/System) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter pb-4 pt-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md rounded-t-lg border-t border-outline-variant/30 shadow-lg">
+<!-- Explore (Active) -->
+<div class="flex flex-col items-center justify-center text-primary bg-primary-fixed/30 rounded-full px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined filled text-[24px]" data-icon="explore">explore</span>
+<span class="font-label-sm text-[10px] mt-1">Explore</span>
+</div>
+<!-- Travel (Inactive) -->
+<div class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-[10px] mt-1">Travel</span>
+</div>
+<!-- Pass (Inactive) - Assuming standard icon for Pass -->
+<div class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-[10px] mt-1">Pass</span>
+</div>
+<!-- Play (Inactive) -->
+<div class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="sports_esports">sports_esports</span>
+<span class="font-label-sm text-[10px] mt-1">Play</span>
+</div>
+<!-- Journey (Inactive) - Assuming standard icon for Journey -->
+<div class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="map">map</span>
+<span class="font-label-sm text-[10px] mt-1">Journey</span>
+</div>
+</nav>
+</body></html>

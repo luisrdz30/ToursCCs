@@ -1,0 +1,335 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TravelSmart - Culture &amp; Multimedia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "primary-fixed": "#ffdbd0",
+                        "secondary-fixed": "#bce9ff",
+                        "inverse-surface": "#3c2d28",
+                        "on-primary-fixed": "#390c00",
+                        "on-tertiary-container": "#003744",
+                        "on-primary-fixed-variant": "#832600",
+                        "error-container": "#ffdad6",
+                        "outline": "#8d7168",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb59d",
+                        "surface-tint": "#ab3500",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00677e",
+                        "on-surface-variant": "#594139",
+                        "inverse-on-surface": "#ffede8",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#5f1900",
+                        "primary": "#ab3500",
+                        "on-background": "#261814",
+                        "tertiary-fixed": "#b5ebff",
+                        "on-surface": "#261814",
+                        "surface-container-high": "#fde3db",
+                        "surface-container": "#ffe9e3",
+                        "secondary-container": "#a8e2fd",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface-variant": "#f7ddd5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ff6b35",
+                        "on-tertiary-fixed": "#001f28",
+                        "tertiary-container": "#00a7cb",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#e1bfb5",
+                        "on-secondary-fixed": "#001f29",
+                        "on-secondary-container": "#28667d",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#fff1ed",
+                        "inverse-primary": "#ffb59d",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "background": "#fff8f6",
+                        "surface-dim": "#eed5cd",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fff8f6",
+                        "secondary": "#27657c",
+                        "secondary-fixed-dim": "#95cfe9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "margin-desktop": "120px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "margin-mobile": "20px",
+                        "xs": "4px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px rgba(0, 78, 100, 0.05);
+        }
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 78, 100, 0.08);
+        }
+        
+        /* Progress Bar Inner */
+        .progress-fill {
+            background: #06D6A0; /* Emerald */
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24 md:pb-0 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 flex justify-between items-center px-margin-mobile py-base bg-surface-bright dark:bg-surface-dim shadow-sm dark:shadow-none">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full overflow-hidden hover:bg-surface-container-low transition-colors">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a modern traveler, smiling warmly. Soft, natural lighting. The traveler is wearing a casual yet stylish jacket. The background is a slightly blurred, bright, modern airport terminal or cafe, maintaining a light-mode aesthetic with warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASENeGYDUoLvJ-SWJEesvR6eL10iQTostYYfIaUNLgfFUSH-mLVfiWptHf0jGnwR5_8_rurmo6J5Q5s0gyyLN7MaHhqj80IjEpyE_tyGc3CCCD28gU6BAYZpZx3RTEwNdJnRXqrkLWkVfQQw01aphjOTSq8iiAyHQdmolvfXZtZarU6okZX_5VRpoBQ8jBa59U9o4LWJ78QeIIduTPtFsX3Sr7p-3R5QyElhr6IZRyoPqO5Ii4QEr7qg">
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold md:font-headline-lg md:text-headline-lg">TravelSmart</h1>
+</div>
+<div class="flex items-center">
+<button class="flex items-center gap-xs px-sm py-xs rounded-full hover:bg-surface-container-low transition-colors text-primary dark:text-primary-fixed-dim font-title-md text-title-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>1,250 pts</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-lg">
+<!-- Nearby Secret Notification -->
+<section class="animate-fade-in-up">
+<div class="glass-panel rounded-[24px] p-md flex flex-col md:flex-row items-start md:items-center gap-md relative overflow-hidden soft-shadow">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-secondary-container rounded-full blur-3xl opacity-50"></div>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">my_location</span>
+</div>
+<div class="flex-1 z-10">
+<div class="flex items-center gap-xs mb-1">
+<span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-2 py-0.5 rounded-full uppercase tracking-wider">Nearby Secret</span>
+<span class="text-on-surface-variant font-label-md text-label-md">0.2 miles away</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface mb-2">The Whispering Arches</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A hidden acoustic phenomenon in the old quarter. Stand at opposite corners and whisper to hear each other perfectly.</p>
+</div>
+<button class="bg-primary hover:bg-surface-tint text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover-lift shrink-0 z-10 w-full md:w-auto shadow-sm">
+                    Navigate Now
+                </button>
+</div>
+</section>
+<!-- Bento Grid: Multimedia & Culture -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Audio Guide Player (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[24px] p-md soft-shadow hover-lift flex flex-col justify-between overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-surface-variant rounded-bl-full opacity-20 -z-0 pointer-events-none"></div>
+<div class="z-10 flex justify-between items-start mb-lg">
+<div>
+<div class="flex items-center gap-xs text-secondary font-label-sm text-label-sm mb-2 uppercase">
+<span class="material-symbols-outlined text-sm">headphones</span>
+                            Audio Guide • Offline Ready
+                        </div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">The Grand Plaza History</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Narrated by local historian, Elena Ruiz.</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">download_for_offline</span>
+</button>
+</div>
+<div class="z-10 bg-surface px-md py-sm rounded-2xl flex flex-col gap-sm">
+<!-- Progress -->
+<div class="flex items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-10 text-right">02:14</span>
+<div class="flex-1 h-3 bg-surface-container-high rounded-full overflow-hidden cursor-pointer">
+<div class="progress-fill h-full rounded-full" style="width: 35%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant w-10">15:30</span>
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-2xl">replay_10</span></button>
+<button class="w-14 h-14 rounded-full bg-secondary text-on-secondary flex items-center justify-center hover:bg-tertiary transition-colors shadow-md">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-2xl">forward_10</span></button>
+</div>
+</div>
+</div>
+<!-- Video History Thumbnail (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 rounded-[24px] overflow-hidden soft-shadow group relative cursor-pointer aspect-square md:aspect-auto">
+<div class="w-full h-full bg-cover bg-center absolute inset-0 transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-quality photograph of a bustling ancient marketplace, viewed from a slightly elevated angle. Warm, golden hour lighting casts long shadows. The scene is rich in detail with colorful awnings, stone pathways, and people in traditional attire, creating a warm, historical, and inviting light-mode aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4dA0XD8_QaYaTzGf3Uzj4A0JPyHlYr9UbXEqgckM1Q-U7eA00qwqoAX96BoM14cJv8cwJXwIEfB2H2qK3sNmdCbIKfMjfNgFVeJVG3Z5xKxlk8aMIgHf5hYHoBKCGG8Q_bSxUydnF61loYoi0Sq2wBNp5JOGaBEZr8eTA-yFmkQxDyk-nNZICb61fG5cfP16Xmoiqrjb5B-sDo0acmTvZVr2nkJYKChvUhLFqGcrKb99MpWVtB6rdHg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-md z-10">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white mb-sm group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<span class="bg-black/50 text-white font-label-sm text-label-sm px-2 py-1 rounded w-max mb-2">Video History</span>
+<h3 class="font-title-md text-title-md text-white">The Market Through the Ages</h3>
+<p class="font-body-md text-body-md text-white/80 line-clamp-1">Watch how trade evolved over 500 years.</p>
+</div>
+</div>
+</section>
+<!-- Interactive Comic Section -->
+<section>
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-title-md text-title-md text-on-surface">Interactive Comic</h2>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center">See all <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md">
+<!-- Comic Panel 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-2 soft-shadow hover-lift cursor-pointer">
+<div class="rounded-xl overflow-hidden aspect-[3/4] relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized, modern digital illustration resembling a comic book panel. A hero character standing atop a hill overlooking a bright, stylized city. Vibrant colors, clean lines, warm light-mode aesthetic. Soft shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDktI9xTodasI_PNpdAaHpDobec1eAQADYFvNJxeujREJ_CjavXV4vH7NnjHqs8vklPJk7ibR015QP23WOUbNKRisF_--14ktIa0_YNUZsxgHlv5JJQqY6NTcrFE-pRoGukVdEoWDjAXMYTrilCR62XZM0NFrb1jQb1LftR2EJdbdO3tlxJsiaxncFgUfp8ghakYnnvvOqTBUv1zZJlpMu8ozcXQNAMeimJXq-GQulRPsNmCL09DlC6nw')"></div>
+<div class="absolute bottom-2 right-2 bg-surface/90 backdrop-blur-sm px-2 py-1 rounded font-label-sm text-label-sm text-on-surface">1/4</div>
+</div>
+</div>
+<!-- Comic Panel 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-2 soft-shadow hover-lift cursor-pointer">
+<div class="rounded-xl overflow-hidden aspect-[3/4] relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized, modern digital illustration resembling a comic book panel. The hero interacting with a local vendor in a colorful market. Bright, warm lighting, cheerful atmosphere, clean vector art style suited for a light-mode app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMW4DpTjitLDecbpugh1buoB0zduIbVHIcmwM4DA47n8-Voa-TCE4yOiI57UBBqwGFqUajKTwh0-klu7ZOFRmcGlEYNxG8XMIsqK4vvZS8DEA63F6Nt9ybj_Ba3Y9vNGJ7D2NPZD-iNbAPaF_Plo1XUlCoTJCsolAgmTrHP7hR5aVfDOcH9MNY1y2BZafdCQgePtSJkSshQTbz11TogQd1z1NUpBk8uKG_zW-JJT-36MQVs_CF9nNYzw')"></div>
+</div>
+</div>
+<!-- Comic Panel 3 (Locked/Teaser) -->
+<div class="bg-surface-container-highest rounded-2xl p-2 border-2 border-dashed border-outline-variant/50 flex flex-col items-center justify-center aspect-[3/4] opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">lock</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-center px-4">Visit the Fountain to unlock</span>
+</div>
+<!-- Comic Panel 4 (Locked/Teaser) -->
+<div class="bg-surface-container-highest rounded-2xl p-2 border-2 border-dashed border-outline-variant/50 flex flex-col items-center justify-center aspect-[3/4] opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">lock</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-center px-4">Visit the Tower to unlock</span>
+</div>
+</div>
+</section>
+<!-- Slang Glossary -->
+<section class="bg-surface-container-lowest rounded-[24px] p-md soft-shadow">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-md">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">translate</span>
+                        Glosario de Jerga
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Speak like a local. Tap to hear pronunciation.</p>
+</div>
+<!-- Search Input -->
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-[16px] bg-[#f2e7e4] border-2 border-transparent focus:border-[#004E64] focus:ring-0 focus:outline-none transition-colors text-on-surface font-body-md" placeholder="Search slang..." type="text">
+</div>
+</div>
+<!-- Glossary List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-sm rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Chido</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Cool / Awesome</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-sm rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">¿Qué onda?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">What's up?</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-sm rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Fresa</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Preppy / Snobby</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center justify-between p-sm rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">No manches</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">No way / You're kidding</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter pb-4 pt-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md rounded-t-lg border-t border-outline-variant/30 shadow-lg">
+<button class="flex flex-col items-center justify-center text-primary bg-primary-fixed/30 rounded-full px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm mt-1">Travel</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-sm text-label-sm mt-1">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</button>
+</nav>
+<!-- Mascota IA FAB -->
+<button class="fixed bottom-24 md:bottom-8 right-6 w-14 h-14 bg-secondary text-on-secondary rounded-full flex items-center justify-center z-50 shadow-[0_0_20px_rgba(39,101,124,0.4)] hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</body></html>

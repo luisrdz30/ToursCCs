@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GPS Trivias</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#ffb59d",
+                      "surface-bright": "#fff8f6",
+                      "outline-variant": "#e1bfb5",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "inverse-surface": "#3c2d28",
+                      "tertiary": "#00677e",
+                      "primary-container": "#ff6b35",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#ab3500",
+                      "on-primary-fixed-variant": "#832600",
+                      "surface-variant": "#f7ddd5",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#eed5cd",
+                      "surface-container-high": "#fde3db",
+                      "secondary-container": "#a8e2fd",
+                      "background": "#fff8f6",
+                      "tertiary-fixed": "#b5ebff",
+                      "on-primary-fixed": "#390c00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#003744",
+                      "on-secondary-fixed": "#001f29",
+                      "on-surface-variant": "#594139",
+                      "on-primary": "#ffffff",
+                      "on-background": "#261814",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "surface-container-highest": "#f7ddd5",
+                      "surface-container-low": "#fff1ed",
+                      "on-secondary": "#ffffff",
+                      "primary": "#ab3500",
+                      "primary-fixed": "#ffdbd0",
+                      "secondary": "#27657c",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "primary-fixed-dim": "#ffb59d",
+                      "on-surface": "#261814",
+                      "surface-container": "#ffe9e3",
+                      "on-primary-container": "#5f1900",
+                      "outline": "#8d7168",
+                      "surface": "#fff8f6",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#bce9ff",
+                      "on-tertiary-fixed": "#001f28",
+                      "on-secondary-container": "#28667d",
+                      "tertiary-container": "#00a7cb",
+                      "inverse-on-surface": "#ffede8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "margin-mobile": "20px",
+                      "base": "8px",
+                      "md": "24px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "sm": "12px",
+                      "margin-desktop": "120px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .safe-padding-bottom { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(171, 53, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(171, 53, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(171, 53, 0, 0); }
+        }
+        .timer-pulse {
+            animation: pulse-border 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans antialiased overflow-x-hidden">
+<!-- Top Navigation (Mobile) -->
+<header class="fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md flex items-center justify-between px-margin-mobile h-16 md:hidden">
+<button class="text-on-surface-variant dark:text-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim font-bold tracking-tight">GPS Trivias</h1>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+</header>
+<!-- Top Navigation (Desktop) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md items-center justify-between px-margin-desktop h-20">
+<div class="flex items-center gap-4">
+<h1 class="font-display-lg text-display-lg text-primary dark:text-primary-fixed font-bold tracking-tighter">Mascota</h1>
+</div>
+<nav class="flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors px-4 py-2 rounded-full flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+                Explore
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors px-4 py-2 rounded-full flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="flight_takeoff">flight_takeoff</span>
+                Travel
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors px-4 py-2 rounded-full flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+                Pass
+            </a>
+<a class="text-primary dark:text-primary-fixed-dim font-label-md text-label-md font-bold px-4 py-2 rounded-full flex items-center gap-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-primary after:rounded-full bg-primary-container/10" href="#">
+<span class="material-symbols-outlined fill" data-icon="sports_esports" data-weight="fill">sports_esports</span>
+                Play
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors px-4 py-2 rounded-full flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                Journey
+            </a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm border border-outline-variant/30 cursor-pointer hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-20 pb-28 md:pt-28 md:pb-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center max-w-4xl mx-auto w-full">
+<!-- Header Info -->
+<div class="w-full flex justify-between items-center mb-6">
+<div class="bg-surface-container-high rounded-full px-4 py-2 flex items-center gap-2 shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary fill text-[20px]" data-icon="stars" data-weight="fill">stars</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">1,250 PTS</span>
+</div>
+<div class="flex items-center gap-3"><div class="relative w-12 h-12 -ml-2 animate-bounce"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascot" class="w-full h-full object-contain"></div>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary timer-pulse border-2 border-primary/30">
+<span class="font-label-md text-label-md font-bold">14s</span>
+</div>
+<div class="bg-surface-container-high rounded-full px-4 py-2 flex items-center gap-2 shadow-sm border border-outline-variant/30">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">Q 3/10</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 bg-surface-container-high rounded-full mb-8 shadow-inner overflow-hidden border border-outline-variant/20">
+<div class="h-full bg-primary rounded-full" style="width: 30%;"></div>
+</div>
+<!-- Map/Image Area -->
+<div class="w-full h-48 md:h-64 rounded-xl shadow-md overflow-hidden relative mb-8 border border-outline-variant/30 group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, vibrant, modern illustration of the Basilica del Voto Nacional in Quito, Ecuador, depicted from a slightly elevated angle. The architecture is grand and intricate, rendered in a warm, inviting light mode aesthetic. The sky is a clear, bright blue with soft, fluffy white clouds. The color palette emphasizes warm stone tones against crisp blues and deep teals. The image feels optimistic, modern, and perfectly suited for a high-end cultural travel app. The mood is inspiring and culturally rich." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLJRba1fnXKjsdUP6-bpVisuxpZaLj_RNt0KDr6UcwWlq8lsaXpXVbf-nVseIqPGYcv5UH1imLjn5Psyd2EiQ8VYgSq7b7KhDHt-3wwYQ3Rn9CCFhcq56tVvcpzbLzCESlqnGdTGpUBS5Nf_h-1jjSXiQ95rbRCZfuusYpYNyMUN1trhxmNbQR-3yJM7a5aZdC3nTedxgobdyQaH08yjmz4bnyXWnBgkBjddjjm4sZPLg84tZOFMoaJw">
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+<!-- Floating Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-surface-bright/90 backdrop-blur-md shadow-[0_4px_12px_rgba(0,78,100,0.2)] border-2 border-primary animate-bounce">
+<span class="material-symbols-outlined text-primary fill text-[24px]" data-icon="location_on" data-weight="fill">location_on</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="bg-surface-bright/90 backdrop-blur-md rounded-lg px-4 py-3 shadow-sm border border-outline-variant/50">
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1">Quito, Ecuador</p>
+<h2 class="font-title-md text-title-md text-on-surface font-bold leading-tight">What is the name of this famous neo-Gothic church?</h2>
+</div>
+</div>
+</div>
+<!-- Options Grid -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Option 1 -->
+<button class="w-full text-left bg-surface-bright rounded-xl p-4 shadow-sm border-2 border-outline-variant/30 hover:border-secondary hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex items-center justify-between group active:scale-95">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">A</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Iglesia de la Compañía</span>
+</div>
+</button>
+<!-- Option 2 -->
+<button class="w-full text-left bg-surface-bright rounded-xl p-4 shadow-sm border-2 border-outline-variant/30 hover:border-secondary hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex items-center justify-between group active:scale-95">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">B</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Basílica del Voto Nacional</span>
+</div>
+</button>
+<!-- Option 3 -->
+<button class="w-full text-left bg-surface-bright rounded-xl p-4 shadow-sm border-2 border-outline-variant/30 hover:border-secondary hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex items-center justify-between group active:scale-95">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">C</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Catedral Metropolitana</span>
+</div>
+</button>
+<!-- Option 4 -->
+<button class="w-full text-left bg-surface-bright rounded-xl p-4 shadow-sm border-2 border-outline-variant/30 hover:border-secondary hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex items-center justify-between group active:scale-95">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">D</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Iglesia de San Francisco</span>
+</div>
+</button>
+</div>
+<div class="mt-8 flex justify-center w-full">
+<button class="bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-variant transition-colors border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+                Use Hint (-50 pts)
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-lg fixed bottom-0 w-full z-50 rounded-t-lg border-t border-outline-variant/30 dark:border-outline/20 shadow-[0_-4px_12px_rgba(0,78,100,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-base pb-safe h-20 safe-padding-bottom">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="flight_takeoff">flight_takeoff</span>
+<span class="font-label-sm text-label-sm">Travel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Pass</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out p-2" href="#">
+<span class="material-symbols-outlined mb-1 fill" data-icon="sports_esports" data-weight="fill">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm">Journey</span>
+</a>
+</nav>
+
+
+</body></html>

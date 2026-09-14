@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Partner Portal - Promotions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#ffb59d",
+                    "surface-container-highest": "#f7ddd5",
+                    "background": "#fff8f6",
+                    "tertiary": "#00677e",
+                    "on-secondary-container": "#28667d",
+                    "surface-container-low": "#fff1ed",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "inverse-on-surface": "#ffede8",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "secondary": "#27657c",
+                    "surface-variant": "#f7ddd5",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-secondary-fixed": "#001f29",
+                    "on-primary-fixed-variant": "#832600",
+                    "surface-dim": "#eed5cd",
+                    "primary": "#ab3500",
+                    "on-background": "#261814",
+                    "surface": "#fff8f6",
+                    "primary-fixed": "#ffdbd0",
+                    "surface-container-high": "#fde3db",
+                    "secondary-container": "#a8e2fd",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#5f1900",
+                    "on-tertiary-container": "#003744",
+                    "outline": "#8d7168",
+                    "secondary-fixed": "#bce9ff",
+                    "on-surface-variant": "#594139",
+                    "inverse-primary": "#ffb59d",
+                    "on-surface": "#261814",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#3c2d28",
+                    "tertiary-fixed": "#b5ebff",
+                    "surface-container": "#ffe9e3",
+                    "primary-container": "#ff6b35",
+                    "outline-variant": "#e1bfb5",
+                    "surface-bright": "#fff8f6",
+                    "on-tertiary-fixed": "#001f28",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#00a7cb",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#ab3500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "gutter": "16px",
+                    "lg": "40px",
+                    "margin-desktop": "120px",
+                    "base": "8px",
+                    "xl": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .ambient-shadow-sm {
+            box-shadow: 0 4px 14px rgba(0, 78, 100, 0.08);
+        }
+        .ambient-shadow-md {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.12);
+        }
+        .ambient-shadow-hover:hover {
+            box-shadow: 0 12px 32px rgba(0, 78, 100, 0.18);
+            transform: translateY(-2px);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--tw-colors-surface-variant);
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex flex-col bg-surface-container-low dark:bg-surface-dim shadow-lg h-screen w-80 rounded-r-lg sticky top-0 py-md z-50">
+<div class="px-lg pb-md flex flex-col gap-sm border-b border-outline-variant/30 mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small profile avatar image showing a cozy restaurant storefront with warm lighting and terracotta tiles, set in a sunny vibrant cultural aesthetic, high-end vector art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0lzLKL92AltUBth_4_5q1f0-q39No9wkixotKntb9I7R0-H0BtXy73sT0HT7h3F9jXv7_WVElUWynU7FvhWzP8ivJqutlrzg_QE08T4TpLmQ5ZjFWVw6ITPDat36gxOXM0SkdcSCDwzHvT312xubDDWTvA8GQjzIEAG6LgIaZ-pVrY6YVSi8tzg5soMFuehQ9jNkBhvTUlh4ATphKIgLmLbS4oAmBefsflo-527wmkBRFUECwFNhHiA"/>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim font-bold">La Terraza Resto</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Verified Partner</p>
+</div>
+</div>
+<span class="inline-block px-3 py-1 bg-tertiary-container/20 text-tertiary text-xs rounded-full w-max font-semibold mt-1">Premium Tier</span>
+</div>
+<nav class="flex-1 flex flex-col px-2 gap-1 overflow-y-auto">
+<!-- Inactive -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors mx-2 px-4 py-3 rounded-full flex items-center gap-3 active:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+<span class="font-body-md text-body-md">My Business</span>
+</a>
+<!-- Active -->
+<a class="bg-secondary-container text-on-secondary-container font-bold rounded-full mx-2 px-4 py-3 flex items-center gap-3 shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span class="font-body-md text-body-md text-primary">Promotions</span>
+</a>
+<!-- Inactive -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors mx-2 px-4 py-3 rounded-full flex items-center gap-3 active:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">insights</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<!-- Inactive -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors mx-2 px-4 py-3 rounded-full flex items-center gap-3 active:opacity-80 transition-opacity mt-auto" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Wrapper -->
+<main class="flex-1 flex flex-col min-w-0 relative">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-inverse-surface w-full top-0 sticky shadow-sm z-40">
+<div class="flex justify-between items-center px-gutter py-sm w-full max-w-7xl mx-auto">
+<button class="md:hidden p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-2 p-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<h1 class="font-display-lg text-title-md md:text-display-lg text-primary dark:text-primary-fixed-dim font-extrabold tracking-tight">Partner Portal</h1>
+<button class="p-2 text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors rounded-full active:scale-95 duration-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full border-2 border-background"></span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 overflow-y-auto px-margin-mobile md:px-lg py-lg pb-32 md:pb-xl max-w-7xl mx-auto w-full">
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-sm">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Promotions &amp; Offers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Manage your marketing campaigns, review active promotions, and track pending approvals to attract more travelers to your business.</p>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md mb-xl">
+<div class="glass-panel ambient-shadow-sm rounded-lg p-md flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
+<span class="material-symbols-outlined text-primary mb-2">local_activity</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Promos</p>
+<p class="font-title-md text-title-md text-on-background font-bold text-3xl">3</p>
+</div>
+</div>
+<div class="glass-panel ambient-shadow-sm rounded-lg p-md flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/5 rounded-full blur-xl"></div>
+<span class="material-symbols-outlined text-tertiary mb-2">pending_actions</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">In Review</p>
+<p class="font-title-md text-title-md text-on-background font-bold text-3xl">2</p>
+</div>
+</div>
+<div class="glass-panel ambient-shadow-sm rounded-lg p-md flex flex-col justify-between h-32 md:col-span-2 relative overflow-hidden bg-primary-container/20">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-1">Campaign Reach</p>
+<p class="font-body-md text-body-md text-on-background font-semibold">+24% visibility this week</p>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">trending_up</span>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full mt-4 overflow-hidden border border-outline-variant/30">
+<div class="bg-primary h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-sm border-b border-outline-variant/50 mb-md overflow-x-auto pb-2 scrollbar-hide">
+<button class="font-label-md text-label-md px-4 py-2 border-b-2 border-primary text-primary whitespace-nowrap transition-colors">
+                    Active &amp; Pending
+                </button>
+<button class="font-label-md text-label-md px-4 py-2 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+                    Drafts
+                </button>
+<button class="font-label-md text-label-md px-4 py-2 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+                    Expired
+                </button>
+</div>
+<!-- Promotions List -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+<!-- Pending Card -->
+<div class="bg-surface-container-lowest ambient-shadow-sm rounded-lg p-2 flex flex-col sm:flex-row gap-4 border border-outline-variant/20 ambient-shadow-hover transition-all duration-300">
+<div class="w-full sm:w-40 h-40 rounded-DEFAULT overflow-hidden relative shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vibrant, highly detailed top-down view of a fresh ceviche dish served in a rustic clay bowl, surrounded by lime wedges and red onions, placed on a wooden table. Bright, warm lighting, conveying a festive Latin American culinary culture aesthetic, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCZOTLHBMWOynREEhMzwHuazrusfingW8RkyTpVrkXj516mf20nPJ1YcNLY64jbyp1Q0Ugssvq5cnsY--x98XDdC08YiYAf4FhIPPMV4zZlxsXa52-jLMTwwchRuDcxCThsM_5kBhd8oZ55-V4KzIE-y_GfeYWT6cMD_nWa5ccK5nME1YyMfd2a1lmm6l0AdLGRTAZqSpmU71tdCsb5hFrHZ2TiBqDM3HYEeouT5ZDHQgov9luFUxNoA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1 bg-surface-container-highest/90 backdrop-blur-sm px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-tertiary">schedule</span>
+<span class="font-label-sm text-[10px] text-tertiary font-bold uppercase">En revisión</span>
+</div>
+</div>
+<div class="py-2 pr-4 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-background font-bold line-clamp-1">Festival del Ceviche</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 mb-3">Special weekend promotion featuring our signature coastal ceviche mix with a complimentary local drink.</p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>Oct 12 - Oct 15</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sell</span>
+<span>15% Off</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-surface-container-low text-primary font-label-md py-2 rounded-full hover:bg-surface-container transition-colors text-center">Edit Request</button>
+</div>
+</div>
+</div>
+<!-- Active Card 1 -->
+<div class="bg-surface-container-lowest ambient-shadow-sm rounded-lg p-2 flex flex-col sm:flex-row gap-4 border border-outline-variant/20 ambient-shadow-hover transition-all duration-300">
+<div class="w-full sm:w-40 h-40 rounded-DEFAULT overflow-hidden relative shrink-0">
+<img class="w-full h-full object-cover" data-alt="A warm, inviting image of a perfectly crafted artisanal cappuccino with latte art, resting on a small outdoor cafe table in the morning sun. Subtle background of cobblestone streets. Light mode aesthetic, sharp focus, inviting travel vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc2yp1uT_tKyuB8DYBG2h6ZB6NO38zUdqNNwkJUkgMuKQdfhXJvmpFWy_-6vSZGxZD9yx7PmX4kzHmVX-YRg3XSKQlvQhgrZORjslm-16kZSmuQm8XEl9LG46Lo0KKHYb8uvv8YjyVjR41VWD1VYTclRy5DOrCk51X1rJZURGp6xpJgs_zBwsf7Z-7nasqfR2OVeRQCbvxQCI0sIcpwGxCnmxoa8vxWPGlrX4KbUPIW7UiWP04jss6Fw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1 bg-emerald-100/90 backdrop-blur-sm px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-emerald-700" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-[10px] text-emerald-800 font-bold uppercase">Active</span>
+</div>
+</div>
+<div class="py-2 pr-4 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-background font-bold line-clamp-1">Morning Explorer Combo</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 mb-3">Free artisanal coffee with any local breakfast pastry order before 10 AM. Perfect for early travelers.</p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>1.2k Views</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span>45 Claims</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary font-label-md py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container shadow-sm transition-colors text-center">Manage</button>
+</div>
+</div>
+</div>
+<!-- Active Card 2 -->
+<div class="bg-surface-container-lowest ambient-shadow-sm rounded-lg p-2 flex flex-col sm:flex-row gap-4 border border-outline-variant/20 ambient-shadow-hover transition-all duration-300">
+<div class="w-full sm:w-40 h-40 rounded-DEFAULT overflow-hidden relative shrink-0">
+<img class="w-full h-full object-cover" data-alt="A lively evening scene of a traditional folklore dance performance on a small stage, viewed from the perspective of a restaurant dining area. Colorful costumes, warm string lights, deep teal and vibrant orange accents, highly detailed lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBowjU3G3ECyHItu4V-VZMg7CfQc4YDeXfvTrbbNsqAXbGTSElp2TNGTB6We48-K9-8qE7TfC-fC21EEduINDmRWuiHbl86jaJws-scr7BOhrlS2clDXoSSWCts_ynAoKJOI5Ct1asCgPSCtmiCEs5-3hl_63_0swA-g2KVHNjDZCpPSfR0rvZb9kX5QY2H5DX2_hfM3l11nMEDTl-wAM-efv3xahGg0DxZ1EgxTKf23X6ptDQhNiizHw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1 bg-emerald-100/90 backdrop-blur-sm px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-emerald-700" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-[10px] text-emerald-800 font-bold uppercase">Active</span>
+</div>
+</div>
+<div class="py-2 pr-4 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-background font-bold line-clamp-1">Dinner &amp; Folklore Night</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-2 mb-3">A cultural experience package: 2-course traditional dinner with premium seating for the live folklore show.</p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>890 Views</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span>22 Claims</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary font-label-md py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container shadow-sm transition-colors text-center">Manage</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-24 md:bottom-lg right-margin-mobile md:right-margin-desktop z-40 bg-primary text-on-primary rounded-full w-16 h-16 shadow-[0_8px_24px_rgba(171,53,0,0.35)] hover:shadow-[0_12px_32px_rgba(171,53,0,0.45)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group">
+<span class="material-symbols-outlined text-3xl group-active:scale-90 transition-transform">add</span>
+<!-- Tooltip for desktop -->
+<span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm px-3 py-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden md:block">Create New Request</span>
+</button>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 rounded-t-lg border-t border-outline-variant/30 shadow-[0_-4px_12px_rgba(0,78,100,0.15)] flex justify-around items-center px-2 pb-4 pt-2">
+<!-- Inactive: Business -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all rounded-xl active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<span class="font-label-sm text-label-sm">Business</span>
+</a>
+<!-- Active: Promos -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-xl px-4 py-1 active:scale-90 transition-transform duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined mb-1 text-primary" style="font-variation-settings: 'FILL' 1;">local_activity</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">Promos</span>
+</a>
+<!-- Inactive: Stats -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all rounded-xl active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+<!-- Inactive: Profile -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all rounded-xl active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Travel - Route Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#001f29",
+                      "primary-fixed-dim": "#ffb59d",
+                      "primary": "#ab3500",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#001f28",
+                      "tertiary": "#00677e",
+                      "on-error": "#ffffff",
+                      "secondary": "#27657c",
+                      "surface-tint": "#ab3500",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#594139",
+                      "outline-variant": "#e1bfb5",
+                      "surface-variant": "#f7ddd5",
+                      "primary-container": "#ff6b35",
+                      "tertiary-fixed": "#b5ebff",
+                      "secondary-container": "#a8e2fd",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#bce9ff",
+                      "surface-dim": "#eed5cd",
+                      "on-background": "#261814",
+                      "surface-container-high": "#fde3db",
+                      "surface": "#fff8f6",
+                      "tertiary-container": "#00a7cb",
+                      "on-primary-container": "#5f1900",
+                      "surface-bright": "#fff8f6",
+                      "on-surface": "#261814",
+                      "background": "#fff8f6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#390c00",
+                      "on-tertiary-container": "#003744",
+                      "surface-container-low": "#fff1ed",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#ffb59d",
+                      "surface-container": "#ffe9e3",
+                      "primary-fixed": "#ffdbd0",
+                      "inverse-surface": "#3c2d28",
+                      "inverse-on-surface": "#ffede8",
+                      "on-secondary-container": "#28667d",
+                      "on-primary-fixed-variant": "#832600",
+                      "outline": "#8d7168",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "surface-container-highest": "#f7ddd5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "margin-mobile": "20px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "lg": "40px",
+                      "gutter": "16px",
+                      "margin-desktop": "120px",
+                      "xl": "64px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Map Gradient Overlay */
+        .map-gradient {
+            background: linear-gradient(to bottom, transparent 60%, var(--tw-colors-background) 100%);
+        }
+
+        /* Timeline Styles */
+        .timeline-line {
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            width: 2px;
+            background-color: var(--tw-colors-surface-variant);
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+        
+        .timeline-node {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ambient Shadows */
+        .ambient-shadow-1 {
+            box-shadow: 0 4px 12px rgba(0, 78, 100, 0.05), 0 1px 3px rgba(0, 78, 100, 0.02);
+        }
+        
+        .ambient-shadow-2 {
+            box-shadow: 0 12px 24px rgba(0, 78, 100, 0.08), 0 4px 8px rgba(0, 78, 100, 0.04);
+        }
+
+        /* Hide scrollbar for horizontal scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Pulse animation for active node */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        .active-node::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background-color: var(--tw-colors-primary);
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased pb-24 md:pb-0">
+<!-- Top App Bar (Web / hidden on mobile if full nav, but keeping as anchor here) -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-surface-dim/80 flex justify-between items-center px-margin-mobile py-base w-full sticky top-0 z-50 shadow-sm hidden md:flex">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close up, high quality photo of a young, happy traveler with a slight smile. The lighting is soft and natural, suggesting an optimistic and modern travel experience. Warm, inviting tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM4TyHivlqKBqze_73uRvgqR1-8BsWPJ0C0F4aE47AeqUB003e2Q1uBk9VeS9vFAcsFG-YrCWip-tcU9xrcsiVcZFXE_jQA4pfaJJENvP8ceCGP11-DxZTYDJIE0n_X0rDKtchFW8gGhZn_Q2MXgegq9NWWSQNrCsQaefxioQct-DFFyfVFwP8T-9QvKoyLGnjkoHce5lKvB9DGCowqH1E18HiVlDkGKpvsnN9gNXtRCNpTpAGsixAYQ">
+</div>
+<h1 class="font-display-lg text-headline-lg text-primary dark:text-primary-fixed tracking-tight">TravelSmart AI</h1>
+</div>
+<div class="flex items-center gap-md">
+<nav class="flex gap-md">
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg" href="#">Explore</a>
+<a class="font-title-md text-title-md text-primary font-bold hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg active:scale-95 duration-200" href="#">Travel</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg" href="#">Pass</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg" href="#">Play</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-2 rounded-lg" href="#">Journey</a>
+</nav>
+<div class="font-label-md text-label-md bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-bold">
+                1,250 pts
+            </div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-7xl mx-auto md:px-margin-desktop">
+<!-- Interactive Map Section -->
+<section class="relative w-full h-[50vh] md:h-[60vh] md:rounded-b-3xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern digital map showing a route winding through a mountainous region. The map uses a light, clean aesthetic with warm, off-white background tones. A bold, vibrant orange line traces the path from a coastal city towards a prominent, stylized mountain peak. The terrain is subtly shaded to indicate elevation. Bright, optimistic, and highly legible interface design." data-location="Montserrat, Spain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1vMYfjtsciuIppNn5BYE01Csygx7DEye2wwExxnVFdKMneQ5FL8Q39KpiOuZjGveFMWjOSl703U0wPHbMOdfqRmedvpYeG0y8I4NJIiqDFN610SDJ1pEInBH1jlRvvRlTYIz3Z-BmbomLOyaoV4YJtH3iLbTWdtK28rABwr8XIn0-sqrFaK9Fgt_t38juR_Wo6UC5Vm0cQwF47dPZZg3RF05FAgev3mj8MOWSWoUCtJfJvv96oA2L6A">
+</div>
+<!-- Map Overlay Gradient for smooth transition to content -->
+<div class="absolute inset-0 map-gradient z-10 pointer-events-none md:hidden"></div>
+<!-- Floating Navigation Controls on Map -->
+<div class="absolute top-safe-top right-margin-mobile mt-4 flex flex-col gap-sm z-20">
+<button class="w-12 h-12 bg-surface/90 backdrop-blur-md rounded-full flex items-center justify-center text-secondary ambient-shadow-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+<button class="w-12 h-12 bg-surface/90 backdrop-blur-md rounded-full flex items-center justify-center text-secondary ambient-shadow-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">layers</span>
+</button>
+</div>
+<!-- Route Summary Pill (Floating) -->
+<div class="absolute bottom-6 left-margin-mobile right-margin-mobile md:bottom-auto md:top-8 md:left-8 md:right-auto z-20">
+<div class="bg-surface/95 backdrop-blur-xl rounded-2xl p-4 ambient-shadow-2 border border-surface-variant/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Current Journey</p>
+<h2 class="font-title-md text-title-md text-on-surface">Barcelona <span class="text-primary mx-1">→</span> Montserrat</h2>
+</div>
+<div class="text-right">
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary">45m</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Remaining</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="px-margin-mobile md:px-0 py-lg md:py-xl grid grid-cols-1 md:grid-cols-12 gap-lg relative z-20">
+<!-- Left Column: Route Details & Timeline -->
+<div class="md:col-span-5 flex flex-col gap-md">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">All Stops</h3>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:opacity-80">
+                        View Map <span class="material-symbols-outlined text-[18px]">open_in_full</span>
+</button>
+</div>
+<!-- Vertical Timeline Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 ambient-shadow-1 border border-surface-variant/30">
+<div class="flex flex-col">
+<!-- Completed Stop -->
+<div class="relative timeline-item pb-6">
+<div class="timeline-line"></div>
+<div class="flex gap-4">
+<div class="timeline-node w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center mt-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1 opacity-60">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface text-base">Plaza Catalunya</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">09:00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Departure point</p>
+</div>
+</div>
+</div>
+<!-- Current/Active Stop -->
+<div class="relative timeline-item pb-6">
+<div class="timeline-line"></div>
+<div class="flex gap-4">
+<div class="timeline-node active-node w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-1 flex-shrink-0">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface text-base font-bold">Monistrol de Montserrat</h4>
+<span class="font-label-md text-label-md text-primary font-bold">10:15</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Transfer to Rack Railway</p>
+<!-- Contextual Info Card within Timeline -->
+<div class="mt-3 bg-surface-container-low rounded-xl p-3 flex items-start gap-3 border border-surface-variant/50">
+<span class="material-symbols-outlined text-secondary mt-0.5">info</span>
+<p class="font-body-md text-body-md text-on-surface text-sm">Have your tickets ready for the Cremallera. Train departs from Platform 2.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Stop -->
+<div class="relative timeline-item pb-6">
+<div class="timeline-line"></div>
+<div class="flex gap-4">
+<div class="timeline-node w-6 h-6 rounded-full bg-surface-variant border-2 border-surface flex items-center justify-center mt-1 flex-shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-title-md text-title-md text-on-surface text-base">Montserrat Monastery</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">10:45</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Final Destination</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Actions & Discovery -->
+<div class="md:col-span-7 flex flex-col gap-lg mt-4 md:mt-0">
+<!-- Featured Action Bento Box -->
+<div class="bg-primary rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-on-primary relative overflow-hidden ambient-shadow-2 cursor-pointer group hover:-translate-y-1 transition-all duration-300">
+<!-- Subtle background pattern/gradient -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-surface-tint opacity-80 z-0"></div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+<div class="flex-1 relative z-10">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2 block">Arriving Soon</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Explore Montserrat</h2>
+<p class="font-body-md text-body-md text-primary-fixed opacity-90 mb-4">Discover the magic of the holy mountain before you arrive. Listen to the Boys' Choir or preview the hiking trails.</p>
+<button class="bg-on-primary text-primary font-label-md text-label-md px-6 py-3 rounded-full flex items-center gap-2 hover:bg-surface-container-lowest transition-colors shadow-sm w-fit group-hover:shadow-md">
+                            Start Discovery
+                            <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden relative z-10 border-4 border-on-primary/20 shadow-inner hidden md:block">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A breathtaking, cinematic shot of the Montserrat monastery nestled high in the unique, rounded rock formations of the Catalan mountains. The scene is bathed in golden hour sunlight, creating a warm, inviting, and majestic atmosphere. High definition, vibrant colors, emphasizing the fusion of nature and architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcz92YlGwpitE5sJ9zY15fKckxE0mrTIwlBntfN488bPKtZYQzrAgmv6BBGC_tc2B7143-C-PwRu3jOEH7oBLBblQXLw_2qwZS6fIC79M1J7JNB_yz5H3GE4_ta8RH5K2s7Ic1OwXbFjMWhnTUtGjyaBUY3QbGCwtq6Aq2wf3ib1HBCKBezW1HDcu7tplphMdr0I7Es8aLvtOroVi5PAlahYDElKvaZqj1cAirmtBMtKvNVP51pocowQ">
+</div>
+</div>
+<!-- Culture & Multimedia Preview Section -->
+<div class="flex flex-col gap-sm mt-2">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-title-md text-title-md text-on-background">Preparation &amp; Culture</h3>
+</div>
+<!-- Horizontal Scrolling Bento List -->
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Podcast Card -->
+<div class="min-w-[240px] w-[240px] bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow-1 flex flex-col flex-shrink-0 cursor-pointer hover:shadow-md transition-shadow">
+<div class="h-32 bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="A stylized digital illustration of an antique, ornate chalice or grail, glowing softly against a dark, mystical background. The artwork uses rich teals and warm golds, evoking a sense of ancient history and legend. Clean lines, modern iconographic style mixed with detailed shading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7GkYyUgHSXjleQWlqmLpk9RQISjVIUhZhSFlNnuXV61QWFF0yH6zB2IQBpxo_RFXW6rzZt7lgRJDJuYMOOmgfHjxQqBEMzc0fISmL5Mrav4JMtgApNprJo8O8UttMTK8m10wzRH-phyccFEsIKSn0NcfGKHj07fWygOHud8146ajkHYWZ6-jljrfWkpDhXlAK4nHaW3SMee2VJnzcKWGb7cEEl-xaddODeAE55Y-kEptmDBc2P2MIhg">
+<div class="absolute bottom-2 right-2 w-8 h-8 bg-surface/90 backdrop-blur-sm rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+</div>
+<div class="p-4">
+<span class="font-label-sm text-label-sm text-tertiary mb-1 block">Audio Guide • 12m</span>
+<h4 class="font-title-md text-title-md text-on-surface text-base line-clamp-2">Legends of the Holy Grail</h4>
+</div>
+</div>
+<!-- Video Card -->
+<div class="min-w-[240px] w-[240px] bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow-1 flex flex-col flex-shrink-0 cursor-pointer hover:shadow-md transition-shadow">
+<div class="h-32 bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="A high-quality action photograph of a hiker standing on a rocky precipice overlooking a vast valley. The view is spectacular, with the unique rounded peaks of Montserrat in the background. Bright, clear daylight, energetic and adventurous mood, warm light theme aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pyroMblO2FafucEmRTiT6Z8d13mNoqJG3gYBwXqDRsV7F-7yhFZnocYSXFVR9lOcNPsHkrOynQNWC5b5rS58DhQXt-G6CXYmnhO2X-lAE2ovMlnTAuLk57fUlKtf-YCQKIOnDayXV5gRIsPUtWOtezlsM8n8S0PrULbdxv0va-ydW-98Qpmxb1Y7RYYClUsAIQVPx-YedQ1V9XqHfu_sRFBv0xSAsjK0CaCTNgRTtw7DJDBaDsx0xw">
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors">
+<div class="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-on-background pl-1">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded text-xs font-bold text-on-background">
+                                    3:45
+                                </div>
+</div>
+<div class="p-4">
+<span class="font-label-sm text-label-sm text-secondary mb-1 block">Video • Trail Preview</span>
+<h4 class="font-title-md text-title-md text-on-surface text-base line-clamp-2">Sant Jeroni Peak Trail Walkthrough</h4>
+</div>
+</div>
+<!-- Gallery Card -->
+<div class="min-w-[240px] w-[240px] bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow-1 flex flex-col flex-shrink-0 cursor-pointer hover:shadow-md transition-shadow">
+<div class="h-32 grid grid-cols-2 gap-1 p-1 bg-surface-variant">
+<img class="w-full h-full object-cover rounded-tl-xl" data-alt="Close up architectural detail of intricate stone carvings on a Gothic facade. Warm, sunlit stone texture, high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7TVWXMgvXFzlha-3uQnzYd7-SehAZ0Zj6WFRqByYNIZlgNkCT1HLrROWfvpu3GzLQYGv5SvyPWnimA5iwsfaD9dfz_IJ1bvsykjVkjtjQQ8pw5zdcysBmA71WrdnVGouMGNfjWIvQBfRUh8Pb2uJxNhJQX78DoDMA-HtmcYHweXO1Rwfe_rHMIlQ4-wp4E91hb-i_RdNKQ5f56kISzJl6Ql8VuA7ZLChCTCA_qwzjPMS6mUon1gGw8w">
+<img class="w-full h-full object-cover rounded-tr-xl" data-alt="A wide interior shot of a majestic, dimly lit basilica featuring glowing golden lamps and ornate stained glass windows. Atmospheric and reverent." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX-24-cqPZfVch_B5VQefUvN4bD76eLe4bdb4ydN3UusUM5gwQYszegcJz6V9Ro9-YERaidfZHOjGEdZ2gUgte24QZGKHeV27ELMztFocGTJ9flTyEt7ecVAc5dELXn2qn6mP5IWYX9Na9_m41ZpI_ZIFvN1t5BonrzV3fkBFKAEsosZc2VpxSbfySno1zM9FOukKgwuGdOqIU-qE_zNkq7-Er8j_B4_3YnXHqGyxUL8-lyxJkehtMEA">
+<img class="w-full h-full object-cover rounded-bl-xl" data-alt="A vibrant shot of a funicular railway car ascending a steep, lush green mountain slope against a bright blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHwYXY6dld2YFzHqWS8hd_NaUv6zdNbs169DcTx54Jw-5fGrpEzmsbjY3iijgMBVt-I81BAHXgasAGs12ScAHZg2eEQZeiE6sSiniEAHLaeDMiesO4pxKAE0z44LKF4AU2rWyizk5KEfYvhog-qARySLQHWH3zsyHpOh3SI2YLYF63gND2M3KYCQbjqEul6SzcmPA_Akau2UscTUAyW0Gydq5C6MmKXP7_4X9bX_ufnW6vzjiyrCh3Vw">
+<div class="w-full h-full bg-secondary-container rounded-br-xl flex items-center justify-center text-on-secondary-container font-title-md text-title-md">
+                                    +12
+                                </div>
+</div>
+<div class="p-4">
+<span class="font-label-sm text-label-sm text-tertiary mb-1 block">Gallery</span>
+<h4 class="font-title-md text-title-md text-on-surface text-base line-clamp-2">Visual Tour of the Basilica</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="bg-surface/90 backdrop-blur-lg dark:bg-surface-container-lowest/90 fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 shadow-lg rounded-t-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] md:hidden border-t-0">
+<!-- Explore (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-sm text-label-sm-mobile">Explore</span>
+</a>
+<!-- Travel (Active Match) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1 text-primary font-bold" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-sm text-label-sm-mobile text-primary font-bold">Travel</span>
+</a>
+<!-- Pass (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm-mobile">Pass</span>
+</a>
+<!-- Play (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">sports_esports</span>
+<span class="font-label-sm text-label-sm-mobile">Play</span>
+</a>
+<!-- Journey (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">route</span>
+<span class="font-label-sm text-label-sm-mobile">Journey</span>
+</a>
+</nav>
+<!-- Safe area spacing for mobile -->
+<div class="h-safe-bottom"></div>
+</body></html>

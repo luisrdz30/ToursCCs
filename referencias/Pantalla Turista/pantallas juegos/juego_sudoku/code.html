@@ -1,0 +1,398 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Sudoku - Hard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb59d",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e1bfb5",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "inverse-surface": "#3c2d28",
+                        "tertiary": "#00677e",
+                        "primary-container": "#ff6b35",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#ab3500",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-variant": "#f7ddd5",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#eed5cd",
+                        "surface-container-high": "#fde3db",
+                        "secondary-container": "#a8e2fd",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#b5ebff",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#003744",
+                        "on-secondary-fixed": "#001f29",
+                        "on-surface-variant": "#594139",
+                        "on-primary": "#ffffff",
+                        "on-background": "#261814",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface-container-low": "#fff1ed",
+                        "on-secondary": "#ffffff",
+                        "primary": "#ab3500",
+                        "primary-fixed": "#ffdbd0",
+                        "secondary": "#27657c",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-surface": "#261814",
+                        "surface-container": "#ffe9e3",
+                        "on-primary-container": "#5f1900",
+                        "outline": "#8d7168",
+                        "surface": "#fff8f6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-secondary-container": "#28667d",
+                        "tertiary-container": "#00a7cb",
+                        "inverse-on-surface": "#ffede8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "margin-desktop": "120px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .sudoku-cell {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #261814;
+            background-color: #ffffff;
+            border: 1px solid #e1bfb5;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .sudoku-cell.prefilled {
+            color: #004e63;
+            background-color: #f7ddd5;
+            cursor: default;
+        }
+        .sudoku-cell.selected {
+            background-color: #a8e2fd;
+            border-color: #00677e;
+        }
+        .sudoku-cell.error {
+            color: #ba1a1a;
+            background-color: #ffdad6;
+        }
+        .sudoku-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 1px;
+            background-color: #004e63;
+            border: 2px solid #004e63;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        /* Thick borders for 3x3 subgrids */
+        .sudoku-cell:nth-child(3n) { border-right: 2px solid #004e63; }
+        .sudoku-cell:nth-child(9n) { border-right: none; }
+        .sudoku-cell:nth-child(n+19):nth-child(-n+27),
+        .sudoku-cell:nth-child(n+46):nth-child(-n+54) { border-bottom: 2px solid #004e63; }
+        
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 248, 246, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col pb-24">
+<!-- TopAppBar (Hidden on Mobile, visible on md+) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary">Explore Culture</h1>
+</div>
+<nav class="flex gap-md">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#">Travel</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#">Pass</a>
+<a class="text-primary font-bold font-label-md border-b-2 border-primary pb-1" href="#">Play</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#">Journey</a>
+</nav>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-title-md border border-outline-variant shadow-sm cursor-pointer hover:bg-tertiary-container transition-colors">
+                U
+            </div>
+</div>
+</header>
+<!-- Mobile Header (Minimal) -->
+<div class="md:hidden flex items-center justify-between p-margin-mobile mt-4">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">Sudoku</h2>
+<p class="font-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-error"></span> Hard
+            </p>
+</div>
+<div class="bg-surface-container-high px-sm py-xs rounded-full shadow-sm flex items-center gap-xs"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascot" class="w-6 h-6 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">timer</span>
+<span class="font-label-md text-on-surface-variant" id="timer">12:45</span>
+</div>
+</div>
+<!-- Desktop Title area -->
+<div class="hidden md:flex flex-col items-center justify-center mt-24 mb-md">
+<h2 class="font-headline-lg text-headline-lg text-on-background">Sudoku Classic</h2>
+<div class="flex items-center gap-md mt-sm">
+<div class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-md shadow-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span> Hard
+             </div>
+<div class="bg-surface-container-high px-sm py-xs rounded-full shadow-sm flex items-center gap-xs"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascot" class="w-6 h-6 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">timer</span>
+<span class="font-label-md text-on-surface-variant" id="timer-desktop">12:45</span>
+</div>
+</div>
+</div>
+<!-- Main Game Area -->
+<main class="flex-1 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full flex flex-col items-center">
+<!-- Game Container Card -->
+<div class="bg-surface-container-lowest p-sm md:p-md rounded-[32px] shadow-[0_8px_32px_rgba(0,78,100,0.1)] border border-surface-variant w-full max-w-md mx-auto relative overflow-hidden">
+<!-- Subtle background accent -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Sudoku Grid -->
+<div class="sudoku-grid" id="sudoku-board">
+<!-- Row 1 -->
+<div class="sudoku-cell prefilled">5</div>
+<div class="sudoku-cell prefilled">3</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">7</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<!-- Row 2 -->
+<div class="sudoku-cell prefilled">6</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">1</div>
+<div class="sudoku-cell prefilled">9</div>
+<div class="sudoku-cell prefilled">5</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<!-- Row 3 -->
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">9</div>
+<div class="sudoku-cell prefilled">8</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">6</div>
+<div class="sudoku-cell"></div>
+<!-- Row 4 -->
+<div class="sudoku-cell prefilled">8</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">6</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">3</div>
+<!-- Row 5 -->
+<div class="sudoku-cell prefilled">4</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">8</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">3</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">1</div>
+<!-- Row 6 -->
+<div class="sudoku-cell prefilled">7</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">2</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">6</div>
+<!-- Row 7 -->
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">6</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">2</div>
+<div class="sudoku-cell prefilled">8</div>
+<div class="sudoku-cell"></div>
+<!-- Row 8 -->
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">4</div>
+<div class="sudoku-cell prefilled">1</div>
+<div class="sudoku-cell prefilled">9</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">5</div>
+<!-- Row 9 -->
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">8</div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell"></div>
+<div class="sudoku-cell prefilled">7</div>
+<div class="sudoku-cell prefilled">9</div>
+</div>
+<!-- Controls Row -->
+<div class="flex justify-between items-center mt-md px-sm">
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors active:scale-95 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary-container/20 group-hover:shadow-[0_4px_12px_rgba(171,53,0,0.15)] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">undo</span>
+</div>
+<span class="font-label-sm">Undo</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-error transition-colors active:scale-95 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-error-container group-hover:shadow-[0_4px_12px_rgba(186,26,26,0.15)] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">ink_eraser</span>
+</div>
+<span class="font-label-sm">Erase</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-tertiary transition-colors active:scale-95 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-secondary-container group-hover:shadow-[0_4px_12px_rgba(0,103,126,0.15)] transition-all relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">lightbulb</span>
+<span class="absolute -top-1 -right-1 bg-tertiary text-on-tertiary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">3</span>
+</div>
+<span class="font-label-sm">Hint</span>
+</button>
+</div>
+<!-- Number Pad -->
+<div class="grid grid-cols-5 gap-sm mt-md">
+<!-- 1-5 -->
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">1</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">2</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">3</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">4</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">5</button>
+<!-- 6-9 + Pencil mode -->
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">6</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">7</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">8</button>
+<button class="aspect-square rounded-[16px] bg-surface-container-low text-on-surface font-title-md shadow-[0_2px_8px_rgba(0,78,100,0.05)] hover:bg-surface-container hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,78,100,0.1)] active:scale-95 transition-all flex items-center justify-center border border-outline-variant/30 text-2xl">9</button>
+<!-- Pencil / Notes toggle -->
+<button class="aspect-square rounded-[16px] bg-secondary text-on-secondary font-title-md shadow-[0_4px_12px_rgba(39,101,124,0.3)] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(39,101,124,0.4)] active:scale-95 transition-all flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-transparent to-white/20 pointer-events-none"></div>
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">edit</span>
+<span class="text-[10px] font-bold tracking-wider opacity-90">NOTES</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on md+) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-base pb-safe h-20 bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,78,100,0.15)] z-50 rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out w-16 h-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out w-16 h-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">flight_takeoff</span>
+<span class="font-label-sm text-label-sm">Travel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out w-16 h-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Pass</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out w-16 h-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-300 ease-out w-16 h-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm">Journey</span>
+</a>
+</nav>
+<!-- Mascota IA FAB -->
+<button class="fixed bottom-24 md:bottom-8 right-4 w-14 h-14 bg-gradient-to-tr from-primary to-inverse-primary rounded-full shadow-[0_8px_24px_rgba(171,53,0,0.3)] flex items-center justify-center z-40 hover:scale-105 active:scale-95 transition-transform duration-300 animate-[pulse_3s_ease-in-out_infinite] border-2 border-surface-bright">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<script>
+        // Simple cell selection logic for interaction demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const cells = document.querySelectorAll('.sudoku-cell:not(.prefilled)');
+            
+            cells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    // Remove selected class from all
+                    document.querySelectorAll('.sudoku-cell').forEach(c => c.classList.remove('selected'));
+                    // Add to clicked
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

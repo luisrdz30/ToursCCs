@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tu Álbum de Cromos - TravelSmart</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#a8e2fd",
+                    "secondary": "#27657c",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#e1bfb5",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#001f29",
+                    "surface-variant": "#f7ddd5",
+                    "surface-bright": "#fff8f6",
+                    "inverse-on-surface": "#ffede8",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#f7ddd5",
+                    "primary-fixed": "#ffdbd0",
+                    "inverse-surface": "#3c2d28",
+                    "tertiary-fixed": "#b5ebff",
+                    "on-tertiary-container": "#003744",
+                    "primary": "#ab3500",
+                    "outline": "#8d7168",
+                    "surface": "#fff8f6",
+                    "surface-tint": "#ab3500",
+                    "primary-container": "#ff6b35",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#001f28",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff1ed",
+                    "on-secondary-container": "#28667d",
+                    "tertiary": "#00677e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-primary-container": "#5f1900",
+                    "on-background": "#261814",
+                    "surface-container": "#ffe9e3",
+                    "tertiary-container": "#00a7cb",
+                    "on-primary-fixed": "#390c00",
+                    "secondary-fixed": "#bce9ff",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "surface-container-high": "#fde3db",
+                    "background": "#fff8f6",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#594139",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#261814",
+                    "on-primary-fixed-variant": "#832600",
+                    "primary-fixed-dim": "#ffb59d",
+                    "surface-dim": "#eed5cd",
+                    "inverse-primary": "#ffb59d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "40px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "margin-desktop": "120px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "title-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom animation for Mascota IA */
+        @keyframes gentle-breath {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.05) translateY(-4px); }
+        }
+        .animate-breath {
+            animation: gentle-breath 4s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 flex justify-between items-center px-margin-mobile py-base bg-surface-bright/95 backdrop-blur-sm shadow-[0_2px_8px_rgba(39,101,124,0.05)] transition-all duration-300 h-[72px]">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high shadow-sm">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a modern, happy traveler with short hair, wearing a casual mustard-yellow jacket. The lighting is bright and sunny, fitting a clean, light-mode interface aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9_Vme44Np9adf2QF_2-PLcMA6MiSjQEYjrPWYXBWiIDGYNKOer6etdfhIDsF2D6IwaVkDKSBozVT_pTQJo3wpOCn4IKZ5KjaXVRhPxVyy0CSqpxXeltE9jn33dFYCo2Av-QRUyaYBzQmqQkpYzCSOS5JGrju7uGlkLqlhB8VTkzVoT3qY45vpH7BddNWQkdhllpBWNjG_HQqpn9Bf_XnTAG1DX03MTeqzILYhKLhYE12wfPOUYgibkQ">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">TravelSmart</h1>
+</div>
+<div class="flex items-center">
+<span class="font-title-md text-title-md text-primary bg-primary-fixed/50 px-sm py-xs rounded-full shadow-sm">1,250 pts</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[96px] pb-[120px] px-margin-mobile max-w-7xl mx-auto">
+<!-- Header Section: Title & Progress -->
+<section class="mb-lg">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-base font-extrabold tracking-tight">Tu Álbum de Cromos</h2><div class="absolute right-margin-mobile top-[100px] w-32 h-32 z-10 pointer-events-none animate-breath">
+  <img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascota del Álbum" class="w-full h-full object-contain drop-shadow-lg">
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-md shadow-[0_4px_16px_rgba(39,101,124,0.08)] border border-surface-container-high relative overflow-hidden">
+<!-- Decorative background subtle element -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-secondary-container/30 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-end mb-sm relative z-10">
+<p class="font-title-md text-title-md text-on-surface">Progreso del Viaje</p>
+<span class="font-label-md text-label-md text-tertiary bg-tertiary-fixed px-sm py-xs rounded-full">12 / 30 Cromos</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-[12px] w-full bg-surface-variant rounded-full overflow-hidden shadow-inner relative z-10">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="h-full bg-tertiary-container rounded-full w-[40%] transition-all duration-1000 ease-out relative overflow-hidden" role="progressbar">
+<!-- Shine effect on progress bar -->
+<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactivity: Scan QR Action -->
+<section class="mb-lg flex justify-center">
+<button class="group flex items-center gap-sm bg-primary text-on-primary font-title-md text-title-md px-xl py-sm rounded-full shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3),0px_6px_16px_rgba(171,53,0,0.25)] hover:-translate-y-1 hover:shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3),0px_10px_24px_rgba(171,53,0,0.35)] transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">qr_code_scanner</span>
+                Scan QR for new Sticker
+            </button>
+</section>
+<!-- Grid Section: The Sticker Album -->
+<section>
+<div class="grid grid-cols-3 gap-base md:gap-md">
+<!-- Unlocked Sticker 1 (Portrait) -->
+<article class="aspect-[3/4] rounded-[16px] overflow-hidden relative shadow-[0_8px_20px_rgba(39,101,124,0.15)] bg-surface transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer group">
+<img class="w-full h-full object-cover saturate-110" data-alt="A highly detailed, vibrant digital illustration of a traditional Spanish flamenco dancer in a flowing red dress. Designed as a collectible digital sticker with a subtle white outline, set against a pristine, light-mode background. The mood is energetic and culturally rich." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1mYE3o2Dc0OOARLVwP327GITk1Hskdnan6wvE65VbCWfmzNdNjbySvmRZtT5PazuXNsrrluO47eWZG-63sJtUI2zFKvBr1PnQ2-Zc4qKc85wKv1qIsDIIuGBotbOg4HNwU5F6nPn0McmWl9neJ-S4uKS01RJglCrqgooOdoNtD3J3R8z96CKHK-1lyKBUUSas56cILIPYvRW98gLb-hE2uYelqSqbwRNBSLEkDVkF3JSE5r2re2zgoQ">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-sm">
+<p class="text-on-primary font-label-sm text-label-sm">Flamenco Soul</p>
+</div>
+</article>
+<!-- Unlocked Sticker 2 (Landscape/Square fit) -->
+<article class="aspect-[3/4] rounded-[16px] overflow-hidden relative shadow-[0_8px_20px_rgba(39,101,124,0.15)] bg-surface transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer group">
+<img class="w-full h-full object-cover saturate-110" data-alt="A stylized, colorful vector illustration of a steaming plate of authentic Paella Valenciana, rich in yellows and oranges. Functioning as a virtual sticker album item with a crisp white border, styled for a modern, bright UI. Warm, appetizing lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFg7n7vbjYSXOkMxHTEGYDotT_3tiAJF81ygloJcmWv4M3DpHFYdgGqs0lbY0wdVjwWnnTmNNRVKCOKJEQQsNIclMO29U27lnvwKxVP1_sgKTHp2gqo4CFbTQBXofeTiq2HpbMcGoWV8bgVfaE9eungX5hIlyDuM0RNF-EB0j2wekGfrugW8jp8avLzLcakE9fjvBzhslJ8mfbZYJ5JiK9e3fWfMtWScHjQWIwtUWEI3uj63m6j4foeg">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-sm">
+<p class="text-on-primary font-label-sm text-label-sm">Paella Real</p>
+</div>
+</article>
+<!-- Locked Sticker 1 (Slot metaphor) -->
+<article class="aspect-[3/4] rounded-[16px] border-[3px] border-dashed border-outline/30 bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 bg-surface-variant/20 rounded-[13px]"></div>
+<span class="material-symbols-outlined text-outline text-4xl mb-xs opacity-50">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-60">Cromo 03</span>
+</article>
+<!-- Unlocked Sticker 3 (Monument) -->
+<article class="aspect-[3/4] rounded-[16px] overflow-hidden relative shadow-[0_8px_20px_rgba(39,101,124,0.15)] bg-surface transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer group">
+<img class="w-full h-full object-cover saturate-110" data-alt="An isometric, highly stylized 3D render of the Sagrada Familia basilica, bathed in bright morning sunlight. Designed to look like a premium digital collectible sticker within a modern, light-themed app interface. Architectural details are clear and vibrant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgMHRZfyvnezt42CB0eb4we3RpDh6rvzVOHAUF3OSdltgJ3iSZZ_QgoVE-WQbh9MRxRunb3d67dR-K7lwjJuxyJpFgqdfvtUQmpbf-_qGu71-ax-IKT08bMlPFMq4WCJlKg9kqgcpTDbvUqsMgkqwQCfN-yvcU7l0y7F8oVdJZAp964BCxsS2Q4-rGMs9yLeVmAnQd7cXkaKTloCzZimz7My-ZYK-u3JxLVmVESc24Veg4J9jqP1qCzQ">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-sm">
+<p class="text-on-primary font-label-sm text-label-sm">Sagrada</p>
+</div>
+</article>
+<!-- Locked Sticker 2 -->
+<article class="aspect-[3/4] rounded-[16px] border-[3px] border-dashed border-outline/30 bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 bg-surface-variant/20 rounded-[13px]"></div>
+<span class="material-symbols-outlined text-outline text-4xl mb-xs opacity-50">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-60">Cromo 05</span>
+</article>
+<!-- Locked Sticker 3 -->
+<article class="aspect-[3/4] rounded-[16px] border-[3px] border-dashed border-outline/30 bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 bg-surface-variant/20 rounded-[13px]"></div>
+<span class="material-symbols-outlined text-outline text-4xl mb-xs opacity-50">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-60">Cromo 06</span>
+</article>
+<!-- Locked Sticker 4 -->
+<article class="aspect-[3/4] rounded-[16px] border-[3px] border-dashed border-outline/30 bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 bg-surface-variant/20 rounded-[13px]"></div>
+<span class="material-symbols-outlined text-outline text-4xl mb-xs opacity-50">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-60">Cromo 07</span>
+</article>
+<!-- Unlocked Sticker 4 (Cultural Icon) -->
+<article class="aspect-[3/4] rounded-[16px] overflow-hidden relative shadow-[0_8px_20px_rgba(39,101,124,0.15)] bg-surface transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer group">
+<img class="w-full h-full object-cover saturate-110" data-alt="A cute, modern vector illustration of a ceramic Spanish azulejo tile pattern, acting as a colorful digital sticker. It features rich blues and yellows, sitting perfectly within a light-mode layout. The overall feel is cheerful and discovery-oriented." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw34torZp7yPH4kFA0dcR2gfrxBmmL1sm-m3ka5R1ijDbP2u2TrKf0sDLw0YyC5T-ZyXfK-IgaY9dhdc66R6va8YgeQYACqfLtzxB3-n7bKi5dNImbDvT-T697m38PlrNEZy0BzkKNdjhqz7f2zyCvZ6TW-NUJbf4WafRdFlhpI5lkoHpPkWqFGjx6Zx0U8ip55VNrsJTxVrFL8vrsCFemQ7sIHhbHnFkR7yxL57vKZZP_0UPQhIT4MA">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-sm">
+<p class="text-on-primary font-label-sm text-label-sm">Azulejo</p>
+</div>
+</article>
+<!-- Locked Sticker 5 -->
+<article class="aspect-[3/4] rounded-[16px] border-[3px] border-dashed border-outline/30 bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 bg-surface-variant/20 rounded-[13px]"></div>
+<span class="material-symbols-outlined text-outline text-4xl mb-xs opacity-50">lock</span>
+<span class="font-label-sm text-label-sm text-outline opacity-60">Cromo 09</span>
+</article>
+</div>
+</section>
+</main>
+<!-- Mascota IA (Floating Widget) -->
+<div class="fixed bottom-24 right-margin-mobile z-40">
+<button class="w-[60px] h-[60px] rounded-[32px] bg-tertiary text-on-tertiary flex items-center justify-center shadow-[0_8px_24px_rgba(0,103,126,0.35)] hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors duration-300 animate-breath group">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">smart_toy</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 pb-4 pt-2 bg-surface/85 dark:bg-surface-dim/80 backdrop-blur-lg rounded-t-[24px] shadow-[0_-4px_24px_rgba(39,101,124,0.08)] border-t border-outline-variant/20">
+<!-- Explore -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group w-14" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:-translate-y-1 transition-transform">explore</span>
+<span class="font-label-sm text-label-sm text-[10px]">Explore</span>
+</a>
+<!-- Travel -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group w-14" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:-translate-y-1 transition-transform">directions_bus</span>
+<span class="font-label-sm text-label-sm text-[10px]">Travel</span>
+</a>
+<!-- Pass -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group w-14" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:-translate-y-1 transition-transform">qr_code</span>
+<span class="font-label-sm text-label-sm text-[10px]">Pass</span>
+</a>
+<!-- Play (Active Tab Semantic Mapping for Sticker Album) -->
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container text-on-primary-container rounded-full px-2 py-1 hover:brightness-105 transition-all scale-105 duration-150 shadow-sm w-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-label-sm text-label-sm font-bold text-[10px]">Play</span>
+</a>
+<!-- Journey -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group w-14" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:-translate-y-1 transition-transform">map</span>
+<span class="font-label-sm text-label-sm text-[10px]">Journey</span>
+</a>
+</nav>
+<!-- Inline script for simple micro-interactions -->
+<script>
+        document.querySelectorAll('article.group').forEach(card => {
+            card.addEventListener('click', function() {
+                // Simple ripple or scale effect on click
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+
+
+</body></html>

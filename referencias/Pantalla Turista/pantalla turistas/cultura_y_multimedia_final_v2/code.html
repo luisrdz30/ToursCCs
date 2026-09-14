@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TravelSmart AI - Culture &amp; Multimedia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#5f1900",
+                        "on-surface": "#261814",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface-variant": "#f7ddd5",
+                        "on-secondary-container": "#28667d",
+                        "inverse-surface": "#3c2d28",
+                        "on-tertiary-fixed": "#001f28",
+                        "surface-container": "#ffe9e3",
+                        "outline": "#8d7168",
+                        "tertiary-fixed": "#b5ebff",
+                        "on-tertiary-container": "#003744",
+                        "secondary-container": "#a8e2fd",
+                        "secondary": "#27657c",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "on-secondary-fixed": "#001f29",
+                        "surface-dim": "#eed5cd",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "surface-container-high": "#fde3db",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#261814",
+                        "primary-container": "#ff6b35",
+                        "primary-fixed-dim": "#ffb59d",
+                        "background": "#fff8f6",
+                        "tertiary": "#00677e",
+                        "on-surface-variant": "#594139",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ffede8",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fff8f6",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface": "#fff8f6",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#832600",
+                        "inverse-primary": "#ffb59d",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "on-primary-fixed": "#390c00",
+                        "primary": "#ab3500",
+                        "tertiary-container": "#00a7cb",
+                        "surface-container-low": "#fff1ed",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e1bfb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "120px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .ambient-shadow-1 {
+            box-shadow: 0 4px 12px rgba(39, 101, 124, 0.05), 0 2px 4px rgba(39, 101, 124, 0.05);
+        }
+        .ambient-shadow-2 {
+            box-shadow: 0 8px 24px rgba(39, 101, 124, 0.1), 0 4px 8px rgba(39, 101, 124, 0.05);
+        }
+        .glass-panel {
+            background: rgba(255, 248, 246, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-surface-dim/80 shadow-sm flex justify-between items-center px-margin-mobile py-base w-full sticky top-0 z-50">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden ambient-shadow-1">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A detailed portrait photo of a smiling modern traveler, brightly lit with natural sunlight, wearing a casual stylish outfit, set against a blurred background of a vibrant city street. The mood is optimistic and warm, reflecting a seamless travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQR1Rb1Xu1E7fOrIlFNnosdoDhBNvFg9Sntl0Xy-4-NPqi0a6vGVd3zwzdT0RLBJqccwD8R45lQJBFGOL2jE6fyvJrEzYmH-FZ9GOVCkoROOU0bLchDCFD7GVopRVpet-34nPapOPb-l9aT9Jg-JkGQsQcy31EKcVytHSEVt20XOkihOMExtY620j8yxzA1V1MJ_kz72oacAkqfHBs3EH8oBzzMaPf_yHm0b0MsL3OulTS7Xgww-IINA">
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary dark:text-primary-fixed tracking-tight">TravelSmart AI</h1>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary font-bold px-sm py-xs bg-primary-container/20 rounded-full">1,250 pts</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-xl">
+<!-- Header Section -->
+<section class="space-y-sm">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Explore Local Culture</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Dive deep into the stories, sounds, and secrets of your destination. Immerse yourself in the authentic local experience.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:gap-md">
+<!-- Nearby Secrets (Large Card) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-DEFAULT overflow-hidden ambient-shadow-1 hover:ambient-shadow-2 transition-shadow duration-300 group cursor-pointer relative h-80">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-500 group-hover:scale-105" data-alt="A breathtaking, cinematic wide shot of an ancient stone archway hidden in a lush, green urban park at golden hour. Warm sunlight filters through the leaves, casting long, soft shadows. The architecture is detailed and historical, conveying a sense of mystery and discovery. A soft off-white and teal color palette dominates the scene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3ck8GnTclydigTsKjyKUMhoHlJvHd4Bm4-SSuD04bw3HSOiYNaK-6OiRM8J0fBlBaWKOs6dhsW0_KiviQ6XkpLZYR-2ZyCItLIS0_KOD9P14FJVsCxkypRoNcraGWCKWH0gKTK0jhK_kwKimVjfq9ze8YhBlNlpqo9AVfQn3iGCjvmKh48FdEgSV1twGF3YK30OZhdkN3q2oB8m-k-40Vx-vayZLlQ-oh-51xe3JlRqwwztKhnFNF1w')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-md w-full">
+<div class="flex items-center gap-xs text-primary-fixed mb-xs">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Nearby Secret</span>
+</div>
+<h3 class="font-title-md text-title-md text-white mb-xs">The Whispering Arches</h3>
+<p class="font-body-md text-body-md text-white/80 line-clamp-2">Legend says if you whisper into one side of these 16th-century arches, someone on the opposite side can hear you perfectly over the city noise.</p>
+</div>
+<div class="absolute top-md right-md bg-white/20 backdrop-blur-md rounded-full p-sm">
+<span class="material-symbols-outlined text-white">bookmark_border</span>
+</div>
+</div>
+<!-- Audio Guide (Medium Card) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-DEFAULT p-md ambient-shadow-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined fill">headphones</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-sm py-xs rounded-full">15 mins</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">The Grand Plaza</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">An immersive audio journey through the heart of the city's historical center.</p>
+</div>
+<div class="mt-md">
+<!-- Progress Bar -->
+<div class="w-full h-3 bg-surface-variant rounded-full mb-sm overflow-hidden">
+<div class="h-full bg-tertiary w-1/3 rounded-full"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm mb-sm">
+<span class="">05:12</span>
+<span class="">-09:48</span>
+</div>
+<div class="flex justify-center items-center gap-md">
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined">replay_10</span>
+</button>
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center ambient-shadow-1 hover:ambient-shadow-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-3xl fill">play_arrow</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined">forward_10</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Video History (Medium Card) -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-DEFAULT overflow-hidden ambient-shadow-1 group cursor-pointer relative h-64">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-500 group-hover:scale-105" data-alt="A vivid, high-resolution still from a historical documentary showing a bustling outdoor market. Vendors in vibrant traditional clothing sell spices and textiles. The lighting is bright and dynamic, creating a lively atmosphere. The color palette features rich oranges, deep teals, and earthy tones, maintaining the modern travel app aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXlIgYosJrQNwtiiNfuDYhPxgEiDm3iQYUgtqne7tWtzMTc6ubQuHF41avpHx3H2zctx_pfXchVs8cWSEGovjvAax8dXKn-qts0ZkXmQsjR88FtmllAz1x95pJv86U6McCPCKnjZxVa90IZttGZ0h-L821ll-QAfoNG6ERQGr8bqB6GZPfXzyWyG8hxdlKdujgyalOwZB0FuWZ0bka7LuzHTHdgo8AXfgjKBLTXCH5dL9pWihbs8TOdg')"></div>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+<div class="w-16 h-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white border border-white/50 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl fill">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-md bg-gradient-to-t from-black/80 to-transparent">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider block mb-xs">Video History</span>
+<h3 class="font-title-md text-title-md text-white">The Market Through the Ages</h3>
+</div>
+</div>
+<!-- Interactive Comic (Medium Card) -->
+<div class="md:col-span-6 bg-surface-variant rounded-DEFAULT p-md ambient-shadow-1 flex items-center gap-md relative overflow-hidden group cursor-pointer">
+<!-- Decorative pattern -->
+<div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[150px]">auto_stories</span>
+</div>
+<div class="w-32 h-40 rounded-lg overflow-hidden shrink-0 shadow-md transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+<img alt="Comic Cover" class="w-full h-full object-cover" data-alt="A high-quality, colorful comic book cover illustration depicting a heroic historical figure exploring an ancient city. The art style is modern and vibrant, using bright oranges and deep teals to match the travel app's palette. Clean lines and dynamic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKT1v8vNS0Wlpe3amhXXJqWx9JaU5NFQgh0EaGKcE9B5_k80flMpdWnfW3ptgtjSp-uGGEiut86nk47ZXSpNTjuWPnNMvuaOmbfGyrCa66wYF_N9c1uA0ytaigfCUthpxfSX7j7UzxUHhT1t1v8UuDzthMZSEDBMam6aRUWerXTZo0ERPU1YcQt0HRl1yy9AIa65fFhsrkZPxNDmibZWWW2vYR6GFcbjcT0VPuf3TcZcMVNgN1MHDXMw">
+</div>
+<div class="z-10">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block mb-xs">Interactive Comic</span>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Legends of the Valley</h3>
+<p class="font-body-sm text-body-md text-on-surface-variant mb-sm line-clamp-2">Swipe through the animated history of the founding families in this beautifully illustrated interactive story.</p>
+<button class="font-label-md text-label-md text-primary font-bold flex items-center gap-xs hover:text-primary-container transition-colors">
+                        Read Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Slang Glossary Section -->
+<section class="bg-surface-container-lowest rounded-lg p-md md:p-lg ambient-shadow-1">
+<div class="flex items-center justify-between mb-md">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Glosario de Jerga</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Speak like a local with these essential slang phrases.</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">translate</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Slang Item 1 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-DEFAULT hover:border-primary/30 transition-colors">
+<div>
+<p class="font-title-md text-title-md text-on-surface">¡Qué guay!</p>
+<p class="font-body-md text-body-md text-on-surface-variant">How cool! / Awesome!</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant hover:bg-secondary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Slang Item 2 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-DEFAULT hover:border-primary/30 transition-colors">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Estar de tapeo</p>
+<p class="font-body-md text-body-md text-on-surface-variant">To go out for tapas.</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant hover:bg-secondary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Slang Item 3 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-DEFAULT hover:border-primary/30 transition-colors">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Majo / Maja</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Nice, friendly person.</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant hover:bg-secondary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+<!-- Slang Item 4 -->
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-DEFAULT hover:border-primary/30 transition-colors">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Pasta</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Money / Cash.</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-variant hover:bg-secondary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+</div>
+</div>
+<button class="mt-md w-full py-sm rounded-full border border-primary text-primary font-label-md text-label-md font-bold hover:bg-primary-container/10 transition-colors">
+                View All Slang
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/90 backdrop-blur-lg dark:bg-surface-container-lowest/90 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined fill">explore</span>
+<span class="font-label-sm text-label-sm-mobile mt-1 font-bold">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:fill transition-all">map</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Travel</span>
+</a>
+<!-- Central FAB-style Pass Button -->
+<div class="relative -top-6">
+<a class="flex flex-col items-center justify-center w-16 h-16 bg-primary text-on-primary rounded-full ambient-shadow-2 hover:bg-primary-container transition-colors active:scale-90 duration-150 border-4 border-surface group" href="#">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">qr_code_scanner</span>
+</a>
+<span class="font-label-sm text-label-sm-mobile text-primary font-bold absolute -bottom-5 w-full text-center">Pass</span>
+</div>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:fill transition-all">sports_esports</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:opacity-80 transition-opacity active:scale-90 duration-150 group" href="#"><span class="material-symbols-outlined group-hover:fill transition-all">route</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Journey</span></a>
+</nav>
+<!-- Mascota IA (Floating Widget) for Desktop only, hidden on mobile to avoid clashing with bottom nav -->
+<button class="hidden md:flex fixed bottom-8 right-8 w-16 h-16 bg-primary text-on-primary rounded-full items-center justify-center ambient-shadow-2 hover:bg-primary-container transition-all hover:scale-110 active:scale-95 z-50 group">
+<span class="material-symbols-outlined text-3xl group-hover:animate-pulse">support_agent</span>
+</button>
+</body></html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelSmart AI - Rewards</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#ffe9e3",
+                      "on-background": "#261814",
+                      "on-secondary-fixed": "#001f29",
+                      "tertiary": "#00677e",
+                      "background": "#fff8f6",
+                      "secondary": "#27657c",
+                      "on-primary-fixed": "#390c00",
+                      "surface-tint": "#ab3500",
+                      "on-surface": "#261814",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "primary-fixed-dim": "#ffb59d",
+                      "inverse-primary": "#ffb59d",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "inverse-surface": "#3c2d28",
+                      "on-secondary-container": "#28667d",
+                      "primary-container": "#ff6b35",
+                      "primary-fixed": "#ffdbd0",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface": "#fff8f6",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "outline-variant": "#e1bfb5",
+                      "primary": "#ab3500",
+                      "surface-container-high": "#fde3db",
+                      "secondary-fixed": "#bce9ff",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "on-surface-variant": "#594139",
+                      "secondary-container": "#a8e2fd",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#fff1ed",
+                      "on-tertiary-container": "#003744",
+                      "tertiary-container": "#00a7cb",
+                      "tertiary-fixed": "#b5ebff",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#001f28",
+                      "surface-variant": "#f7ddd5",
+                      "on-error-container": "#93000a",
+                      "outline": "#8d7168",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#eed5cd",
+                      "surface-bright": "#fff8f6",
+                      "on-primary-fixed-variant": "#832600",
+                      "on-primary-container": "#5f1900",
+                      "inverse-on-surface": "#ffede8",
+                      "surface-container-highest": "#f7ddd5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "md": "24px",
+                      "margin-desktop": "120px",
+                      "sm": "12px",
+                      "base": "8px",
+                      "lg": "40px",
+                      "xs": "4px",
+                      "xl": "64px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .shadow-level-1 {
+            box-shadow: 0 4px 15px rgba(39, 101, 124, 0.15); /* secondary color tint */
+        }
+        
+        .shadow-level-2 {
+            box-shadow: 0 8px 25px rgba(39, 101, 124, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .mascota-glow {
+            box-shadow: 0 0 30px rgba(171, 53, 0, 0.4); /* primary color glow */
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(171, 53, 0, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(171, 53, 0, 0.6); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24 pt-20 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto min-h-screen flex flex-col relative font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md text-primary shadow-sm flex items-center justify-between px-margin-mobile h-16 left-0">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, high-quality profile picture of a young traveler looking warmly at the camera. The lighting is soft and bright, evoking an optimistic and friendly travel experience. The background is slightly blurred, showing a hint of a sunny, vibrant cultural setting. The overall mood is modern, welcoming, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlruU40WdxtCj8vHeCSZxjEhoaw3dBPSJcTxczg68zUNmfNnTQensgNeYBimBkpcBjNJOuOLRJiwHuAwQQ0rQF_aVz_cweHvs-oe94Fw32pE-x61-BnFJfRrND6YOXdw8H1rn-3IOhdXngJiGgHP_1ZGnNHO3i-f2M6A0a7hwFVMN2wOqAy97zvnkKxVqOM_V7fVMPdEx3RxWVq3wvS5cIIZEOckc3MpQQdPJpGWmYfYJQPvDpoCcdHA"/>
+</div>
+<span class="font-title-md text-title-md text-primary tracking-tight font-bold">TravelSmart AI</span>
+</div>
+<button aria-label="notifications" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<main class="flex-grow w-full max-w-4xl mx-auto flex flex-col gap-lg">
+<!-- Points Header Card -->
+<section class="w-full mt-4">
+<div class="bg-primary text-on-primary rounded-xl p-md shadow-level-1 relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute -left-10 -bottom-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-sm" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<h1 class="font-body-md text-body-md text-on-primary/80 uppercase tracking-widest mb-xs">Available Points</h1>
+<div class="font-display-lg text-display-lg font-extrabold flex items-baseline gap-xs">
+                        1,250 <span class="font-title-md text-title-md font-normal opacity-80">pts</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Rewards Grid -->
+<section class="w-full">
+<h2 class="font-title-md text-title-md text-on-background mb-md">Redeem Rewards</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<!-- Reward Item 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-level-1 flex items-start gap-md transition-all hover:shadow-level-2 group cursor-pointer border border-outline-variant/30">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant relative">
+<img alt="Official T-shirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A highly detailed product shot of a beautifully folded official TravelSmart AI t-shirt. The t-shirt is displayed on a clean, off-white surface with soft, warm studio lighting. The fabric texture is visible, and the overall aesthetic is modern, minimalistic, and premium. The mood is aspirational and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm-ToKaRypZ2eAmR-_-tHlMtDUkv8CZWKMEUY91oNksXf54TTxRLJH5DB5fypoTxORNnQfz9GdmTgzD13L6g-Dq-rIBJVjYRKTnya393DFEQq7lIWMVQ_mgWAnPeX9_E7Pxrx6j89_09RjxaZ_LrPpKXvnM8EN5GUDqJQUsDCqHI-pfXtiy4kqLVAUjeaZ7RBBkDDMMXFhUwmTqDn4Oly9RD7KJLtIZUtLyGOhPbcKKSpvcXZdQTH7Hw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-title-md text-title-md text-on-background mb-xs leading-tight">Official T-shirt</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Exclusive explorer merch.</p>
+</div>
+<div class="flex items-center gap-xs mt-sm text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+                            500 pts
+                        </div>
+</div>
+</div>
+<!-- Reward Item 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-level-1 flex items-start gap-md transition-all hover:shadow-level-2 group cursor-pointer border border-outline-variant/30">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant relative">
+<img alt="Local Snack Box" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A beautifully styled flat lay of a local artisanal snack box. The box is open, revealing an assortment of colorful, culturally authentic snacks and treats. The lighting is warm and inviting, highlighting the textures of the food. The background is a soft, off-white surface. The aesthetic is appetizing, premium, and culturally rich." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-mMAlNJU3XG-Arp_8Z3bYqvkJc7wlgar3bOdYQ4TJoCVSdp2EHFLC6KjNQJuU8URIBE2mFfhbRNguYXsXJcdlOvRyimXRHweLsx8l-4cVLJo1gsBqW0A061pLHM0P8bZcqPDd-VrxTwa9kF9NWTvdK2u-02vHrxDQst6rJ35Zp-N2aULQtoClB_pIPfMhb3YegQERLlLWsSckRuHpKgLkbBOp-CsD0yIn8ny9a_t8tAVB858qQcpxMQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-title-md text-title-md text-on-background mb-xs leading-tight">Local Snack Box</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Taste the culture.</p>
+</div>
+<div class="flex items-center gap-xs mt-sm text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+                            300 pts
+                        </div>
+</div>
+</div>
+<!-- Reward Item 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-level-1 flex items-start gap-md transition-all hover:shadow-level-2 group cursor-pointer border border-outline-variant/30">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant relative">
+<img alt="3D Souvenir Print" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A macro photography shot of a detailed, small 3D printed cultural souvenir. The souvenir is resting on a clean, light-colored wooden table. The lighting creates soft, inviting shadows, emphasizing the 3D texture and intricate details. The overall mood is modern, tactile, and high-quality, fitting a premium travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6O2tW-xZsGU5A9J_g4LATZ_gNcC8hXcm9dfu3Gc40Or4sXJwfAauYcO0evnzCGEGNWD6O0GjYJPT_OvQrLcdObjLkafu0HsB106Wl2osKVra12Rb-hT3QfyoJ0zEqUbku6cgV2y3xmmfqA-Bs0mVvmFqBjNfQ9lcoVIlIzVpXJeLDa-ILWE4rt2riXIbzjyXi4JTshKaKQ2ufjo48KQ4Yimmiv4d--GwokJhGC2zKmD_VCGX091z6qQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-title-md text-title-md text-on-background mb-xs leading-tight">Extra 3D Souvenir Print</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">A physical memory.</p>
+</div>
+<div class="flex items-center gap-xs mt-sm text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+                            450 pts
+                        </div>
+</div>
+</div>
+<!-- Reward Item 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-level-1 flex items-start gap-md transition-all hover:shadow-level-2 group cursor-pointer border border-outline-variant/30">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant relative">
+<img alt="Museum Fast Pass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A stylized, close-up image of a 'Fast Pass' or VIP ticket for a museum. The ticket features modern, clean typography and a subtle geometric pattern. It rests on a soft, off-white background with a warm, inviting light casting a gentle shadow. The aesthetic is premium, efficient, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6bAEmseg5rhGWlKR9hKQ1J5nT5_jYRXd-ljvNM2QM8XBEgKhCefRX458v-zwXL2g04C694BObYph94pj_0YC6y9lYKv1NK6rq4kXJF8ZJIRAN3SiAASbTOhk3fQXpq1XZSM3puRSuZYC8xl9bbDBSQ97RQtCdo86I71UeLURmPtvKupTWCJ9srBov-RzGw692nZoLihPNu6fVeKzdEMvfP_I4wg-0NTOb9bvhBhS8OdXeasMXuR9ZMQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-title-md text-title-md text-on-background mb-xs leading-tight">Museum Fast Pass</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Skip the line.</p>
+</div>
+<div class="flex items-center gap-xs mt-sm text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+                            250 pts
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Info Banner -->
+<section class="w-full mt-sm">
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/20 flex flex-col items-center text-center gap-sm">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 0;">info</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Acérquese con su guía para recibir más información de cómo canjear.
+                </p>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Mascota IA) -->
+<button aria-label="Mascota IA Guide" class="fixed bottom-24 right-margin-mobile md:right-margin-desktop w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center mascota-glow z-40 transition-transform hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-lg z-50 bg-surface/90 backdrop-blur-lg text-primary shadow-[0_-4px_20px_rgba(0,78,100,0.15)] flex justify-around items-center h-20 px-2 pb-safe left-0 md:hidden border-t border-outline-variant/20">
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 rounded-xl px-3 py-1 w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 rounded-xl px-3 py-1 w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">travel</span>
+<span class="font-label-sm text-label-sm">Travel</span>
+</button>
+<!-- Active Tab (Pass) - Logically closest to Rewards/Wallet -->
+<button class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-xl px-3 py-1 w-16 active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm">Pass</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 rounded-xl px-3 py-1 w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 rounded-xl px-3 py-1 w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm">Journey</span>
+</button>
+</nav>
+</body></html>

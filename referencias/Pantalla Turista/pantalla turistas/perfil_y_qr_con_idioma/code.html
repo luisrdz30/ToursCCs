@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelSmart - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#ffe9e3",
+                        "outline-variant": "#e1bfb5",
+                        "on-primary-fixed": "#390c00",
+                        "secondary-container": "#a8e2fd",
+                        "surface-tint": "#ab3500",
+                        "background": "#fff8f6",
+                        "primary-container": "#ff6b35",
+                        "surface-dim": "#eed5cd",
+                        "tertiary": "#00677e",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary-fixed": "#001f28",
+                        "inverse-on-surface": "#ffede8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-container-high": "#fde3db",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#5f1900",
+                        "on-surface-variant": "#594139",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface": "#261814",
+                        "surface-bright": "#fff8f6",
+                        "tertiary-container": "#00a7cb",
+                        "secondary": "#27657c",
+                        "on-secondary-fixed": "#001f29",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "surface-container-low": "#fff1ed",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "on-secondary-container": "#28667d",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-background": "#261814",
+                        "inverse-surface": "#3c2d28",
+                        "surface-variant": "#f7ddd5",
+                        "outline": "#8d7168",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "primary": "#ab3500",
+                        "inverse-primary": "#ffb59d",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#003744",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "16px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "margin-desktop": "120px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fff8f6; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .card-shadow { box-shadow: 0 4px 20px -2px rgba(0, 78, 100, 0.08), 0 0 3px rgba(0, 78, 100, 0.04); }
+        .interactive-shadow:hover { box-shadow: 0 12px 28px -4px rgba(0, 78, 100, 0.12), 0 4px 6px -2px rgba(0, 78, 100, 0.05); transform: translateY(-2px); }
+        .input-field { background-color: #f7ddd5; border: 2px solid transparent; border-radius: 16px; transition: all 0.2s ease; }
+        .input-field:focus { border-color: #00677e; outline: none; background-color: #ffffff; box-shadow: 0 0 0 4px rgba(0, 103, 126, 0.1); }
+        .btn-primary { background: linear-gradient(135deg, #ff6b35 0%, #ab3500 100%); box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 4px 12px rgba(171, 53, 0, 0.2); }
+        .btn-primary:hover { box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 6px 16px rgba(171, 53, 0, 0.3); transform: translateY(-1px); }
+    </style>
+</head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col pb-24 md:pb-0 pt-20">
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-surface-dim font-title-md text-title-md docked full-width top-0 shadow-sm dark:shadow-none fixed top-0 w-full z-40 flex justify-between items-center px-margin-mobile py-base transition-all duration-300" id="topAppBar">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface hover:bg-surface-container-low transition-colors Active: scale-95 duration-100">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A detailed headshot portrait of a cheerful traveler with a slight smile, illuminated by soft natural light. The style is modern, bright, and vibrant, matching a clean travel app aesthetic with warm off-white and subtle orange tones in the background. The mood is welcoming and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4YgcpBSkMeBF8dGso-0Wx4D3-1hdyajs10XqCLcEWfXnNU8XpM3u8FKwvDEpHB0udtv2jL55T1A4GB7sYpl0pY4iDqRBqdn5DX_oEj2kfLOoc3EHS6kO0CNRIJFbKHr71_ZXhiJwL1FobQbczhbZKp1bzsoN6RnsDtum1KyT_DVQB_tyIECskcTcaHKymG08dHK-ue4yS205KDIihFufEbfRaCHJbEtns5k4wX_0ZaRsSuQetVxnQdg"/>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold hidden md:block">TravelSmart</h1>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold md:hidden absolute left-1/2 transform -translate-x-1/2">TravelSmart</h1>
+<div class="flex items-center">
+<button class="bg-surface-container-high text-primary dark:text-primary-fixed-dim px-4 py-2 rounded-full font-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-2 Active: scale-95 duration-100">
+<span class="material-symbols-outlined text-[18px]">stars</span>
+                1,250 pts
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-3xl mx-auto px-margin-mobile md:px-0 py-lg flex flex-col gap-lg relative z-10">
+<!-- Header Section -->
+<section class="text-center space-y-sm">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Digital Travel Pass</h2>
+<p class="text-on-surface-variant font-body-md">Your secure gateway to seamless travel experiences.</p>
+</section>
+<!-- Digital Pass Card (QR Code) -->
+<section class="bg-surface-container-lowest rounded-xl card-shadow p-md md:p-lg flex flex-col items-center relative overflow-hidden border border-outline-variant/20 mx-auto w-full max-w-sm">
+<!-- Decorative gradient top -->
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-container to-tertiary-container"></div>
+<div class="text-center mb-md w-full">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs uppercase tracking-widest">Alexander J. Chen</h3>
+<div class="flex flex-col gap-1 text-on-surface-variant font-label-sm uppercase">
+<span>Pass ID: TP-9876553421</span>
+<span>Valid Till: 14 Oct 2025</span>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-inner mb-md relative group">
+<div class="absolute inset-0 border-2 border-dashed border-outline-variant/40 rounded-xl pointer-events-none group-hover:border-primary/40 transition-colors"></div>
+<img alt="Personal QR Code" class="w-48 h-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyucHFqMZx2H0_-JjSKLL7U9YFIO6_qnhU4WZ3ulCaMqozhFbkCk8JBYbJdyGiTuBaSY_WarjwYJlBxPtgheIVzw_5Ay5iOU2F7qnTxlTD6Gw3-POfwM7zKyxDzvAkkW078ZmgwLqDbwLPBlGj3vGF8NSp_EPp_Dg5mzOMN1B5yjMjt2oaOrd8Px50ZL58GJTs_Jq-KxWGgW-HoZj-32oYHYJXweK9kaxY74sV3zmMRY4E6eJQgmapOw"/>
+</div>
+<div class="w-full bg-surface-container rounded-lg p-sm text-center flex flex-col gap-xs mt-auto">
+<div class="font-label-md text-on-surface flex justify-center items-center gap-2">
+<span>London (LHR)</span>
+<span class="material-symbols-outlined text-outline">flight_takeoff</span>
+<span>Singapore (SIN)</span>
+</div>
+<p class="font-label-sm text-on-surface-variant">Flight: SQ317 • Gate: A48 • Seat: 12A</p>
+<p class="font-label-sm text-primary mt-1">Jetway Airlines</p>
+</div>
+</section>
+<!-- View and Modify Data Section -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+                    Personal Details
+                </h3>
+<button class="text-primary hover:text-primary-container font-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Info Cards -->
+<div class="bg-surface-container-lowest rounded-lg p-sm card-shadow interactive-shadow transition-all border border-outline-variant/10 flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Full Name</label>
+<p class="font-body-lg text-on-surface">Alexander James Chen</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-sm card-shadow interactive-shadow transition-all border border-outline-variant/10 flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Passport Number</label>
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-on-surface font-mono tracking-wider">A847*****2</p>
+<span class="material-symbols-outlined text-tertiary bg-tertiary-fixed/30 rounded-full p-1 text-[16px]">verified_user</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-sm card-shadow interactive-shadow transition-all border border-outline-variant/10 flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Email Address</label>
+<p class="font-body-lg text-on-surface">alex.chen@example.com</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-sm card-shadow interactive-shadow transition-all border border-outline-variant/10 flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant">Phone Number</label>
+<p class="font-body-lg text-on-surface">+44 7700 900077</p>
+</div>
+</div>
+</section>
+<!-- Preferences Section -->
+<section class="space-y-md bg-surface-container-low rounded-xl p-md border border-outline-variant/20">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2 mb-sm">
+<span class="material-symbols-outlined text-primary">tune</span>
+                Travel Preferences
+            </h3>
+<div class="space-y-sm"><div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Language</p>
+<p class="font-label-sm text-on-surface-variant font-normal">Spanish (Ecuador)</p>
+</div>
+</div>
+<button class="text-tertiary font-label-sm hover:underline">Change</button>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Meal Preference</p>
+<p class="font-label-sm text-on-surface-variant font-normal">Asian Vegetarian</p>
+</div>
+</div>
+<button class="text-tertiary font-label-sm hover:underline">Change</button>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">airline_seat_recline_extra</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Seat Preference</p>
+<p class="font-label-sm text-on-surface-variant font-normal">Aisle, Front Cabin</p>
+</div>
+</div>
+<button class="text-tertiary font-label-sm hover:underline">Change</button>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Notifications</p>
+<p class="font-label-sm text-on-surface-variant font-normal">SMS &amp; Push Enabled</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-fixed/30 dark:peer-focus:ring-primary-fixed-dim/30 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="mt-md pt-sm text-center">
+<button class="btn-primary text-white font-label-md px-6 py-3 rounded-full w-full md:w-auto inline-flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">save</span>
+                    Save All Changes
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md font-label-sm text-label-sm docked full-width bottom-0 rounded-t-lg border-t border-outline-variant/30 shadow-lg fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter pb-6 pt-3 md:hidden">
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all group w-16 Active: scale-90 duration-150 relative">
+<div class="w-full h-8 flex items-center justify-center rounded-full group-hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">explore</span>
+</div>
+<span class="mt-1 group-hover:text-primary transition-colors">Explore</span>
+</button>
+<!-- Travel -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all group w-16 Active: scale-90 duration-150 relative">
+<div class="w-full h-8 flex items-center justify-center rounded-full group-hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">directions_bus</span>
+</div>
+<span class="mt-1 group-hover:text-primary transition-colors">Travel</span>
+</button>
+<!-- QR / Pass (Center Prominent, Active) -->
+<button class="flex flex-col items-center justify-center -mt-6 group Active: scale-90 duration-150 relative z-10">
+<div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transform group-hover:-translate-y-1 transition-all border-4 border-surface">
+<span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</div>
+<span class="mt-1 text-primary font-bold">Pass</span>
+</button>
+<!-- Play -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all group w-16 Active: scale-90 duration-150 relative">
+<div class="w-full h-8 flex items-center justify-center rounded-full group-hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">sports_esports</span>
+</div>
+<span class="mt-1 group-hover:text-primary transition-colors">Play</span>
+</button>
+<!-- Journey -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all group w-16 Active: scale-90 duration-150 relative">
+<div class="w-full h-8 flex items-center justify-center rounded-full group-hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">route</span>
+</div>
+<span class="mt-1 group-hover:text-primary transition-colors">Journey</span>
+</button>
+</nav>
+<!-- Desktop Navigation Overlay (Hidden on Mobile) -->
+<div class="hidden md:flex fixed top-0 right-0 h-full w-24 bg-surface-container-lowest/80 backdrop-blur-md border-l border-outline-variant/20 flex-col items-center py-xl gap-8 z-30 shadow-xl">
+<div class="flex-grow flex flex-col gap-6">
+<button class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors group relative">
+<span class="material-symbols-outlined text-[28px]">explore</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Explore</span>
+</button>
+<button class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors group relative">
+<span class="material-symbols-outlined text-[28px]">directions_bus</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Travel</span>
+</button>
+<button class="p-3 rounded-xl bg-primary-container text-on-primary-container shadow-md group relative">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Digital Pass</span>
+</button>
+<button class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors group relative">
+<span class="material-symbols-outlined text-[28px]">sports_esports</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Play</span>
+</button>
+</div>
+<button class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors group relative">
+<span class="material-symbols-outlined text-[28px]">route</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Journey</span>
+</button>
+</div>
+<!-- Mascota IA Widget -->
+<div class="fixed bottom-24 right-4 md:bottom-8 md:right-32 z-50 cursor-pointer group">
+<div class="relative w-14 h-14 bg-tertiary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,167,203,0.4)] group-hover:shadow-[0_0_30px_rgba(0,167,203,0.6)] transition-all transform group-hover:-translate-y-1 animate-bounce" style="animation: bounce 3s infinite;">
+<span class="material-symbols-outlined text-on-tertiary-container text-[32px]">smart_toy</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-surface animate-pulse"></div>
+</div>
+</div>
+<style>
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<script>
+        // Simple Top Bar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const topBar = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                topBar.classList.add('shadow-md', 'bg-surface/95', 'backdrop-blur-sm');
+                topBar.classList.remove('shadow-sm', 'bg-surface-bright');
+            } else {
+                topBar.classList.remove('shadow-md', 'bg-surface/95', 'backdrop-blur-sm');
+                topBar.classList.add('shadow-sm', 'bg-surface-bright');
+            }
+        });
+    </script>
+</body></html>

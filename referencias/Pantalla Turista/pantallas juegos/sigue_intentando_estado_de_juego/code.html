@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelSmart AI - Game Over</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e1bfb5",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fff8f6",
+                        "surface-tint": "#ab3500",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-secondary-fixed": "#001f29",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-primary-container": "#5f1900",
+                        "primary-container": "#ff6b35",
+                        "primary": "#ab3500",
+                        "on-surface": "#261814",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#261814",
+                        "surface": "#fff8f6",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff1ed",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-variant": "#f7ddd5",
+                        "secondary": "#27657c",
+                        "surface-container": "#ffe9e3",
+                        "outline": "#8d7168",
+                        "inverse-primary": "#ffb59d",
+                        "inverse-on-surface": "#ffede8",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-secondary-container": "#28667d",
+                        "surface-dim": "#eed5cd",
+                        "on-surface-variant": "#594139",
+                        "secondary-fixed": "#bce9ff",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#a8e2fd",
+                        "surface-container-high": "#fde3db",
+                        "on-primary-fixed": "#390c00",
+                        "tertiary": "#00677e",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#00a7cb",
+                        "on-tertiary-container": "#003744",
+                        "tertiary-fixed": "#b5ebff",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "inverse-surface": "#3c2d28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "margin-desktop": "120px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at center, rgba(171, 53, 0, 0.05) 2px, transparent 2px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm dark:bg-surface-container-low flex items-center justify-between px-margin-mobile h-16 transition-all duration-300">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high hover:opacity-80 transition-opacity active:scale-95 text-primary">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed tracking-tight">TravelSmart AI</span>
+</div>
+<div class="flex items-center gap-base bg-surface-container rounded-full px-sm py-xs border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary-container" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md text-on-surface">1,250</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile pt-24 pb-32 relative bg-pattern">
+<div class="max-w-md w-full flex flex-col items-center text-center z-10 relative">
+<!-- Mascot Image -->
+<div class="w-64 h-64 mb-lg relative">
+<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl animate-pulse"></div>
+<img alt="Sad but encouraging sea lion mascot" class="w-full h-full object-contain relative z-10 drop-shadow-xl animate-[bounce_3s_ease-in-out_infinite]" src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_"/>
+</div>
+<!-- Text Content -->
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-sm tracking-tight text-balance">
+                ¡Casi lo logras!
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-sm text-balance">
+                La próxima vez será mejor. ¿Quieres intentarlo de nuevo y conseguir esas estrellas?
+            </p>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-sm">
+<button class="w-full py-4 px-6 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-[0_4px_12px_rgba(171,53,0,0.25)] hover:shadow-[0_6px_16px_rgba(171,53,0,0.35)] transition-all active:scale-95 flex items-center justify-center gap-sm group relative overflow-hidden">
+<span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full"></span>
+<span class="material-symbols-outlined relative z-10" data-icon="replay">replay</span>
+<span class="relative z-10">Reintentar Misión</span>
+</button>
+<button class="w-full py-4 px-6 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all active:scale-95 flex items-center justify-center gap-sm border border-outline-variant/30 hover:border-outline/50">
+<span class="material-symbols-outlined text-secondary" data-icon="explore">explore</span>
+<span>Explorar otros juegos</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Suppress Navigation Shell on Game Over screen as per guidelines -->
+</body></html>

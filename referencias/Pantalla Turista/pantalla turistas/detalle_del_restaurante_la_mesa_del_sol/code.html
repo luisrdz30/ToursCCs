@@ -1,0 +1,328 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>La Mesa del Sol - TravelSmart AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#594139",
+                        "secondary": "#27657c",
+                        "on-secondary-container": "#28667d",
+                        "on-primary-container": "#5f1900",
+                        "on-tertiary-fixed": "#001f28",
+                        "primary-container": "#ff6b35",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "on-background": "#261814",
+                        "on-secondary-fixed": "#001f29",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#3c2d28",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00a7cb",
+                        "surface-variant": "#f7ddd5",
+                        "surface-dim": "#eed5cd",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f6",
+                        "inverse-on-surface": "#ffede8",
+                        "primary": "#ab3500",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-container": "#ffe9e3",
+                        "surface-bright": "#fff8f6",
+                        "outline": "#8d7168",
+                        "surface-container-highest": "#f7ddd5",
+                        "on-primary-fixed": "#390c00",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00677e",
+                        "secondary-container": "#a8e2fd",
+                        "outline-variant": "#e1bfb5",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary-container": "#003744",
+                        "inverse-primary": "#ffb59d",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "surface-container-high": "#fde3db",
+                        "primary-fixed-dim": "#ffb59d",
+                        "surface-container-low": "#fff1ed",
+                        "on-surface": "#261814",
+                        "surface-tint": "#ab3500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "margin-mobile": "20px",
+                        "xs": "4px",
+                        "xl": "64px",
+                        "gutter": "16px",
+                        "lg": "40px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "margin-desktop": "120px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Ambient Shadows */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(39, 101, 124, 0.08), 0 2px 4px rgba(39, 101, 124, 0.04);
+        }
+        .shadow-level-2 {
+            box-shadow: 0 8px 24px rgba(39, 101, 124, 0.12), 0 4px 8px rgba(39, 101, 124, 0.06);
+        }
+        
+        /* Interactive button styles */
+        .btn-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 12px rgba(255, 107, 53, 0.3);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(255, 107, 53, 0.2);
+        }
+
+        /* Sticky header smooth transition */
+        #topAppBar.scrolled {
+            background-color: theme('colors.surface');
+            box-shadow: 0 2px 8px rgba(39, 101, 124, 0.1);
+        }
+        #topAppBar.scrolled .back-btn {
+            background-color: theme('colors.surface-container-high');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md antialiased pb-32">
+<!-- Top Navigation (Back & Actions) -->
+<header class="fixed top-0 w-full z-50 pt-safe transition-all duration-300 bg-transparent flex items-center justify-between px-margin-mobile h-16" id="topAppBar">
+<button class="back-btn w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="relative h-[530px] w-full rounded-b-xl overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full" data-alt="A beautifully plated signature dish of authentic local cuisine at La Mesa del Sol, featuring vibrant colors, fresh herbs, and warm, inviting lighting. The background is slightly blurred showing an elegant, rustic modern restaurant interior with warm terracotta tones and natural sunlight filtering through." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4e6r1yfHeoogPGtB2CeTUxDDvqjQ2_mnuGE6bSD5DIuwCXUp56QJhWu7CGrPuBSu87ZBhdMrrkZaSNiTW-sxS7r0BUsQUOfDzJyjXXf7q7rY6vwC4ADKBsy2rt6AairrsbP30UQk_TXiQxw8lEDsag_CJlK3RRkiXtkWORJQ-l3JKZLNqu_LYbW0A6_u13CV0VytRQ7GswIUCXO020Kk5jko_wy8YF_f7nEZhTdnBO3DsBbeZGMM9Q')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile text-white">
+<div class="flex items-center gap-2 mb-xs">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Restaurant</span>
+<span class="bg-surface/20 backdrop-blur-sm px-3 py-1 rounded-full font-label-sm text-label-sm">Local Cuisine</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-xs">La Mesa del Sol</h1>
+<div class="flex items-center gap-4 text-white/90">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#F4D03F]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.8 (214 reviews)</span>
+</div>
+<div class="flex items-center font-label-md text-label-md">
+<span>$$</span><span class="opacity-50">$</span>
+</div>
+</div>
+</div>
+</section>
+<div class="px-margin-mobile -mt-4 relative z-10 space-y-md">
+<!-- Quick Info Bar -->
+<div class="bg-surface rounded-lg shadow-level-1 p-sm flex justify-around items-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12:00 - 23:00</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">0.8 km away</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="restaurant">restaurant</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dine-in</span>
+</div>
+</div>
+<!-- About Section -->
+<section class="bg-surface rounded-lg shadow-level-1 p-md">
+<h2 class="font-title-md text-title-md text-on-surface mb-sm">The Experience</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Experience the true essence of local culinary traditions at La Mesa del Sol. Our chefs source ingredients daily from neighborhood markets to craft authentic dishes that tell the story of our region's rich heritage, served in a warm, inviting atmosphere that feels like home.
+                </p>
+</section>
+<!-- Menu Highlights (Bento Grid) -->
+<section>
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-title-md text-title-md text-on-surface">Menu Highlights</h2>
+<button class="font-label-md text-label-md text-secondary">View Full</button>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Starter -->
+<div class="bg-surface rounded-lg shadow-level-1 overflow-hidden group cursor-pointer">
+<div class="h-32 bg-cover bg-center w-full group-hover:scale-105 transition-transform duration-300" data-alt="A beautiful close-up of a vibrant starter dish, perhaps a fresh ceviche or bruschetta, plated beautifully on rustic pottery, sitting on a wooden table in a warm, sunny restaurant setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4dGWb8dr6g3-4L5eOrIe2N299dWdpHoC15sZMxPQxtc_vdhcqVRHG2bAhiVLqvYl7WHAe7awpJ6xS-gYG6De_pnUOafjtGdNDvep5YQOblzgN31Jvs8BljRhfGJtt_MAyv3roj30vXcNZfRuc4fOV6xO2D3IpGD31c3ZeV9_NhSvVvogjUu5vXzA7YExhPRyX0BOQcasjHUa_IsBM20SSB7Sn6pwz4Q1jv1WMCZ5nFUbjs4Mby0_ZwA')"></div>
+<div class="p-sm">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block mb-1">Starter</span>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Citrus Ceviche</h3>
+<span class="font-body-md text-body-md font-semibold text-primary">$12</span>
+</div>
+</div>
+<!-- Main -->
+<div class="bg-surface rounded-lg shadow-level-1 overflow-hidden group cursor-pointer">
+<div class="h-32 bg-cover bg-center w-full group-hover:scale-105 transition-transform duration-300" data-alt="A hearty main course featuring slow-roasted meat or a rich vegetarian stew, elegantly plated with fresh herbs and a drizzle of sauce, captured in bright, natural light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqIquBoX0Jxa1DCjNMn4v8djv7afTsgJ951LlHIMFaLseUm4ktnyIii7s5r6_LvgX3ct6P5RznQABS-n9p1SS-4U_FqwrUwyrUu1QH3sfBDLsLdMnN-y0H7FRZFwJxL2UJd0saP0xBlcMvK2RmSrJpQPfAKnWjw2kyCqVtv-biVkbcTp0sulThjUcrSf2-0zo5J9e-Txg9KtXIKrtmFFc4iGOtKCnjkaBhwGcotPcLyM9435OkHfIJrA')"></div>
+<div class="p-sm">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block mb-1">Main</span>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Sol Asado</h3>
+<span class="font-body-md text-body-md font-semibold text-primary">$28</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Reserve -->
+<section class="bg-surface rounded-xl shadow-level-1 overflow-hidden">
+<div class="h-40 bg-cover bg-center w-full" data-alt="A stylized, warm-toned map highlighting the location of La Mesa del Sol restaurant in a charming cultural district, with clean modern map aesthetics." data-location="La Mesa del Sol Location" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDU1CF0WI4BCq6tXKTsZL-tJVdFLa9CHTVTysCCM2DYc6BR55Mg6ys_Po1sHDmhK-QeAnJaOvjpx6G5VFCTnGLBRhROGkg2c3vFogVuyzCIhyn6NS4F2YtebOc9s_Rhv__UAItO-XihtOD4muLgouFp3XQllRn5rjjzpxjKC3jBkDfh9wS42MDlWWcSRbiAfo2wYTHY6gT6NcM56Ch_HwjHCRIK2l9S6Evv40gBw7yflCv8b6ZAChqYsw')"></div>
+<div class="p-md space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="location_on">location_on</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">123 Cultural Avenue</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Historic District, City Center</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="call">call</span>
+<p class="font-body-md text-body-md text-on-surface">+1 (555) 123-4567</p>
+</div>
+<button class="w-full btn-primary font-label-md text-label-md py-4 rounded-full mt-2 flex justify-center items-center gap-2">
+                        Reserve a Table
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Generated from JSON) -->
+<nav class="bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-lg font-label-sm text-label-sm font-display-lg text-display-lg text-primary fixed bottom-0 w-full rounded-t-lg z-50 shadow-[0_-4px_20px_rgba(0,78,100,0.15)] shadow-lg border-t border-outline-variant/20 flex justify-around items-center h-20 px-2 pb-safe w-full">
+<!-- Explore (Active) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-primary-container/20 rounded-xl px-3 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span>Explore</span>
+</button>
+<!-- Travel (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 px-3 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="travel">travel</span>
+<span>Travel</span>
+</button>
+<!-- Pass (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 px-3 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span>Pass</span>
+</button>
+<!-- Play (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 px-3 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="sports_esports">sports_esports</span>
+<span>Play</span>
+</button>
+<!-- Journey (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/30 transition-colors active:scale-90 duration-200 px-3 py-1 rounded-xl">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span>Journey</span>
+</button>
+</nav>
+<script>
+        // Scroll effect for Top App Bar
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('topAppBar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                header.querySelector('.back-btn').classList.remove('text-on-surface');
+                header.querySelector('.back-btn').classList.add('text-secondary');
+            } else {
+                header.classList.remove('scrolled');
+                header.querySelector('.back-btn').classList.add('text-on-surface');
+                header.querySelector('.back-btn').classList.remove('text-secondary');
+            }
+        });
+    </script>
+</body></html>

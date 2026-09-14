@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497804265657",
+    "project_id": "zizistours",
+    "storage_bucket": "zizistours.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497804265657:android:dfe4666caae158f39db368",
+        "android_client_info": {
+          "package_name": "com.example.app_turismo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg1Harj4kil95RIvUvtUdc-AHH7MHbDA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

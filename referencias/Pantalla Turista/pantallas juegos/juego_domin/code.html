@@ -1,0 +1,448 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Mascota IA - Play Dominoes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb59d",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e1bfb5",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "inverse-surface": "#3c2d28",
+                        "tertiary": "#00677e",
+                        "primary-container": "#ff6b35",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#ab3500",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-variant": "#f7ddd5",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#eed5cd",
+                        "surface-container-high": "#fde3db",
+                        "secondary-container": "#a8e2fd",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#b5ebff",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#003744",
+                        "on-secondary-fixed": "#001f29",
+                        "on-surface-variant": "#594139",
+                        "on-primary": "#ffffff",
+                        "on-background": "#261814",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface-container-highest": "#f7ddd5",
+                        "surface-container-low": "#fff1ed",
+                        "on-secondary": "#ffffff",
+                        "primary": "#ab3500",
+                        "primary-fixed": "#ffdbd0",
+                        "secondary": "#27657c",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-surface": "#261814",
+                        "surface-container": "#ffe9e3",
+                        "on-primary-container": "#5f1900",
+                        "outline": "#8d7168",
+                        "surface": "#fff8f6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#bce9ff",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-secondary-container": "#28667d",
+                        "tertiary-container": "#00a7cb",
+                        "inverse-on-surface": "#ffede8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "margin-desktop": "120px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .domino-tile {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 6px rgba(0, 78, 100, 0.15);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .domino-tile:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 2px 3px rgba(0, 78, 100, 0.1);
+        }
+
+        .domino-dot {
+            background-color: theme('colors.on-surface');
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            box-shadow: inset 0 2px 3px rgba(0,0,0,0.3), 0 1px 1px rgba(255,255,255,0.5);
+        }
+
+        .domino-divider {
+            background-color: theme('colors.outline');
+            height: 2px;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 1px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+        }
+
+        .horizontal-tile {
+            flex-direction: row !important;
+            aspect-ratio: 2/1;
+        }
+
+        .horizontal-tile .domino-divider {
+            width: 2px;
+            height: 80%;
+            margin: auto 0;
+        }
+        
+        .table-gradient {
+            background: radial-gradient(circle at center, theme('colors.surface-container-high'), theme('colors.surface-container-low'));
+        }
+
+        /* Ambient Shadows */
+        .shadow-ambient-1 {
+            box-shadow: 0 4px 12px rgba(0, 78, 100, 0.15);
+        }
+        .shadow-ambient-2 {
+            box-shadow: 0 8px 24px rgba(0, 78, 100, 0.25);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md antialiased pb-[100px] overflow-hidden flex flex-col h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md text-primary dark:text-primary-fixed-dim font-title-md text-title-md shadow-sm dark:shadow-none hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="menu">menu</span>
+</button>
+<span class="font-display-lg text-title-md text-primary dark:text-primary-fixed tracking-tight">Explore Culture</span>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high px-md py-base rounded-lg transition-colors font-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high px-md py-base rounded-lg transition-colors font-label-md" href="#">Travel</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high px-md py-base rounded-lg transition-colors font-label-md" href="#">Pass</a>
+<a class="text-primary dark:text-primary-fixed-dim font-bold px-md py-base rounded-lg transition-colors font-label-md relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="#">Play</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high px-md py-base rounded-lg transition-colors font-label-md" href="#">Journey</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden shadow-ambient-1 cursor-pointer active:scale-95 transition-transform duration-200">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A macro photograph of a traveler's profile avatar. Soft, bright lighting, light mode aesthetic. The image features a modern, clean composition with optimistic colors, perfectly complementing a high-end travel application. The subject is slightly abstracted to serve as a generic avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2juVoUDUi066CylwgPB620kldATlyTwvt-8bhzu10lsFCKhHN8K2auucYudC4_c5FwF5qERzvoQY1dt3x84mWzOYttSxP1ohRUmwVv1vVhH3PVCj43f1mNkBzk8rvvffNXup4oq6W5xgfrdQ4IPV_OdxnXRVbEUXM7VNlYJHSRCHnsABl-cYs8Kby4fMbZrNetj_9haxS0qJAopoVReQBKAGwF0TyD8J9_0m-o7ULBNKbAMcTRlM6g">
+</div>
+</header>
+<!-- Mobile Header -->
+<header class="md:hidden flex items-center justify-between px-margin-mobile h-16 w-full fixed top-0 z-40 bg-surface/80 backdrop-blur-md shadow-sm">
+<h1 class="font-headline-lg-mobile text-primary tracking-tight">Dominoes vs AI</h1>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface">pause</span>
+</button>
+</header>
+<!-- Main Game Canvas -->
+<main class="flex-grow flex flex-col relative mt-16 md:mt-16 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-md overflow-hidden">
+<!-- Scoreboard (Top Area) -->
+<div class="flex justify-between items-center w-full mb-md z-10 glass-panel rounded-xl p-md shadow-ambient-1">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-inner"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="Mascota AI Sea Lion" class="w-full h-full object-cover"></div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">Mascota AI</p>
+<p class="font-headline-lg text-primary">45</p>
+</div>
+</div>
+<div class="text-center px-lg py-sm bg-surface rounded-full shadow-ambient-1 border border-outline-variant/30">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Target</p>
+<p class="font-title-md text-on-surface">150</p>
+</div>
+<div class="flex items-center gap-sm text-right">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">You</p>
+<p class="font-headline-lg text-secondary">30</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shadow-inner overflow-hidden border-2 border-secondary">
+<img alt="Player Avatar" class="w-full h-full object-cover" data-alt="A simple, abstract, brightly colored avatar representing a player in a modern light-mode mobile game. Clean lines, optimistic color palette, high key lighting, smooth textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn30CCvd-a5ukvoiT4wx0a3xas-HCxuVqJ_K3bMxuv7Oy5j9qPH5y-YfucVI3CdCfMXmMSAsnXSkvVls2dxFj7A1cBfdJRnPlMyiJNqO4CrxL_ueo4lxOTl3qoJPAMsTVJobokyfePqgYxyO8J9sTfWxyMYBPouW-d1CpINVNEAa1nXqyoKjwkO9JDh5qe3tOrnsBwVbOFJSWt_Ewm_n-o9dp6ykuDMRKyhYoZ2Zvh08GgqNCjuTuWyg">
+</div>
+</div>
+</div>
+<!-- The Table (Center Area) -->
+<div class="flex-grow relative table-gradient rounded-xl shadow-ambient-1 border border-outline-variant/20 overflow-hidden flex items-center justify-center mb-md p-md">
+<!-- Simulated Played Dominoes on Table -->
+<div class="relative w-full h-full flex items-center justify-center scale-[0.6] md:scale-100 origin-center transition-transform duration-500">
+<!-- Central Tile (Spinner) -->
+<div class="absolute domino-tile horizontal-tile flex justify-between items-center p-2 rounded-lg w-24 h-12 z-10 shadow-ambient-2 border border-outline-variant/30">
+<div class="w-1/2 h-full flex items-center justify-center relative">
+<!-- 6 -->
+<div class="grid grid-cols-2 grid-rows-3 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+<div class="domino-divider"></div>
+<div class="w-1/2 h-full flex items-center justify-center relative">
+<!-- 6 -->
+<div class="grid grid-cols-2 grid-rows-3 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+<!-- Tile going Left -->
+<div class="absolute domino-tile horizontal-tile flex justify-between items-center p-2 rounded-lg w-24 h-12 -translate-x-[92px] shadow-ambient-1 border border-outline-variant/30">
+<div class="w-1/2 h-full flex items-center justify-center">
+<!-- 2 -->
+<div class="relative w-full h-full flex justify-between p-1">
+<div class="domino-dot self-start"></div>
+<div class="domino-dot self-end"></div>
+</div>
+</div>
+<div class="domino-divider"></div>
+<div class="w-1/2 h-full flex items-center justify-center">
+<!-- 6 -->
+<div class="grid grid-cols-2 grid-rows-3 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+<!-- Tile going Right -->
+<div class="absolute domino-tile horizontal-tile flex justify-between items-center p-2 rounded-lg w-24 h-12 translate-x-[92px] shadow-ambient-1 border border-outline-variant/30">
+<div class="w-1/2 h-full flex items-center justify-center">
+<!-- 6 -->
+<div class="grid grid-cols-2 grid-rows-3 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+<div class="domino-divider"></div>
+<div class="w-1/2 h-full flex items-center justify-center">
+<!-- 4 -->
+<div class="grid grid-cols-2 grid-rows-2 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+<!-- Tile going Up from Spinner -->
+<div class="absolute domino-tile flex flex-col justify-between items-center p-2 rounded-lg w-12 h-24 -translate-y-[68px] shadow-ambient-1 border border-outline-variant/30">
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 1 -->
+<div class="domino-dot"></div>
+</div>
+<div class="domino-divider"></div>
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 6 -->
+<div class="grid grid-cols-2 grid-rows-3 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Draw Pile Indicator / Action -->
+<button class="absolute bottom-md right-md bg-surface border-2 border-primary/20 text-primary font-label-md px-md py-sm rounded-full shadow-ambient-1 flex items-center gap-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500" data-icon="casino">casino</span>
+                Draw (7)
+            </button>
+<!-- AI Status Bubble -->
+<div class="absolute top-md left-md glass-panel px-md py-sm rounded-full flex items-center gap-sm animate-pulse">
+<div class="w-6 h-6 shrink-0 overflow-hidden rounded-full bg-primary-container"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="" class="w-full h-full object-cover"></div>
+<span class="font-label-sm text-on-surface-variant">Mascota AI is thinking...</span>
+</div>
+</div>
+<!-- Player's Hand (Bottom Area) -->
+<div class="w-full bg-surface-container-lowest/80 backdrop-blur-md rounded-t-2xl shadow-[0_-8px_24px_rgba(0,78,100,0.05)] border-t border-outline-variant/20 p-md flex flex-col gap-sm z-20">
+<div class="flex justify-between items-center mb-sm px-sm">
+<h3 class="font-title-md text-on-surface">Your Hand</h3>
+<span class="font-label-sm text-on-surface-variant bg-surface-container px-sm py-xs rounded-full">My Turn</span>
+</div>
+<!-- Hand Scrollable Area -->
+<div class="flex gap-sm overflow-x-auto pb-sm snap-x snap-mandatory hide-scrollbar pt-sm px-sm -mx-sm">
+<!-- Tile 1 -->
+<div class="snap-center shrink-0 cursor-grab active:cursor-grabbing hover:-translate-y-4 transition-transform duration-300">
+<div class="domino-tile flex flex-col justify-between items-center p-3 rounded-xl w-16 h-32 shadow-ambient-1 border border-outline-variant/40">
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 2 -->
+<div class="relative w-full h-full flex justify-between p-1">
+<div class="domino-dot self-start"></div>
+<div class="domino-dot self-end"></div>
+</div>
+</div>
+<div class="domino-divider"></div>
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 4 -->
+<div class="grid grid-cols-2 grid-rows-2 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tile 2 -->
+<div class="snap-center shrink-0 cursor-grab active:cursor-grabbing hover:-translate-y-4 transition-transform duration-300">
+<div class="domino-tile flex flex-col justify-between items-center p-3 rounded-xl w-16 h-32 shadow-ambient-1 border border-outline-variant/40 ring-2 ring-primary ring-offset-2">
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 4 -->
+<div class="grid grid-cols-2 grid-rows-2 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+<div class="domino-divider"></div>
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 4 -->
+<div class="grid grid-cols-2 grid-rows-2 gap-1 p-1">
+<div class="domino-dot"></div><div class="domino-dot"></div>
+<div class="domino-dot"></div><div class="domino-dot"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tile 3 -->
+<div class="snap-center shrink-0 cursor-grab active:cursor-grabbing hover:-translate-y-4 transition-transform duration-300">
+<div class="domino-tile flex flex-col justify-between items-center p-3 rounded-xl w-16 h-32 shadow-ambient-1 border border-outline-variant/40">
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 1 -->
+<div class="domino-dot"></div>
+</div>
+<div class="domino-divider"></div>
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 3 -->
+<div class="relative w-full h-full p-1 flex items-center justify-center">
+<div class="absolute top-1 left-1 domino-dot"></div>
+<div class="domino-dot"></div>
+<div class="absolute bottom-1 right-1 domino-dot"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tile 4 -->
+<div aria-disabled="true" class="snap-center shrink-0 cursor-grab active:cursor-grabbing hover:-translate-y-4 transition-transform duration-300 opacity-50 grayscale">
+<div class="domino-tile flex flex-col justify-between items-center p-3 rounded-xl w-16 h-32 shadow-ambient-1 border border-outline-variant/40">
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 0 -->
+</div>
+<div class="domino-divider"></div>
+<div class="h-1/2 w-full flex items-center justify-center">
+<!-- 5 -->
+<div class="relative w-full h-full p-1 flex items-center justify-center">
+<div class="absolute top-1 left-1 domino-dot"></div>
+<div class="absolute top-1 right-1 domino-dot"></div>
+<div class="domino-dot"></div>
+<div class="absolute bottom-1 left-1 domino-dot"></div>
+<div class="absolute bottom-1 right-1 domino-dot"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-lg fixed bottom-0 w-full z-50 rounded-t-lg shadow-[0_-4px_12px_rgba(0,78,100,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-base pb-safe h-20">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 transition-all duration-300 ease-out w-16 h-14" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 transition-all duration-300 ease-out w-16 h-14" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="flight_takeoff">flight_takeoff</span>
+<span class="font-label-sm text-label-sm">Travel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 transition-all duration-300 ease-out w-16 h-14" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Pass</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 transition-all duration-300 ease-out w-16 h-14" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="sports_esports" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-label-sm text-label-sm">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:bg-primary-container/10 dark:hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 transition-all duration-300 ease-out w-16 h-14" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm">Journey</span>
+</a>
+</nav>
+<style>
+        /* Utility for hiding scrollbar but allowing scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Safe area padding for modern mobile devices */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .pb-safe {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+
+
+</body></html>

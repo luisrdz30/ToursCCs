@@ -1,0 +1,352 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>TravelSmart AI - Logistics &amp; Boarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#5f1900",
+                    "on-surface": "#261814",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "surface-variant": "#f7ddd5",
+                    "on-secondary-container": "#28667d",
+                    "inverse-surface": "#3c2d28",
+                    "on-tertiary-fixed": "#001f28",
+                    "surface-container": "#ffe9e3",
+                    "outline": "#8d7168",
+                    "tertiary-fixed": "#b5ebff",
+                    "on-tertiary-container": "#003744",
+                    "secondary-container": "#a8e2fd",
+                    "secondary": "#27657c",
+                    "secondary-fixed": "#bce9ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#ab3500",
+                    "on-secondary-fixed": "#001f29",
+                    "surface-dim": "#eed5cd",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "surface-container-high": "#fde3db",
+                    "primary-fixed": "#ffdbd0",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#261814",
+                    "primary-container": "#ff6b35",
+                    "primary-fixed-dim": "#ffb59d",
+                    "background": "#fff8f6",
+                    "tertiary": "#00677e",
+                    "on-surface-variant": "#594139",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ffede8",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fff8f6",
+                    "surface-container-highest": "#f7ddd5",
+                    "surface": "#fff8f6",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#832600",
+                    "inverse-primary": "#ffb59d",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "on-primary-fixed": "#390c00",
+                    "primary": "#ab3500",
+                    "tertiary-container": "#00a7cb",
+                    "surface-container-low": "#fff1ed",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#e1bfb5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "120px",
+                    "md": "24px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "safe": "env(safe-area-inset-bottom)"
+            },
+            "fontFamily": {
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon .material-symbols-outlined {
+             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle breath animation for FAB */
+        @keyframes breath {
+            0% { transform: scale(1); box-shadow: 0 4px 12px rgba(171, 53, 0, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(171, 53, 0, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 4px 12px rgba(171, 53, 0, 0.2); }
+        }
+        .mascota-fab {
+            animation: breath 3s ease-in-out infinite;
+        }
+
+        /* Map scanning line effect */
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ff6b35, transparent);
+            animation: scan 3s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md shadow-sm docked full-width top-0 flex justify-between items-center px-margin-mobile py-base w-full sticky z-50">
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-high transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-high" data-alt="A small, circular profile picture of a young professional wearing sunglasses, set against a bright blue sky background. The lighting is sunny and optimistic, reflecting a travel-ready mood. The style is modern, vibrant photography matching the bright UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrYX8fsQl6gpXTDMK3slLQe3TYWW4ZVcD-kNhoZk2U3mqFtj2abtl-uvCWAz7TICITlMd3qF1TjmPPVqZzyfFEOCm5dEW-A82ofWUTVC9E2MF7jFtKWFdLxj7e-Yj52F8SaJ2hgJyQuqcJly0Ao1CXJURBY3e8jWH0By_96A_orVq8F9D4Jbobx3QSQwH6QawSFV77y0XZUbEv4ZvAv8L4P2-iFYYMRHfxb8h4cyDkjQhHoRpGZLbCAw">
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center flex-1">TravelSmart AI</h1>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-high transition-colors active:scale-95 duration-200 px-3 py-2 rounded-full bg-surface-container-low text-primary font-bold">
+<span class="font-label-md text-label-md">1,250 pts</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-lg relative">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<p class="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-1">Upcoming Journey</p>
+<h2 class="font-title-md text-title-md md:text-headline-lg text-on-surface">Kyoto Temple Tour</h2>
+</div>
+<div class="bg-primary-container/20 text-on-primary-container px-4 py-2 rounded-full inline-flex items-center gap-2 self-start md:self-auto">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="font-label-md text-label-md">Departs in 45 mins</span>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Pass Card (Unhackable Boarding Pass) -->
+<div class="col-span-1 md:col-span-5 bg-surface-container-lowest rounded-lg p-md shadow-sm border border-outline-variant/30 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+<!-- Decorative background elements -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-secondary-container/30 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-lg relative z-10">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Boarding Pass</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Secure &amp; Unhackable</p>
+</div>
+<div class="bg-tertiary-container/20 text-on-tertiary-container p-2 rounded-full">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center py-md relative z-10">
+<!-- Dynamic QR Container -->
+<div class="bg-white p-4 rounded-xl shadow-inner border border-surface-variant relative">
+<!-- Corners -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-primary rounded-tl-lg -mt-1 -ml-1"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-primary rounded-tr-lg -mt-1 -mr-1"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-primary rounded-bl-lg -mb-1 -ml-1"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-primary rounded-br-lg -mb-1 -mr-1"></div>
+<img alt="QR Code" class="w-48 h-48 object-contain" data-alt="A stylized, high-contrast, modern QR code designed specifically for a digital boarding pass. The QR code should be sharp, primarily black and white, but with subtle deep teal or orange accent pixels. It should look like a secure, scannable digital asset on a bright background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJd8tKKZvF6uy0BPeMUclALolHf1JqRZNmfh8m01raFwfKDsdZ5nBcKTYGuiQNzyINRDn-PTetqYW-DoVfkz9VpMSrF51MqEHBJVVEPbqcbx1P_luP2zCfMXrtOqUEZgt0bB6J52p0jaqlT01XRXYk526dgZ1uE1UiUcaOqFrpHGo0ajbTzIaVx6fQdB1lIi11RIBv0IpszjlQ3I-63kYOhgseiic2pUGDvaoR2e-VAA2zANw1MNEPVQ">
+<!-- Animated Scanning Line -->
+<div class="scan-line hidden md:block"></div>
+</div>
+<p class="mt-4 font-label-md text-label-md text-on-surface-variant tracking-widest">TS-KY-8924</p>
+</div>
+</div>
+<!-- Logistics Stack (Map & Contact) -->
+<div class="col-span-1 md:col-span-7 flex flex-col gap-gutter">
+<!-- Map Card (Live Tracking) -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant/30 overflow-hidden flex-1 relative min-h-[300px]">
+<!-- Map Background placeholder -->
+<div class="absolute inset-0 bg-surface-container-high">
+<img alt="Live Map" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A clean, modern, light-mode minimalist map interface showing the streets of Kyoto, Japan. The map style should be similar to modern ride-sharing apps, using soft pastels, light greys, and pale blues. There should be a distinct, slightly glowing path indicating a route, and a small, sleek car icon representing an approaching vehicle. The overall aesthetic is functional, bright, and uncluttered." data-location="Kyoto, Japan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCATFwWmoim3u6YqJxHdRgkevHDNmKmSPdMIgJMHcGDu5-tfhfcWLwS_Cqjh85Kl1bmJ5SBxHFNjEYy6XRGageHCdSx6SGHIGtdZE7NaVBeiv4cV6u3sozhA4XQOzUd_Y8uA7T7KGXwYpCT3x7UX9Bj_LDfQMpvjnc0vMY8Pvai_nKc5Dp4VwQWc9QeYhxYOqGKdbThGazlIKTWgGHNlAdh8G5vCMVg9QQ65nXSxXzs_K2KQIZt_36S_g">
+</div>
+<!-- Overlay UI -->
+<div class="absolute inset-0 p-md flex flex-col justify-between">
+<!-- Top Status Pill -->
+<div class="bg-surface/90 backdrop-blur-md px-4 py-3 rounded-full shadow-md flex items-center justify-between w-max max-w-full">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-tertiary animate-pulse"></div>
+<div>
+<p class="font-label-md text-label-md text-on-surface m-0 leading-tight">Driver Approaching</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant m-0 leading-tight">2 mins away • Toyota Alphard</p>
+</div>
+</div>
+</div>
+<!-- Driver Info Floating Card -->
+<div class="bg-surface-container-lowest/95 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-white/20 flex items-center justify-between mt-auto w-full md:w-2/3 ml-auto">
+<div class="flex items-center gap-3">
+<img alt="Driver" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up portrait of a friendly, professional male driver in his 40s. He is wearing a clean, modern uniform or smart casual attire. The background is slightly blurred but suggests the clean interior of a premium vehicle. Warm, natural lighting highlights his welcoming smile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs0sHZ2zLalEeaKaN1upFd2ffcLNCX8RdKheujxb_7hvXV0zt9VANxXP4a5nid2XgUYdZO7nntXcstoIppuhMRb6enhocxRVR0hz0RZFaV7uWlBORtcoOwd_2tdwxFkh2rXZM5l6DEI7nDJ-JaQlzj-4e12vnXdiyb-oXw_gUSRZwyrFQ14YbDEl2fZwL-7zePhFJLoutKh7_Zt9Z7M2C4dm9YVCI9AZaBGBL3d37FzfTHFcghsp8K7g">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Kenji Sato</p>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-label-sm text-label-sm ml-1 text-on-surface-variant">4.9</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Personal Guide Card -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded-lg p-md flex items-center justify-between shadow-sm border border-outline/20">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img alt="Guide Elena" class="w-14 h-14 rounded-full object-cover border-2 border-primary-container" data-alt="A vibrant, welcoming portrait of a young female personal guide, Elena Rodriguez. She looks energetic and approachable, standing in front of a slightly blurred outdoor scenic background. The lighting is sunny and bright, emphasizing a cheerful travel experience. She is dressed in smart, comfortable travel attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcUFh8RL4fMzd8rUJgfuenrgohL1cUGVUcin_bJ2E292bHgTLchenohvViOK_ieAFIlYUixJf2Af_9wUl0f7b-hV_2ie9JmNEJpMG9Kb6BvQjrEhxDiL5D9GYTsBkuC6LBYD6vuFKaMmbjhf-FV4-ZSFNAYjbwSX3p5nzZg3fI6Kj-gDCNBEF8wC8g9THLkpR0mGNn5wVloFqott5RDDxcXyDh_17tlI50LLuPOdwI3ZKQKn6Ut40aRQ">
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-[#06D6A0] border-2 border-inverse-surface rounded-full"></div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider mb-1">Your Personal Guide</p>
+<p class="font-title-md text-title-md">Elena Rodriguez</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-[0_4px_12px_rgba(171,53,0,0.15)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+                        Message
+                    </button>
+</div>
+</div>
+</div>
+<!-- Mascota IA FAB -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-gradient-to-tr from-primary to-primary-container rounded-full flex items-center justify-center shadow-lg text-on-primary mascota-fab z-40 md:right-margin-desktop md:bottom-12">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.05)] docked full-width rounded-t-lg md:hidden">
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 p-2 w-16">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-sm text-label-sm text-[10px]">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 p-2 w-16">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-sm text-label-sm text-[10px]">Travel</span>
+</button>
+<!-- Active Tab: Pass -->
+<button class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-3 py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150 w-20 relative -top-4 shadow-sm bg-white border border-surface-variant">
+<div class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center mb-1 shadow-md">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Pass</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 p-2 w-16">
+<span class="material-symbols-outlined mb-1">sports_esports</span>
+<span class="font-label-sm text-label-sm text-[10px]">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:opacity-80 transition-opacity active:scale-90 duration-150 p-2 w-16"><span class="material-symbols-outlined mb-1">route</span><span class="font-label-sm text-label-sm text-[10px]">Journey</span></button>
+</nav>
+
+
+</body></html>

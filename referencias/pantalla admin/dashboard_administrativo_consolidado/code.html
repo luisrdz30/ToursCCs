@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelSmart AI - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#390c00",
+                      "outline-variant": "#e1bfb5",
+                      "on-secondary-fixed": "#001f29",
+                      "inverse-on-surface": "#ffede8",
+                      "surface-container-highest": "#f7ddd5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#5f1900",
+                      "surface-variant": "#f7ddd5",
+                      "tertiary-fixed": "#b5ebff",
+                      "inverse-surface": "#3c2d28",
+                      "surface-container": "#ffe9e3",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#003744",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "on-background": "#261814",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "surface-bright": "#fff8f6",
+                      "surface-dim": "#eed5cd",
+                      "outline": "#8d7168",
+                      "primary": "#ab3500",
+                      "surface-tint": "#ab3500",
+                      "on-primary-fixed-variant": "#832600",
+                      "surface": "#fff8f6",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#ffb59d",
+                      "surface-container-low": "#fff1ed",
+                      "background": "#fff8f6",
+                      "tertiary-container": "#00a7cb",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#261814",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#bce9ff",
+                      "on-secondary-container": "#28667d",
+                      "secondary": "#27657c",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "secondary-container": "#a8e2fd",
+                      "on-surface-variant": "#594139",
+                      "primary-fixed": "#ffdbd0",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#fde3db",
+                      "primary-container": "#ff6b35",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#001f28",
+                      "inverse-primary": "#ffb59d",
+                      "tertiary": "#00677e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "margin-mobile": "20px",
+                      "xl": "64px",
+                      "lg": "40px",
+                      "margin-desktop": "120px",
+                      "base": "8px",
+                      "md": "24px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 24px -4px rgba(0, 78, 100, 0.08), 0 8px 16px -8px rgba(0, 78, 100, 0.06);
+        }
+        .hover-lift {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px -8px rgba(0, 78, 100, 0.12), 0 16px 24px -12px rgba(0, 78, 100, 0.08);
+        }
+        
+        /* Bar chart animations */
+        @keyframes growUp {
+            from { height: 0; opacity: 0; }
+            to { opacity: 1; }
+        }
+        .bar-animate {
+            animation: growUp 1s ease-out forwards;
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- Desktop SideNav -->
+<aside class="hidden md:flex flex-col h-screen w-80 rounded-r-lg shadow-lg bg-surface-container-low dark:bg-surface-dim py-md sticky top-0 flex-shrink-0 z-40">
+<div class="px-gutter mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-[32px] text-primary" style="font-variation-settings: 'FILL' 1;">explore</span>
+<div class="font-display-lg text-display-lg text-primary tracking-tight" style="font-size: 24px; line-height: 32px;">TravelSmart</div>
+</div>
+<div class="px-gutter mb-md">
+<div class="flex items-center gap-sm bg-surface-container-lowest p-sm rounded-lg card-shadow">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional corporate headshot of a system administrator in a bright modern office setting. Confident expression, wearing smart casual attire. High key lighting, modern aesthetic, vibrant cultural explorer theme with warm sunset orange accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3TEzPyPhDQl_4lmv3MZGXC0PpH0oZMm7UUKJ6srJjjPbgHBo2Ewz2cG6-ZThIghE4gqJpTTL9M3c8e66lPtn9AwJbs-kOLQ9xO6pynM4K1OltIZWSTRNBDd8DfYSi_6QWLtmDMURtndEZyJTNKh4drU3KHfgeOgmPhRIuc0YZAGenjvNPVJKNOsy7WsA9ymbCNBEaNr7oJh_XR1NtYpJf_uSRf0IRVIDmdbSuXwNPwR054hQVOfr1tA"/>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Admin User</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-normal">Super Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-grow px-sm">
+<a class="flex items-center gap-sm py-sm px-md bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold rounded-full mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm py-sm px-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors mx-2 rounded-full" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-sm py-sm px-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors mx-2 rounded-full" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                Partners
+            </a>
+<a class="flex items-center gap-sm py-sm px-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors mx-2 rounded-full" href="#">
+<span class="material-symbols-outlined">map</span>
+                Routes
+            </a>
+<a class="flex items-center gap-sm py-sm px-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors mx-2 rounded-full" href="#">
+<span class="material-symbols-outlined">insights</span>
+                Analytics
+            </a>
+</nav>
+<div class="px-gutter mt-auto">
+<a class="flex items-center gap-sm py-sm px-md text-on-surface-variant hover:text-error font-label-md text-label-md transition-colors rounded-full" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
+<!-- TopAppBar (Mobile & Desktop) -->
+<header class="w-full top-0 sticky z-30 bg-background/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm border-b-0 border-outline-variant/20 transition-all duration-300" id="top-app-bar">
+<div class="flex justify-between items-center px-gutter py-sm w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-sm">
+<button class="md:hidden text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim hidden md:block">System Overview</h1>
+<div class="font-display-lg text-display-lg text-primary dark:text-primary-fixed-dim md:hidden tracking-tight" style="font-size: 24px; line-height: 32px;">TravelSmart</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden sm:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-2 border-transparent focus:border-secondary rounded-full font-body-md text-body-md w-64 transition-colors focus:outline-none focus:bg-surface-container-lowest" placeholder="Search logs, users..." type="text"/>
+</div>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200 p-2 rounded-full relative flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-gutter md:p-lg max-w-7xl mx-auto w-full space-y-lg pb-32 md:pb-lg">
+<!-- Welcome Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-sm">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Admin Dashboard</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Real-time platform metrics and system health.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-4 py-2 bg-surface-container border border-outline-variant/50 rounded-full font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                        Last 30 Days
+                    </button>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md font-bold flex items-center gap-2 hover-lift">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export
+                    </button>
+</div>
+</div>
+<!-- Bento Grid: High-level Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm md:gap-md">
+<!-- Metric 1: Total Users -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-md card-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-md opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-primary">group</span>
+</div>
+<div class="flex items-center gap-2 mb-sm relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Total Active Users</h3>
+</div>
+<div class="relative z-10">
+<div class="font-display-lg text-display-lg text-on-surface" style="font-size: 36px; line-height: 44px;">124.5K</div>
+<div class="flex items-center gap-1 mt-1 text-[#06D6A0] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">+12.4% vs last month</span>
+</div>
+</div>
+</div>
+<!-- Metric 2: Revenue -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-md card-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-md opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-secondary">payments</span>
+</div>
+<div class="flex items-center gap-2 mb-sm relative z-10">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Platform Revenue</h3>
+</div>
+<div class="relative z-10">
+<div class="font-display-lg text-display-lg text-on-surface" style="font-size: 36px; line-height: 44px;">$842.1K</div>
+<div class="flex items-center gap-1 mt-1 text-[#06D6A0] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">+8.2% vs last month</span>
+</div>
+</div>
+</div>
+<!-- Metric 3: Active Drivers -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-md card-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-md opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-tertiary">local_taxi</span>
+</div>
+<div class="flex items-center gap-2 mb-sm relative z-10">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">local_taxi</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Active Drivers</h3>
+</div>
+<div class="relative z-10">
+<div class="font-display-lg text-display-lg text-on-surface" style="font-size: 36px; line-height: 44px;">8,432</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">horizontal_rule</span>
+<span class="">Stable vs last week</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Partner Network Section -->
+<div class="flex flex-col gap-xs pt-4">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Partner Network</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitor the performance and engagement of allied businesses within the ecosystem.</p>
+</div>
+<!-- Partner Key Metrics -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md">
+<div class="bg-surface-container-lowest p-md rounded-DEFAULT card-shadow hover-lift flex flex-col gap-base border border-outline-variant/20 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+<span class="material-symbols-outlined text-primary text-[28px] relative z-10" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<div class="relative z-10 mt-auto pt-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Partners</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">1,248</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-DEFAULT card-shadow hover-lift flex flex-col gap-base border border-outline-variant/20 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-container rounded-full opacity-30 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+<span class="material-symbols-outlined text-secondary text-[28px] relative z-10" style="font-variation-settings: 'FILL' 1;">generating_tokens</span>
+<div class="relative z-10 mt-auto pt-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ecosystem Points</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">842K</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-DEFAULT card-shadow hover-lift flex flex-col gap-base border border-outline-variant/20 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-container rounded-full opacity-30 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+<span class="material-symbols-outlined text-tertiary text-[28px] relative z-10" style="font-variation-settings: 'FILL' 1;">local_activity</span>
+<div class="relative z-10 mt-auto pt-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Promos</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">156</p>
+</div>
+</div>
+<div class="bg-primary p-md rounded-DEFAULT card-shadow hover-lift flex flex-col gap-base border border-primary-container relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+<span class="material-symbols-outlined text-on-primary text-[28px] relative z-10">trending_up</span>
+<div class="relative z-10 mt-auto pt-sm">
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Avg Rating</p>
+<div class="flex items-end gap-2 mt-xs">
+<p class="font-headline-lg text-headline-lg text-on-primary">4.8</p>
+<span class="font-label-md text-label-md text-primary-fixed-dim mb-2">/ 5.0</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner List (Glassmorphism Cards) -->
+<section class="flex flex-col gap-sm">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-title-md text-title-md text-on-surface">Top Performing Partners</h3>
+<button class="flex items-center gap-xs text-primary font-label-md text-label-md hover:text-primary-container transition-colors">
+<span class="">Sort by Points</span>
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+</div>
+<!-- Partner Card 1 -->
+<article class="glass-panel p-sm md:p-md rounded-DEFAULT card-shadow hover-lift flex flex-col md:flex-row gap-md items-start md:items-center relative group overflow-hidden">
+<!-- Subtle gradient glow behind image -->
+<div class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-primary/5 to-transparent z-0"></div>
+<div class="w-full md:w-24 h-48 md:h-24 rounded-xl overflow-hidden flex-shrink-0 relative z-10">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A bright, high-quality photograph of an artisan coffee shop interior with warm wood accents, lush green plants, and soft natural sunlight streaming through large windows. Modern travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIQoN950cM6bveGDRJar1ii5lIrfI-nLqqZKaWI98QpePgwWyO8VL2eyfN96BI_moqtAqwDWmtWzjwUZuaDlCYqFamDhUyAU4kCo7XddLD85DvlcNZfGy7s3ZVZSBRP1f-tNKwrj13BYaYciuqGM96wm-oKzfbUQZsBKhFGZuwCwGihYSChvqsGZv2AsL0tWDHhQjYLBPEasFa-wYtijei_mD7VCMuu5rzSM_OCBLfLrp_cfk_rwy6Rg"/>
+</div>
+<div class="flex-1 flex flex-col gap-xs z-10 w-full">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded-md font-label-sm text-[10px] uppercase tracking-wider">Gastronomy</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded-md font-label-sm text-[10px] uppercase tracking-wider">Verified</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">La Terraza Resto</h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Oaxaca City, Centro
+                                </p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-[#F4B400] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9</span>
+</div>
+</div>
+</div>
+<!-- Divider for mobile -->
+<div class="w-full h-[1px] bg-outline-variant/30 my-2 md:hidden"></div>
+<div class="flex flex-wrap items-center gap-md mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Points Generated</span>
+<span class="font-title-md text-title-md text-secondary">12,450</span>
+</div>
+<!-- Vertical divider -->
+<div class="hidden md:block w-[1px] h-8 bg-outline-variant/50"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Promos</span>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">3</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">local_activity</span>
+</div>
+</div>
+<div class="mt-2 md:mt-0 md:ml-auto w-full md:w-auto">
+<button class="w-full md:w-auto px-6 py-2 bg-surface-container border border-primary/20 text-primary font-label-md text-label-md rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Partner Card 2 -->
+<article class="glass-panel p-sm md:p-md rounded-DEFAULT card-shadow hover-lift flex flex-col md:flex-row gap-md items-start md:items-center relative group overflow-hidden">
+<div class="w-full md:w-24 h-48 md:h-24 rounded-xl overflow-hidden flex-shrink-0 relative z-10">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A beautifully lit photograph of a boutique eco-hotel nestled in a lush green jungle. Wooden architecture, warm lighting, serene and sustainable travel vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR2yLXhbI2apj5Ubux3U_O-_EyHK16jqt997YFlfwMHC1p-1nuZb04JOU8wf8_cY7EBvuxJL6JzA2gZXWIGne9Who_Tgrqu5t3aq5YBHevLbtJUG9t752nSxW_UhtPka7Jtk4Ibh9gyGmKu1rAnGiMwo4hcQe1l1pqSS1iM3Y3toMs2arneHEEsYMCHjyWhKHAFfDJxgTo9Iwk79alYbcLrigSTYwuC3bdDW4ASuC4uGImb_QnHmMwjg"/>
+</div>
+<div class="flex-1 flex flex-col gap-xs z-10 w-full">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-md font-label-sm text-[10px] uppercase tracking-wider">Lodging</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">Selva Boutique Hotel</h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Tulum, Beach Zone
+                                </p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-[#F4B400] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.7</span>
+</div>
+</div>
+</div>
+<!-- Divider for mobile -->
+<div class="w-full h-[1px] bg-outline-variant/30 my-2 md:hidden"></div>
+<div class="flex flex-wrap items-center gap-md mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Points Generated</span>
+<span class="font-title-md text-title-md text-secondary">8,920</span>
+</div>
+<div class="hidden md:block w-[1px] h-8 bg-outline-variant/50"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Promos</span>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">1</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">local_activity</span>
+</div>
+</div>
+<div class="mt-2 md:mt-0 md:ml-auto w-full md:w-auto">
+<button class="w-full md:w-auto px-6 py-2 bg-surface-container border border-primary/20 text-primary font-label-md text-label-md rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-4 pt-2 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md rounded-t-lg shadow-[0_-4px_12px_rgba(0,78,100,0.15)]"><a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-xl px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span><span class="font-label-sm text-label-sm mt-1">Business</span></a><a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">sell</span><span class="font-label-sm text-label-sm mt-1">Promos</span></a><a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">group</span><span class="font-label-sm text-label-sm mt-1">Users</span></a><a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#"><span class="material-symbols-outlined">explore</span><span class="font-label-sm text-label-sm mt-1">Tours</span></a></nav>
+<script>
+        // Simple scroll effect for top app bar
+        const topAppBar = document.getElementById('top-app-bar');
+        const mainContent = document.querySelector('main');
+        
+        mainContent.addEventListener('scroll', () => {
+            if (mainContent.scrollTop > 10) {
+                topAppBar.classList.add('shadow-sm');
+                topAppBar.classList.replace('bg-background/90', 'bg-surface-container-lowest');
+            } else {
+                topAppBar.classList.remove('shadow-sm');
+                topAppBar.classList.replace('bg-surface-container-lowest', 'bg-background/90');
+            }
+        });
+    </script>
+</body></html>

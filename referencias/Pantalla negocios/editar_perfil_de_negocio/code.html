@@ -1,0 +1,287 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Edit Profile - Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59d",
+                        "surface-container-highest": "#f7ddd5",
+                        "background": "#fff8f6",
+                        "tertiary": "#00677e",
+                        "on-secondary-container": "#28667d",
+                        "surface-container-low": "#fff1ed",
+                        "on-secondary-fixed-variant": "#004d63",
+                        "inverse-on-surface": "#ffede8",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "secondary": "#27657c",
+                        "surface-variant": "#f7ddd5",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-secondary-fixed": "#001f29",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-dim": "#eed5cd",
+                        "primary": "#ab3500",
+                        "on-background": "#261814",
+                        "surface": "#fff8f6",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-high": "#fde3db",
+                        "secondary-container": "#a8e2fd",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#5f1900",
+                        "on-tertiary-container": "#003744",
+                        "outline": "#8d7168",
+                        "secondary-fixed": "#bce9ff",
+                        "on-surface-variant": "#594139",
+                        "inverse-primary": "#ffb59d",
+                        "on-surface": "#261814",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#390c00",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#95cfe9",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#3c2d28",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-container": "#ffe9e3",
+                        "primary-container": "#ff6b35",
+                        "outline-variant": "#e1bfb5",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#00a7cb",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#ab3500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "lg": "40px",
+                        "margin-desktop": "120px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "title-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel { background: rgba(255, 241, 237, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(225, 191, 181, 0.3); }
+        .ambient-shadow { box-shadow: 0 8px 32px rgba(0, 78, 100, 0.08); }
+        .input-focus-ring:focus-within { border-color: theme('colors.secondary'); box-shadow: 0 0 0 2px rgba(39, 101, 124, 0.2); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-inverse-surface shadow-sm">
+<div class="flex justify-between items-center px-gutter py-sm w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-sm text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200 p-2 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary dark:text-primary-fixed-dim">Partner Portal</h1>
+<div class="flex items-center gap-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200 p-2 rounded-full cursor-pointer">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-lg px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex col-span-3">
+<div class="bg-surface-container-low dark:bg-surface-dim h-full w-80 rounded-r-lg shadow-lg flex flex-col py-md sticky top-32">
+<!-- Profile Header -->
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-4">
+<img alt="Partner Logo" class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A stylized, vibrant logo for 'La Terraza Resto', a modern cultural restaurant. The logo features abstract geometric shapes in sunset orange and deep teal, conveying warmth and hospitality. The background is a crisp off-white, emphasizing the modern light-mode aesthetic. High quality, flat design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJFf3Ajb9xyu4mxa6fYxRBLltVJ_V69vBzLQfMmXOEkzjbSFeO8pNVSOkX08escRj9ThJDgvh5mD5aFfJdXIt7gOmVDTG3AdCVxWBpV7gILzNtJddRZEkaSDqo4YOLh6htZniWnu8DI7RoddR7hfKtnJMU6-_9T4b_O-cKEZKZK6_AagNbHICaZzSYi0oO3yEuHqYklAxIz9IJEfsoiY9J18y3_bZd3aOYHhef6PKHHGlOgTCql6tfww">
+<div>
+<h2 class="font-title-md text-title-md text-primary">La Terraza Resto</h2>
+<p class="font-label-sm text-label-sm text-secondary">Verified Partner</p>
+</div>
+</div>
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full">Premium Tier</span>
+</div>
+<!-- Nav Items -->
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-md py-3 px-4 mx-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors active:opacity-80 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+                        My Business
+                    </a>
+<a class="flex items-center gap-md py-3 px-4 mx-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors active:opacity-80 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                        Promotions
+                    </a>
+<a class="flex items-center gap-md py-3 px-4 mx-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors active:opacity-80 rounded-full font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                        Analytics
+                    </a>
+<!-- Active State -->
+<a class="flex items-center gap-md py-3 px-4 mx-2 bg-secondary-container text-on-secondary-container font-bold rounded-full hover:bg-surface-container-high transition-colors active:opacity-80 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+                        Settings
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="col-span-1 md:col-span-9 space-y-lg">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Edit Profile</h2>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-full shadow-md hover:shadow-lg hover:bg-primary-container transition-all active:scale-95">Guardar Cambios</button>
+</div>
+<!-- Bento Grid Layout for Forms -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- General Info Card -->
+<div class="glass-panel ambient-shadow rounded-lg p-md space-y-sm">
+<h3 class="font-title-md text-title-md text-secondary border-b border-outline-variant pb-2 mb-4">Información General</h3>
+<div class="space-y-2 input-focus-ring">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Nombre del Negocio</label>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-transparent flex items-center px-4 py-3 transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">restaurant</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface placeholder-outline-variant" type="text" value="La Terraza Resto">
+</div>
+</div>
+<div class="space-y-2 input-focus-ring pt-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Descripción</label>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-transparent p-4 transition-colors">
+<textarea class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface placeholder-outline-variant resize-none" rows="4">Experiencia culinaria vibrante fusionando sabores tradicionales con técnicas modernas. Un oasis urbano de hospitalidad.</textarea>
+</div>
+</div>
+</div>
+<!-- Logistics Card -->
+<div class="glass-panel ambient-shadow rounded-lg p-md space-y-sm flex flex-col">
+<h3 class="font-title-md text-title-md text-secondary border-b border-outline-variant pb-2 mb-4">Logística</h3>
+<div class="space-y-2 input-focus-ring flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Horario</label>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-transparent flex items-center px-4 py-3 transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">schedule</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface placeholder-outline-variant" type="text" value="Mar - Dom: 13:00 - 23:00">
+</div>
+</div>
+<div class="space-y-2 input-focus-ring mt-4 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Ubicación</label>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-transparent flex items-center px-4 py-3 transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface placeholder-outline-variant" type="text" value="Av. Principal 123, Distrito Cultural">
+</div>
+</div>
+</div><div class="glass-panel ambient-shadow rounded-lg p-md space-y-sm flex flex-col md:col-span-2">
+<h3 class="font-title-md text-title-md text-secondary border-b border-outline-variant pb-2 mb-4">Idioma</h3>
+<div class="space-y-2 input-focus-ring">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Idioma de la Interfaz</label>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-transparent flex items-center px-4 py-3 transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">language</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface placeholder-outline-variant" type="text" value="Español (Ecuador)" readonly="">
+</div>
+</div>
+</div>
+</div>
+<!-- Manage Menu Section -->
+<div class="glass-panel ambient-shadow rounded-xl p-md mt-lg">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary">Manage Menu</h3>
+<button class="flex items-center gap-2 text-primary hover:text-primary-container font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+                        Add Item
+                    </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<!-- Menu Item Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A bright, high-quality food photography shot of a fresh Citrus Ceviche in a modern ceramic bowl. The dish features vibrant orange mango, bright green cilantro, and translucent white fish, bathed in a zesty lime marinade. The setting is a sunny, modern table with off-white linens, emphasizing a fresh, light-mode culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzIdDXGBt8OtrWRU-wzW3EDVMR9894N8NCp9Dd-g6-RYj1_stIBQ83eNGfsGXjoNB9S-WDzd105Rs98oDmxqmTNiupdimA0-rsOdEjS9uCTjRvarEnDsxrk1yjJfzwJON4o6xKuLdhlWABhQheBSrxQvFBXfDx6pP-aiq-Un-oURRPO_VfmS75-moxlB2vZlDzKf0ud5nC-yvzDhBIo8sGyCwVBKol2Vmf-g-rrEoHcUDRSfQB-MAv4A">
+<div class="absolute top-2 right-2 bg-surface/90 backdrop-blur-sm rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">edit</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-title-md text-title-md text-on-background">Citrus Ceviche</h4>
+<span class="font-label-md text-label-md text-secondary">$18.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Pesca del día marinada en cítricos locales, mango fresco, cebolla morada y toques de ají limo.</p>
+</div>
+</div>
+<!-- Menu Item Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A mouth-watering, high-resolution photo of grilled octopus tentacles served on a bed of vibrant purple potato puree. The dish is garnished with a drizzle of emerald green herb oil and microgreens. The lighting is bright and warm, showcasing the textures of the grill marks against the smooth puree in a modern, light-filled dining setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtyoKPA3yKMZRn4AtISBeJTvAQcRTqcCCj5Km-bzY1X5b0a241iNdvActVb5P2VW384IahNieWkbROq7BBPhvRTh30KaKRuFDtcTsNPdl0GhsynG2yyaWuLoH2M1FDjVzv36uO_PeUNUHRt1lfuSLqz9kuSSfnvLg0jBR0gFuGVMaxvFbLuGeWuXpgybj8HayTZTi7zrG6jek5O8u6MJtFJUm25QMKfYKtqFI_hR-v-EE2dcXPu64hyg">
+<div class="absolute top-2 right-2 bg-surface/90 backdrop-blur-sm rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">edit</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-title-md text-title-md text-on-background">Pulpo a la Parrilla</h4>
+<span class="font-label-md text-label-md text-secondary">$24.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Tentáculos tiernos a la parrilla sobre puré rústico y aceite de hierbas aromáticas.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_12px_rgba(0,78,100,0.15)] flex justify-around items-center px-2 pb-4 pt-2 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-sm text-label-sm text-primary">Business</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_activity">local_activity</span>
+<span class="font-label-sm text-label-sm text-primary">Promos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm text-primary">Stats</span>
+</a>
+<!-- Active State for Profile/Settings Edit -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-xl px-4 py-1 hover:bg-surface-variant/50 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-sm text-label-sm text-primary">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

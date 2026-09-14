@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>QR Scanner - Partner Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#ab3500",
+                      "on-secondary-container": "#28667d",
+                      "primary-fixed-dim": "#ffb59d",
+                      "outline-variant": "#e1bfb5",
+                      "on-tertiary-fixed-variant": "#004e60",
+                      "tertiary": "#00677e",
+                      "secondary": "#27657c",
+                      "secondary-fixed-dim": "#95cfe9",
+                      "inverse-surface": "#3c2d28",
+                      "tertiary-container": "#00a7cb",
+                      "surface-container-highest": "#f7ddd5",
+                      "on-surface-variant": "#594139",
+                      "on-primary-fixed-variant": "#832600",
+                      "inverse-primary": "#ffb59d",
+                      "surface": "#fff8f6",
+                      "tertiary-fixed": "#b5ebff",
+                      "on-tertiary-container": "#003744",
+                      "background": "#fff8f6",
+                      "secondary-fixed": "#bce9ff",
+                      "surface-bright": "#fff8f6",
+                      "surface-container-high": "#fde3db",
+                      "on-error-container": "#93000a",
+                      "primary": "#ab3500",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#004d63",
+                      "on-background": "#261814",
+                      "on-primary-fixed": "#390c00",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#8d7168",
+                      "primary-fixed": "#ffdbd0",
+                      "on-primary-container": "#5f1900",
+                      "secondary-container": "#a8e2fd",
+                      "surface-container-low": "#fff1ed",
+                      "tertiary-fixed-dim": "#59d5fb",
+                      "surface-dim": "#eed5cd",
+                      "inverse-on-surface": "#ffede8",
+                      "on-surface": "#261814",
+                      "primary-container": "#ff6b35",
+                      "surface-container": "#ffe9e3",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#001f28",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#001f29",
+                      "surface-variant": "#f7ddd5",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "base": "8px",
+                      "md": "24px",
+                      "xs": "4px",
+                      "sm": "12px",
+                      "margin-desktop": "120px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .scanner-frame {
+            position: relative;
+        }
+        .scanner-frame::before, .scanner-frame::after,
+        .scanner-frame-inner::before, .scanner-frame-inner::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-color: #ff6b35; /* primary-container */
+            border-style: solid;
+        }
+        .scanner-frame::before {
+            top: 0; left: 0;
+            border-width: 4px 0 0 4px;
+            border-top-left-radius: 24px;
+        }
+        .scanner-frame::after {
+            top: 0; right: 0;
+            border-width: 4px 4px 0 0;
+            border-top-right-radius: 24px;
+        }
+        .scanner-frame-inner {
+            position: absolute;
+            inset: 0;
+        }
+        .scanner-frame-inner::before {
+            bottom: 0; left: 0;
+            border-width: 0 0 4px 4px;
+            border-bottom-left-radius: 24px;
+        }
+        .scanner-frame-inner::after {
+            bottom: 0; right: 0;
+            border-width: 0 4px 4px 0;
+            border-bottom-right-radius: 24px;
+        }
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #ff6b35;
+            box-shadow: 0 0 10px #ff6b35;
+            top: 10%;
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md h-screen w-full overflow-hidden flex flex-col md:flex-row">
+<!-- Mobile Top AppBar -->
+<header class="md:hidden fixed top-0 w-full z-50 shadow-sm bg-surface/80 backdrop-blur-md px-margin-mobile py-sm flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-lg overflow-hidden">
+<img alt="Business Logo" class="w-full h-full object-cover" data-alt="A stylized logo for a vibrant local restaurant named 'La Mesa del Sol' featuring a warm sun motif in a modern minimal style. Light mode aesthetic with deep teal and sunset orange." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8F5jR6Q-7PbTWLm_wrvZfEtXyC1roBN9cygsymz7ubEEpyv6b5yE4kdVuanmbMSNq8Jnv7MzzQ-aj5ilH0uJ9RtSUmsg-L6draZ094BlvsgV3PhNQHF-x7E6r53y1dtilWJGuvVWWWzIyx89qATA9JjYB5OHBz-0V608gpqXJJPCgy23uKS8mTkuwybHUheSWzCjDYuRzRD9ar0CU9rXh0pKmrWtZ_w8LKiZpZ14kBKmt37PSC3wMaA"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">Partner Portal</h1>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Desktop Navigation Drawer (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-full w-80 rounded-r-lg shadow-lg bg-surface-container-low py-md z-40 fixed left-0 top-0">
+<div class="px-md mb-xl flex flex-col items-start">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden mb-sm shadow-sm">
+<img alt="Business Owner Avatar" class="w-full h-full object-cover" data-alt="A stylized logo for a vibrant local restaurant named 'La Mesa del Sol' featuring a warm sun motif in a modern minimal style. Light mode aesthetic with deep teal and sunset orange." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwV4nLRMR-W4p1h_BNQCnuGJpu2FVaNC9Bt3qsTRYmOausdw6rHr0oXbqG9pnqFT_ODS8h55DBptSCs-ExCcE2miJeAFiiTNvHDgODr2HJqijMQURL080FWnOO6F_Fw4vwTdJzgnQZIHTlQ19RKWFaUuePfXW1h-QuDjUmxDWgKNbamItS6m0lbDLAhH96QjwFHpvk6Ant6GWNs6RxpSWjNuKUGi_f3YxU0kaeQ5tMTGYvm9MZxyU6QA"/>
+</div>
+<h2 class="font-title-md text-title-md text-primary font-bold">Local Partner</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Platinum Merchant</p>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container px-2 py-1 rounded-md mt-xs">ID: 88291</span>
+</div>
+<ul class="flex-1 flex flex-col gap-base">
+<li>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-98" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-title-md text-title-md">Business</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-98" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-title-md text-title-md">Promos</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-98" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-title-md text-title-md">Stats</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-98" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-title-md text-title-md">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas (QR Scanner View) -->
+<main class="flex-1 relative w-full h-full md:ml-80 bg-inverse-surface overflow-hidden">
+<!-- Simulated Camera Feed Background -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-80" data-alt="A blurred background suggesting a vibrant, sunny street scene outside a restaurant, viewed through a camera lens. Warm lighting, modern aesthetic, slightly out of focus to serve as a background for a QR scanner." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAULNjr6ZHBMx_A4t5SzqrpRp5L4p-SRhTsehHMDo4zgoDHwN4nV05zc4lXhyEGO4IobHlKyetquTBP9yNvmUAuttOlDs9E1Vq_FkfDULJoSeQ-YEM9LX5cTPDcED1hObG1G57qEoN2nF5zPc3Mm6POQtXwasnBdAsJSafxGMHimO0o6Almt0GE4Slc6mA-UIqVr-jGtLBL6Ir6B9DcqYWUBNUXwKPX5UP51_LXQvrGqMcDkuGH1cfeHQ')"></div>
+<!-- Dark overlay to emphasize the scanner area -->
+<div class="absolute inset-0 bg-black/60"></div>
+</div>
+<!-- Scanner UI Overlay -->
+<div class="absolute inset-0 z-10 flex flex-col pt-24 pb-32 px-margin-mobile">
+<!-- Instructions -->
+<div class="text-center mb-auto mt-lg md:mt-xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-white font-bold drop-shadow-md">
+                    Escanea el código QR
+                </h2>
+<p class="font-body-lg text-body-lg text-surface-variant mt-sm drop-shadow">
+                    del turista para sumar puntos
+                </p>
+</div>
+<!-- Viewfinder -->
+<div class="mx-auto my-auto w-64 h-64 md:w-80 md:h-80 scanner-frame relative">
+<!-- Clear area cutout effect (simulated with shadow if real cutout isn't possible, but using transparency here) -->
+<div class="w-full h-full bg-transparent rounded-3xl shadow-[0_0_0_9999px_rgba(0,0,0,0.4)]"></div>
+<div class="scanner-frame-inner"></div>
+<div class="scan-line"></div>
+</div>
+<!-- Controls (Flash & Manual) -->
+<div class="flex justify-center gap-xl mt-auto mb-lg">
+<button class="flex flex-col items-center gap-xs group">
+<div class="w-14 h-14 rounded-full bg-surface-container/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-active:scale-95 transition-all hover:bg-surface-container/40">
+<span class="material-symbols-outlined">flashlight_on</span>
+</div>
+<span class="font-label-md text-label-md text-white/80">Linterna</span>
+</button>
+<button class="flex flex-col items-center gap-xs group">
+<div class="w-14 h-14 rounded-full bg-surface-container/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-active:scale-95 transition-all hover:bg-surface-container/40">
+<span class="material-symbols-outlined">keyboard</span>
+</div>
+<span class="font-label-md text-label-md text-white/80">Manual</span>
+</button>
+</div>
+</div>
+<!-- Bottom Quick Preview Card -->
+<div class="absolute bottom-[80px] md:bottom-md left-margin-mobile right-margin-mobile z-20">
+<div class="bg-surface rounded-[24px] p-md shadow-lg flex items-center gap-md relative overflow-hidden">
+<!-- Decorative accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container shrink-0">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">La Mesa del Sol</h3>
+<div class="flex items-center gap-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-[#06D6A0]"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Listo para escanear</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-surface/80 backdrop-blur-md flex justify-around items-center px-margin-mobile pb-safe z-50 rounded-t-lg shadow-[0_-4px_12px_rgba(0,78,100,0.15)]">
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-xl px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Business</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-sm text-label-sm mt-1">Promos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-container/10 transition-colors active:scale-90 duration-200 px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

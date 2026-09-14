@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TurismoActivo - Dashboard Chofer</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#27657c",
+                    "on-primary-container": "#5f1900",
+                    "outline": "#8d7168",
+                    "on-surface-variant": "#594139",
+                    "on-primary-fixed-variant": "#832600",
+                    "on-secondary-fixed-variant": "#004d63",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#00677e",
+                    "outline-variant": "#e1bfb5",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001f29",
+                    "surface-container-high": "#fde3db",
+                    "background": "#fff8f6",
+                    "tertiary-fixed": "#b5ebff",
+                    "on-tertiary-container": "#003744",
+                    "secondary-fixed": "#bce9ff",
+                    "on-surface": "#261814",
+                    "surface-container": "#ffe9e3",
+                    "secondary-container": "#a8e2fd",
+                    "on-background": "#261814",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#f7ddd5",
+                    "inverse-primary": "#ffb59d",
+                    "on-primary-fixed": "#390c00",
+                    "inverse-surface": "#3c2d28",
+                    "surface-bright": "#fff8f6",
+                    "inverse-on-surface": "#ffede8",
+                    "primary-fixed": "#ffdbd0",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#ab3500",
+                    "primary": "#ab3500",
+                    "primary-container": "#ff6b35",
+                    "on-secondary-container": "#28667d",
+                    "on-tertiary-fixed": "#001f28",
+                    "surface": "#fff8f6",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#eed5cd",
+                    "surface-container-highest": "#f7ddd5",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#95cfe9",
+                    "primary-fixed-dim": "#ffb59d",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "tertiary-container": "#00a7cb",
+                    "surface-container-low": "#fff1ed",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "40px",
+                    "base": "8px",
+                    "margin-desktop": "120px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "xl": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Level 1 Shadow for Cards */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(39, 101, 124, 0.08), 0 1px 3px rgba(39, 101, 124, 0.04);
+        }
+        
+        /* Inner glow for primary buttons */
+        .btn-inner-glow {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(171, 53, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex justify-between items-center px-margin-mobile h-16 transition-colors">
+<!-- Leading Avatar -->
+<button class="flex-shrink-0 focus:outline-none hover:scale-95 duration-150 transition-transform">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-highest" data-alt="A close-up, professional portrait of a friendly male tour bus driver in his 40s. He is wearing a crisp, modern uniform shirt in a soft teal color. The lighting is bright and natural, suggesting a sunny morning. The background is slightly blurred but hints at a modern urban setting. The overall mood is welcoming, trustworthy, and aligned with a premium, light-mode hospitality aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC0A0DhH8OLoBPmHsTJAlS-4kxpiv7HzjURy2986Hh7CAX72U5rYee7fGuQGIXh5LIDoKv2t8wD6ZuVDskw20TOg1xq_YSP0P1z1WOWwKJAMUW7-zqVm0qTgooysMmCjMVI0ibPTzBRaNsJEqlYTXhRNbZV6jtnZmrbUzr-aa8Zq1ylcYHAyhWEqZk8yAKAye5SycVlooVzbj9-Tde-qGoQ36efu4xlPFewVu_jsIQLfCv7PfodJfd2Q">
+</button>
+<!-- Headline -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">TurismoActivo</h1>
+<!-- Trailing Icon -->
+<button class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors hover:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 px-margin-mobile pb-[100px] md:pb-lg md:max-w-screen-xl md:mx-auto w-full pt-md">
+<!-- Greeting Section -->
+<section class="mb-lg">
+<h2 class="font-title-md text-title-md text-on-surface mb-xs">Hola, Carlos</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tienes 3 viajes asignados para hoy, Jueves 24.</p>
+</section>
+<!-- Active Trip Card (Hero) -->
+<section class="mb-lg">
+<div class="bg-surface-container-lowest rounded-[2rem] p-md shadow-level-1 relative overflow-hidden flex flex-col gap-md">
+<!-- Status Badge -->
+<div class="absolute top-md right-md bg-secondary-container text-on-secondary-container rounded-full px-sm py-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] fill">trip_origin</span>
+<span class="font-label-sm text-label-sm uppercase">Próximo a salir</span>
+</div>
+<div class="flex items-start gap-md">
+<!-- Thumbnail -->
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A breathtaking, vibrant photograph of the historic center of Quito, Ecuador on a clear, sunny day. The image features the iconic colonial architecture with white facades and terracotta roofs, set against the dramatic backdrop of the green Andean mountains. The lighting is bright and cheerful, evoking an optimistic and exciting travel mood. The style is modern, high-contrast, and clean, fitting a premium travel application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5IAdilrRTQnw8aYALwAkyhVA1osGjYsZYKoBnO6TX1SIGJMkzG9hjwhh50AXVUHK-s2Y1qHlkcWLMqC-8j9ZtiqbvIoUbaVQopu6ddbm0cv7EjadeirVA19WkkpBBWKorf414KZRT2B1Ko2cKlTNKRF73g6qy55btI0YM3WaXJCF2ZTKdTgWUQA0SnM-OMhcV5pOmxxEVzmTTHgs9dNcFiZqbskVrjnWr8GCEgow6QZnBW6oVmlnk9Q">
+</div>
+<!-- Trip Info -->
+<div class="flex-1 mt-xs">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs leading-tight">Gran Tour por Quito</h3>
+<p class="font-body-md text-body-md text-secondary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span> 09:00 AM
+                        </p>
+</div>
+</div>
+<!-- Logistics Details -->
+<div class="bg-surface-container rounded-xl p-sm flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pasajeros</p>
+<p class="font-title-md text-title-md text-on-surface">12 / 15</p>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm pr-xs">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined">directions_bus</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unidad</p>
+<p class="font-title-md text-title-md text-on-surface">U-04</p>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full py-3 px-6 bg-primary text-on-primary rounded-full font-label-md text-label-md btn-inner-glow transition-transform active:scale-95 flex justify-center items-center gap-sm mt-xs">
+<span class="material-symbols-outlined fill">play_circle</span>
+                    Iniciar Viaje
+                </button>
+</div>
+</section>
+<!-- Upcoming Trips List -->
+<section>
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Próximos en el día</h3>
+<div class="flex flex-col gap-sm">
+<!-- Trip Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-sm shadow-sm flex items-center gap-sm border border-transparent hover:border-outline-variant transition-colors cursor-pointer">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A vivid, inviting photograph of a scenic historical route featuring cobblestone streets and vibrant colonial houses bathed in warm afternoon sunlight. The scene is peaceful and culturally rich, conveying a sense of discovery and relaxed travel. The color palette emphasizes warm terracotta, soft yellows, and deep greens, aligning with a welcoming, modern tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDChmhStaOjo8tHUFAuMZtJQEnyDJl3pscCzSubssLn7J9CeXbdljdtOBBa-kq8M19vDGLURGuNQbfz5tNxFrgBhADWzMuMe_btIyr5-rmNjuqCpYZGTuv9eDaHH0Zft_-jWHatyCtymW6KtDUyzDGqaxLB9rwAdJzkjQqm-2wPJ9sJHiL0E5uTtinl_a4LUXgXCKO4c1qkr21zUqtscgQtpyry7H2ALIBd9FxZ3IUYdLyAmJW7_P5_-Q">
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Ruta Histórica Mitad del Mundo</h4>
+<div class="flex gap-md mt-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 14:30
+                            </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">group</span> 8 pax
+                            </p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Trip Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-sm shadow-sm flex items-center gap-sm border border-transparent hover:border-outline-variant transition-colors cursor-pointer">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary opacity-50">landscape</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Traslado Aeropuerto UIO</h4>
+<div class="flex gap-md mt-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 19:00
+                            </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">group</span> 4 pax
+                            </p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface/80 backdrop-blur-md shadow-[0_-4px_10px_rgba(0,78,100,0.15)] rounded-t-lg md:hidden"><!-- Tab: Viajes (Left) -->
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container rounded-full px-4 py-1 scale-90 duration-200 transition-transform" href="#">
+<span class="material-symbols-outlined fill">route</span>
+<span class="font-label-sm text-label-sm mt-1">Viajes</span>
+</a>
+<!-- Tab: Escanear (Center - Prominent) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm mt-1">Escanear</span>
+</a>
+<!-- Tab: Pasajeros (Right) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm mt-1">Pasajeros</span>
+</a></nav>
+
+
+</body></html>

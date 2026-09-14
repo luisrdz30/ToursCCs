@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>TravelSmart AI - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-fixed": "#ffdbd0",
+                "surface-container": "#ffe9e3",
+                "on-primary-fixed": "#390c00",
+                "primary-container": "#ff6b35",
+                "surface-bright": "#fff8f6",
+                "surface-tint": "#ab3500",
+                "primary": "#ab3500",
+                "secondary-container": "#a8e2fd",
+                "tertiary-fixed-dim": "#59d5fb",
+                "surface-container-high": "#fde3db",
+                "secondary-fixed-dim": "#95cfe9",
+                "on-secondary": "#ffffff",
+                "inverse-surface": "#3c2d28",
+                "surface-container-highest": "#f7ddd5",
+                "surface-variant": "#f7ddd5",
+                "surface": "#fff8f6",
+                "secondary-fixed": "#bce9ff",
+                "outline-variant": "#e1bfb5",
+                "surface-dim": "#eed5cd",
+                "on-tertiary": "#ffffff",
+                "on-surface": "#261814",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#003744",
+                "tertiary-container": "#00a7cb",
+                "on-primary-container": "#5f1900",
+                "tertiary": "#00677e",
+                "tertiary-fixed": "#b5ebff",
+                "on-background": "#261814",
+                "on-surface-variant": "#594139",
+                "on-primary-fixed-variant": "#832600",
+                "surface-container-lowest": "#ffffff",
+                "background": "#fff8f6",
+                "outline": "#8d7168",
+                "inverse-primary": "#ffb59d",
+                "on-secondary-fixed": "#001f29",
+                "on-tertiary-fixed-variant": "#004e60",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#001f28",
+                "surface-container-low": "#fff1ed",
+                "on-secondary-fixed-variant": "#004d63",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#ffb59d",
+                "on-primary": "#ffffff",
+                "on-error": "#ffffff",
+                "secondary": "#27657c",
+                "on-secondary-container": "#28667d",
+                "inverse-on-surface": "#ffede8"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "12px",
+                "base": "8px",
+                "lg": "40px",
+                "gutter": "16px",
+                "margin-mobile": "20px",
+                "xs": "4px",
+                "md": "24px",
+                "xl": "64px",
+                "margin-desktop": "120px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "title-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Be Vietnam Pro"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Be Vietnam Pro"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "title-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .input-glow:focus-within {
+            box-shadow: 0 0 0 2px theme('colors.secondary'), 0 4px 14px theme('colors.secondary-container' / 30%);
+        }
+        .btn-glow {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 8px 16px theme('colors.primary-container' / 40%);
+        }
+        .btn-glow:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px theme('colors.primary-container' / 20%);
+        }
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: theme('colors.primary');
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: theme('colors.primary');
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center relative overflow-hidden font-body-md">
+<!-- Ambient Background Elements -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-primary-fixed-dim/20 blur-[80px] mix-blend-multiply"></div>
+<div class="absolute -bottom-[20%] -left-[10%] w-[80vw] h-[80vw] rounded-full bg-tertiary-fixed-dim/20 blur-[100px] mix-blend-multiply"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[480px] px-margin-mobile z-10 flex flex-col justify-center min-h-[100dvh] py-lg relative">
+<!-- Header Section -->
+<header class="mb-lg text-center">
+<div class="inline-flex items-center justify-center w-32 h-32 mb-md">
+  <img src="https://lh3.googleusercontent.com/aida/AP1WRLt1pFS-WognBAshtPJtUE1yaE67JZ4WJcClZU4qcqqzFe8d_tXlPj9v9-wt_J4hY0b3kQy4JFM_JAKmng0cWrxIsV9easaLadJ2hKnAZMHT7YBJfYLs0DxXn06Xsgaj1SD76DvQxhzOJJ2D8Ve9N-40rJ7MnbfzFkItF3yppzZK7jkhwoJE4VV4mqJ_Pu_Z_YWFN4XYUFmk7Zl5bwEX2fBJp9fOLtNlrWUxWNx512kIKLUSUy4xlh5SGwN_" alt="TravelSmart AI Mascot" class="w-full h-full object-contain">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-sm">Welcome to <span class="text-primary">TravelSmart AI</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your intelligent companion for seamless journeys.</p>
+</header>
+<!-- Glassmorphism Card for Authentication -->
+<div class="glass-panel rounded-lg p-md shadow-[0_8px_32px_rgba(38,24,20,0.05)] w-full flex flex-col gap-md relative overflow-hidden">
+<!-- Subtle accent top border -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-tertiary to-primary-container"></div>
+<!-- Language Selector -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs" for="language">
+<span class="material-symbols-outlined text-[18px]">language</span>
+                    Language
+                </label>
+<div class="relative w-full input-glow rounded-DEFAULT transition-all duration-300">
+<select class="w-full appearance-none bg-surface-bright/80 border border-outline-variant text-on-surface font-body-md text-body-md rounded-DEFAULT px-md py-[14px] pr-[40px] focus:outline-none focus:border-secondary focus:ring-0 cursor-pointer" id="language">
+<option value="en">English (US)</option>
+<option value="es">Español (ES)</option>
+<option value="fr">Français (FR)</option>
+<option value="de">Deutsch (DE)</option>
+<option value="ja">日本語 (JP)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-md text-on-surface-variant">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- ID Input -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs" for="id-number">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+                    Enter your ID number
+                </label>
+<div class="relative w-full input-glow rounded-DEFAULT transition-all duration-300">
+<input class="w-full bg-surface-bright/80 border border-outline-variant text-on-surface placeholder:text-outline font-body-md text-body-md rounded-DEFAULT px-md py-[14px] focus:outline-none focus:border-secondary focus:ring-0 transition-colors" id="id-number" placeholder="e.g. TRV-12345" type="text">
+</div>
+<p class="text-[12px] text-outline mt-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                    Find this on your booking confirmation.
+                </p>
+</div>
+<div class="h-px bg-outline-variant/30 w-full my-xs"></div>
+<!-- Offline Mode Toggle -->
+<div class="flex items-center justify-between py-xs">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Offline Mode</span>
+<span class="font-body-md text-[14px] text-on-surface-variant leading-tight mt-1">Download tour data before traveling</span>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-container-high appearance-none cursor-pointer z-10 top-0 left-0 transition-all duration-300 peer" id="offline-toggle" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300 peer-checked:bg-primary" for="offline-toggle"></label>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-[16px] rounded-full mt-sm btn-glow transition-all duration-200 transform hover:scale-[1.02] flex items-center justify-center gap-sm group">
+<span class="">Start Exploring</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Support Link -->
+<div class="mt-lg text-center">
+<a class="font-label-md text-label-md text-secondary hover:text-tertiary transition-colors inline-flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+                Need help logging in?
+            </a>
+</div>
+</main>
+<!-- Navigation is SUPPRESSED per rule: Linear/Transactional intent (Login/Welcome screen) -->
+<!-- FAB is SUPPRESSED per rule: Transactional screen -->
+<script>
+        // Simple micro-interaction for the toggle label color change
+        const toggle = document.getElementById('offline-toggle');
+        const toggleLabelTitle = toggle.closest('.flex.items-center').querySelector('.font-title-md');
+        
+        toggle.addEventListener('change', function() {
+            if(this.checked) {
+                toggleLabelTitle.classList.add('text-primary');
+                toggleLabelTitle.classList.remove('text-on-surface');
+            } else {
+                toggleLabelTitle.classList.remove('text-primary');
+                toggleLabelTitle.classList.add('text-on-surface');
+            }
+        });
+    </script>
+
+
+</body></html>
