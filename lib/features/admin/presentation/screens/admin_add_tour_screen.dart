@@ -3,10 +3,33 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 
-class AdminAddTourScreen extends StatelessWidget {
+class AdminAddTourScreen extends StatefulWidget {
   const AdminAddTourScreen({super.key});
 
   @override
+  State<AdminAddTourScreen> createState() => _AdminAddTourScreenState();
+}
+
+class _AdminAddTourScreenState extends State<AdminAddTourScreen> {
+
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _priceController = TextEditingController();
+  final _maxCapacityController = TextEditingController();
+  String selectedCategory = 'Cultural';
+  String? selectedDuration = '2';
+  List<Map<String, dynamic>> stops = [];
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _descriptionController.dispose();
+    _priceController.dispose();
+    _maxCapacityController.dispose();
+    super.dispose();
+  }
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -197,7 +220,7 @@ class AdminAddTourScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField({required String hintText, int maxLines = 1, IconData? suffixIcon}) {
+  Widget _buildTextField({required String hintText, int maxLines = 1, IconData? suffixIcon, TextEditingController? controller}) {
     return TextFormField(
       maxLines: maxLines,
       decoration: InputDecoration(

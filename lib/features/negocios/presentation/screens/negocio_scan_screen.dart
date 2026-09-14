@@ -36,7 +36,7 @@ class _NegocioScanScreenState extends State<NegocioScanScreen> {
     if (barcodes.isNotEmpty) {
       _isProcessing = true;
       final String code = barcodes.first.rawValue ?? '';
-      _findUserAndShowDialog(code);
+      _showAddPointsDialog(code);
     }
   }
 
@@ -209,7 +209,7 @@ class _NegocioScanScreenState extends State<NegocioScanScreen> {
                     _buildControlButton(
                       icon: Icons.keyboard,
                       onPressed: () {
-                        _showManualEntryDialog();
+                        //_showManualEntryDialog();
                       },
                     ),
                   ],

@@ -115,7 +115,7 @@ final appRouter = GoRouter(
         ),
         GoRoute(
           path: 'edit-tour',
-          builder: (context, state) => const AdminEditTourScreen(),
+          builder: (context, state) => AdminEditTourScreen(tour: state.extra as Map<String, dynamic>? ?? {}),
         ),
         GoRoute(
           path: 'user-success',

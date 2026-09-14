@@ -73,11 +73,11 @@ class _ChoferNotificationsScreenState extends State<ChoferNotificationsScreen> {
           IconButton(
             icon: const Icon(Icons.done_all, color: AppTheme.primary),
             onPressed: () {
-              setState(() {
-                for (var n in notifications) {
-                  n['isUnread'] = false;
-                }
-              });
+//              setState(() {
+//                for (var n in notifications) {
+//                  n['isUnread'] = false;
+//                }
+//              });
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Todas marcadas como leídas')),
               );

@@ -55,6 +55,8 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
         email: _emailController.text.trim(),
         role: roleCode,
         name: _nameController.text.trim(),
+        country: 'Ecuador',
+        documentId: '9999999999',
       );
 
       if (!mounted) return;

@@ -3,9 +3,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 
-class AdminEditTourScreen extends StatelessWidget {
-  const AdminEditTourScreen({super.key});
+class AdminEditTourScreen extends StatefulWidget {
+  final Map<String, dynamic> tour;
+  const AdminEditTourScreen({super.key, required this.tour});
 
+  @override
+  State<AdminEditTourScreen> createState() => _AdminEditTourScreenState();
+}
+
+class _AdminEditTourScreenState extends State<AdminEditTourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +95,7 @@ class AdminEditTourScreen extends StatelessWidget {
                   flex: 2,
                   child: ElevatedButton.icon(
                     onPressed: () async {
-                      await FirebaseFirestore.instance.collection('tours').doc(widget.tour.id).update({
+                      await FirebaseFirestore.instance.collection('tours').doc(widget.tour['id']).update({
                         'isActive': true, // Mock update
                       });
                       if (mounted) {
