@@ -22,10 +22,16 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
   bool _showScrollTop = false;
   String _filterMode = 'Todas'; // 'Todas', 'Activas', 'Inactivas'
 
+  late Stream<DocumentSnapshot> _userStream;
+  late Stream<QuerySnapshot> _notificationsStream;
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    
+    _userStream = _db.collection('users').doc(_userId).snapshots();
+    _notificationsStream = _db.collection('notifications').orderBy('createdAt', descending: true).snapshots();
     
     void scrollListener() {
       final ctrl = _tabController.index == 0 ? _scrollController1 : _scrollController2;
@@ -280,64 +286,76 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
     );
   }
 
-  void _showGenerateTestDataDialog() {
+  void _showAddNotificationDialog() {
+    final titleController = TextEditingController();
+    final messageController = TextEditingController();
+
     showDialog(
       context: context,
       builder: (context) {
-        bool isGenerating = false;
+        bool isSending = false;
         return StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
             backgroundColor: AppTheme.surfaceContainerLowest,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-            title: const Text('Generar Datos de Prueba'),
-            content: const Text('Esto creará notificaciones antiguas y recientes para probar el orden y los filtros de 20 días. ¿Continuar?'),
+            scrollable: true,
+            title: const Text('Enviar Notificación Global'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(
+                    labelText: 'Título',
+                    filled: true,
+                    fillColor: AppTheme.surfaceContainer,
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: messageController,
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                    labelText: 'Mensaje',
+                    filled: true,
+                    fillColor: AppTheme.surfaceContainer,
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                  ),
+                ),
+              ],
+            ),
             actions: [
               TextButton(
                 onPressed: () => context.pop(),
                 child: const Text('Cancelar', style: TextStyle(color: AppTheme.onSurfaceVariant)),
               ),
               ElevatedButton(
-                onPressed: isGenerating ? null : () async {
-                  setDialogState(() => isGenerating = true);
+                onPressed: isSending ? null : () async {
+                  if (titleController.text.trim().isEmpty || messageController.text.trim().isEmpty) return;
+                  
+                  setDialogState(() => isSending = true);
                   final db = FirebaseFirestore.instance;
                   
-                  // Notificación reciente (Ahora)
                   await db.collection('notifications').add({
-                    'title': '¡Nuevo Tour Disponible!',
-                    'message': 'Reserva ahora el Gran Tour Nocturno con 20% de descuento.',
+                    'title': titleController.text.trim(),
+                    'message': messageController.text.trim(),
                     'createdAt': FieldValue.serverTimestamp(),
                     'isPinned': false,
                     'isActive': true,
                   });
 
-                  // Notificación hace 5 días
-                  await db.collection('notifications').add({
-                    'title': 'Puntos Acreditados',
-                    'message': 'Has recibido 50 puntos por completar tu perfil.',
-                    'createdAt': Timestamp.fromDate(DateTime.now().subtract(const Duration(days: 5))),
-                    'isPinned': false,
-                    'isActive': true,
-                  });
-
-                  // Notificación antigua (> 20 días, debe ocultarse automáticamente)
-                  await db.collection('notifications').add({
-                    'title': 'Bienvenido a TravelSmart',
-                    'message': 'Gracias por registrarte hace casi un mes. ¡Disfruta la app!',
-                    'createdAt': Timestamp.fromDate(DateTime.now().subtract(const Duration(days: 25))),
-                    'isPinned': false,
-                    'isActive': true,
-                  });
-
                   if (context.mounted) {
+                    setDialogState(() => isSending = false);
                     context.pop();
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Datos de prueba generados exitosamente')),
+                      const SnackBar(content: Text('Notificación enviada a todos los usuarios')),
                     );
                   }
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, foregroundColor: AppTheme.onPrimary),
-                child: isGenerating ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) : const Text('Generar'),
-              )
+                child: isSending ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: AppTheme.onPrimary)) : const Text('Enviar'),
+              ),
             ],
           ),
         );
@@ -379,9 +397,9 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.bug_report, color: Colors.orange), // Botón temporal para generar datos
-            onPressed: _showGenerateTestDataDialog,
-            tooltip: 'Generar Datos',
+            icon: const Icon(Icons.add_alert, color: AppTheme.primary), // Botón para crear notificación
+            onPressed: _showAddNotificationDialog,
+            tooltip: 'Enviar Notificación',
           ),
           IconButton(
             icon: const Icon(Icons.done_all, color: AppTheme.primary),
@@ -412,13 +430,13 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
         ),
       ),
       body: StreamBuilder<DocumentSnapshot>(
-        stream: _db.collection('users').doc(_userId).snapshots(),
+        stream: _userStream,
         builder: (context, userSnapshot) {
           final userData = userSnapshot.data?.data() as Map<String, dynamic>? ?? {};
           final List<dynamic> readNotifications = userData['readNotifications'] ?? [];
 
           return StreamBuilder<QuerySnapshot>(
-            stream: _db.collection('notifications').orderBy('createdAt', descending: true).snapshots(),
+            stream: _notificationsStream,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
