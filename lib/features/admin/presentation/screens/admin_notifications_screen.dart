@@ -144,6 +144,14 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
         final doc = filteredDocs[index];
         final data = doc.data() as Map<String, dynamic>;
         
+        final targetRole = data['targetRole'] ?? 'all';
+        String roleTag = '';
+        Color roleColor = Colors.grey;
+        if (targetRole == 'tourist') { roleTag = 'Turistas'; roleColor = Colors.blue; }
+        else if (targetRole == 'driver') { roleTag = 'Choferes'; roleColor = Colors.orange; }
+        else if (targetRole == 'business') { roleTag = 'Negocios'; roleColor = Colors.green; }
+        else { roleTag = 'Todos'; roleColor = AppTheme.primary; }
+
         final notif = {
           'id': doc.id,
           'title': data['title'] ?? 'Sin título',
@@ -155,6 +163,8 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
           'isActive': data['isActive'] ?? true,
           'isUnread': !showRead,
           'icon': Icons.notifications,
+          'roleTag': roleTag,
+          'roleColor': roleColor,
         };
 
         return _buildNotificationCard(notif);
@@ -166,6 +176,8 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
     final bool isUnread = notif['isUnread'];
     final bool isPinned = notif['isPinned'];
     final bool isActive = notif['isActive'];
+    final String roleTag = notif['roleTag'] ?? '';
+    final Color roleColor = notif['roleColor'] ?? Colors.grey;
     
     return GestureDetector(
       onTap: () {
@@ -246,13 +258,29 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        notif['time'],
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppTheme.onSurfaceVariant,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            notif['time'],
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: AppTheme.onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: roleColor.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(4),
+                              border: Border.all(color: roleColor.withValues(alpha: 0.5)),
+                            ),
+                            child: Text(
+                              roleTag,
+                              style: TextStyle(fontSize: 10, color: roleColor, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
                       ),
                       Row(
                         children: [
@@ -289,6 +317,7 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
   void _showAddNotificationDialog() {
     final titleController = TextEditingController();
     final messageController = TextEditingController();
+    String selectedTarget = 'Todos'; // Todos, Turistas, Choferes, Negocios
 
     showDialog(
       context: context,
@@ -299,10 +328,29 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
             backgroundColor: AppTheme.surfaceContainerLowest,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
             scrollable: true,
-            title: const Text('Enviar Notificación Global'),
+            title: const Text('Enviar Notificación'),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                DropdownButtonFormField<String>(
+                  value: selectedTarget,
+                  decoration: InputDecoration(
+                    labelText: 'Dirigido a',
+                    filled: true,
+                    fillColor: AppTheme.surfaceContainer,
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                  ),
+                  items: ['Todos', 'Turistas', 'Choferes', 'Negocios'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (val) {
+                    if (val != null) setDialogState(() => selectedTarget = val);
+                  },
+                ),
+                const SizedBox(height: 16),
                 TextField(
                   controller: titleController,
                   decoration: InputDecoration(
@@ -337,9 +385,15 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
                   setDialogState(() => isSending = true);
                   final db = FirebaseFirestore.instance;
                   
+                  String targetRoleDb = 'all';
+                  if (selectedTarget == 'Turistas') targetRoleDb = 'tourist';
+                  if (selectedTarget == 'Choferes') targetRoleDb = 'driver';
+                  if (selectedTarget == 'Negocios') targetRoleDb = 'business';
+
                   await db.collection('notifications').add({
                     'title': titleController.text.trim(),
                     'message': messageController.text.trim(),
+                    'targetRole': targetRoleDb,
                     'createdAt': FieldValue.serverTimestamp(),
                     'isPinned': false,
                     'isActive': true,
@@ -349,7 +403,7 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
                     setDialogState(() => isSending = false);
                     context.pop();
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Notificación enviada a todos los usuarios')),
+                      SnackBar(content: Text('Notificación enviada a $selectedTarget')),
                     );
                   }
                 },
@@ -460,24 +514,45 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: ['Todas', 'Activas', 'Inactivas'].map((mode) {
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: FilterChip(
-                              label: Text(mode),
-                              selected: _filterMode == mode,
-                              onSelected: (selected) {
-                                if (selected) setState(() => _filterMode = mode);
-                              },
-                              selectedColor: AppTheme.primaryContainer,
-                              checkmarkColor: AppTheme.primary,
-                              labelStyle: TextStyle(
-                                color: _filterMode == mode ? AppTheme.primary : AppTheme.onSurfaceVariant,
-                                fontWeight: _filterMode == mode ? FontWeight.bold : FontWeight.normal,
+                        children: [
+                          ...['Todas', 'Activas', 'Inactivas'].map((mode) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: FilterChip(
+                                label: Text(mode),
+                                selected: _filterMode == mode,
+                                onSelected: (selected) {
+                                  if (selected) setState(() => _filterMode = mode);
+                                },
+                                selectedColor: AppTheme.primaryContainer,
+                                checkmarkColor: AppTheme.primary,
+                                labelStyle: TextStyle(
+                                  color: _filterMode == mode ? AppTheme.primary : AppTheme.onSurfaceVariant,
+                                  fontWeight: _filterMode == mode ? FontWeight.bold : FontWeight.normal,
+                                ),
                               ),
-                            ),
-                          );
-                        }).toList(),
+                            );
+                          }).toList(),
+                          const VerticalDivider(width: 16, indent: 8, endIndent: 8, color: Colors.grey),
+                          ...['Todos', 'Turistas', 'Choferes', 'Negocios'].map((mode) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: FilterChip(
+                                label: Text(mode),
+                                selected: _targetFilter == mode,
+                                onSelected: (selected) {
+                                  if (selected) setState(() => _targetFilter = mode);
+                                },
+                                selectedColor: Colors.blue.withValues(alpha: 0.1),
+                                checkmarkColor: Colors.blue,
+                                labelStyle: TextStyle(
+                                  color: _targetFilter == mode ? Colors.blue.shade800 : AppTheme.onSurfaceVariant,
+                                  fontWeight: _targetFilter == mode ? FontWeight.bold : FontWeight.normal,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ],
                       ),
                     ),
                   ),
