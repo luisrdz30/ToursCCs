@@ -257,22 +257,15 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () async {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Iniciando carga de datos global...')),
-                  );
-                  final seeder = DatabaseSeeder();
-                  await seeder.seedAll();
+                  await FirebaseAuth.instance.signOut();
                   if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Base de datos poblada exitosamente.')),
-                    );
-                    _loadDashboardData(); // Refresh the dashboard metrics
+                    context.go('/'); // Route to login
                   }
                 },
-                icon: const Icon(Icons.rocket_launch, color: AppTheme.onPrimary),
-                label: const Text('Generar Datos de Prueba Globales', style: TextStyle(color: AppTheme.onPrimary, fontWeight: FontWeight.bold)),
+                icon: const Icon(Icons.logout, color: AppTheme.onError),
+                label: const Text('Cerrar Sesión', style: TextStyle(color: AppTheme.onError, fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primary,
+                  backgroundColor: AppTheme.errorContainer,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 ),

@@ -5,7 +5,8 @@ import '../../../../core/theme/app_theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/services/firebase_auth_service.dart';
-import '../../../../core/services/database_seeder.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -20,6 +21,64 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _idController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FirebaseAuthService _authService = FirebaseAuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    _checkActiveSession();
+  }
+
+  Future<void> _checkActiveSession() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final prefs = await SharedPreferences.getInstance();
+      final sessionStartStr = prefs.getString('session_start');
+      final role = prefs.getString('user_role') ?? await _authService.getUserRole(user.uid);
+      
+      if (sessionStartStr != null) {
+        final sessionStart = DateTime.parse(sessionStartStr);
+        final elapsed = DateTime.now().difference(sessionStart);
+        
+        bool isExpired = false;
+        if (role == 'admin' && elapsed.inHours >= 2) {
+          isExpired = true;
+        } else if ((role == 'driver' || role == 'business' || role == 'partner') && elapsed.inHours >= 24) {
+          isExpired = true;
+        } else if (role == 'tourist' && elapsed.inDays >= 30) {
+          isExpired = true;
+        }
+        
+        if (isExpired) {
+          await FirebaseAuth.instance.signOut();
+          await prefs.remove('session_start');
+          await prefs.remove('user_role');
+        } else {
+          _navigateToRole(role);
+        }
+      } else {
+        // No session tracked, let's track it now
+        await prefs.setString('session_start', DateTime.now().toIso8601String());
+        await prefs.setString('user_role', role);
+        _navigateToRole(role);
+      }
+    }
+  }
+
+  void _navigateToRole(String role) {
+    if (mounted) {
+      if (role == 'tourist') {
+        context.go('/turista');
+      } else if (role == 'driver') {
+        context.go('/chofer');
+      } else if (role == 'business' || role == 'partner') {
+        context.go('/negocios');
+      } else if (role == 'admin') {
+        context.go('/admin');
+      } else {
+        context.go('/bridge');
+      }
+    }
+  }
 
   Future<void> _onStartExploring() async {
     final emailText = _idController.text.trim();
@@ -55,19 +114,11 @@ class _LoginScreenState extends State<LoginScreen> {
       if (userCred != null && userCred.user != null) {
         final role = await _authService.getUserRole(userCred.user!.uid);
         
-        if (mounted) {
-          if (role == 'tourist') {
-            context.go('/turista');
-          } else if (role == 'driver') {
-            context.go('/chofer');
-          } else if (role == 'business' || role == 'partner') {
-            context.go('/negocios');
-          } else if (role == 'admin') {
-            context.go('/admin');
-          } else {
-            context.go('/bridge');
-          }
-        }
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('session_start', DateTime.now().toIso8601String());
+        await prefs.setString('user_role', role);
+        
+        _navigateToRole(role);
       }
     } catch (e) {
       if (mounted) {
