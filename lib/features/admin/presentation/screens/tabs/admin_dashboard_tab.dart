@@ -16,6 +16,7 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
   String _selectedTimeframe = 'Últimos 30 días';
   bool _isExporting = false;
   Future<AdminDashboardDto>? _dashboardFuture;
+  AdminDashboardDto? _currentData;
 
   @override
   void initState() {
@@ -27,20 +28,59 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
     setState(() {
       _dashboardFuture = () async {
         final db = FirebaseFirestore.instance;
-        final usersSnap = await db.collection('users').where('role', isEqualTo: 'tourist').count().get();
-        final tripsSnap = await db.collection('trips').where('status', isEqualTo: 'Completed').count().get();
         
-        return AdminDashboardDto(
-          totalUsers: usersSnap.count ?? 0,
-          globalPointsRedeemed: 15400, // Mock for now
-          totalToursCompleted: tripsSnap.count ?? 0,
-          activeAlerts: 1, // Mock
+        DateTime cutoffDate = DateTime(2000);
+        final now = DateTime.now();
+        if (_selectedTimeframe == 'Hoy') {
+          cutoffDate = DateTime(now.year, now.month, now.day);
+        } else if (_selectedTimeframe == 'Esta Semana') {
+          cutoffDate = now.subtract(Duration(days: now.weekday - 1));
+        } else if (_selectedTimeframe == 'Últimos 30 días') {
+          cutoffDate = now.subtract(const Duration(days: 30));
+        } else if (_selectedTimeframe == 'Este Año') {
+          cutoffDate = DateTime(now.year, 1, 1);
+        }
+
+        // Avoid composite query error by using the already-fetched users for counting
+        final usersDocs = await db.collection('users').get();
+        int totalUsersCount = 0;
+        int totalPoints = 0;
+
+        for (var doc in usersDocs.docs) {
+          final data = doc.data();
+          final role = data['role'] as String?;
+          final points = (data['points'] as num?)?.toInt() ?? 0;
+          totalPoints += points;
+
+          if (role == 'tourist') {
+            final createdAt = data['createdAt'] as Timestamp?;
+            if (createdAt != null && !createdAt.toDate().isBefore(cutoffDate)) {
+              totalUsersCount++;
+            } else if (cutoffDate.year == 2000) {
+               // If filtering "Todos", include everything
+               totalUsersCount++;
+            }
+          }
+        }
+
+        final toursSnap = await db.collection('tours')
+          .where('createdAt', isGreaterThanOrEqualTo: cutoffDate)
+          .count().get();
+
+        final data = AdminDashboardDto(
+          totalUsers: totalUsersCount,
+          totalToursCompleted: toursSnap.count ?? 0,
+          globalPointsRedeemed: totalPoints, // Puntos totales en ecosistema
+          activeAlerts: 0,
         );
+        _currentData = data;
+        return data;
       }();
     });
   }
 
   void _onExport() async {
+    if (_currentData == null) return;
     setState(() => _isExporting = true);
     
     // Simulate generation delay
@@ -64,12 +104,12 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('Se ha enviado el reporte detallado en formato CSV y PDF a tu correo de administrador.', style: TextStyle(color: AppTheme.onSurfaceVariant, fontSize: 14)),
-            SizedBox(height: 16),
-            Text('Resumen:', style: TextStyle(fontWeight: FontWeight.bold)),
-            SizedBox(height: 8),
-            Text('• Usuarios Totales: 1,245\n• Ingresos Mensuales: \$12,450\n• Tours Activos: 8\n• Tasa de Aprobación QR: 98%'),
+          children: [
+            const Text('Se ha enviado el reporte detallado en formato CSV y PDF a tu correo de administrador.', style: TextStyle(color: AppTheme.onSurfaceVariant, fontSize: 14)),
+            const SizedBox(height: 16),
+            const Text('Resumen:', style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Text('• Usuarios Totales: ${_currentData!.totalUsers}\n• Puntos del Ecosistema: ${_currentData!.globalPointsRedeemed}\n• Tours Registrados: ${_currentData!.totalToursCompleted}\n• Filtro: $_selectedTimeframe'),
           ],
         ),
         actions: [
@@ -99,7 +139,7 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
                 onTap: () {
                   setState(() => _selectedTimeframe = timeframe);
                   Navigator.pop(context);
-                  _loadDashboardData(); // Recargar datos si es necesario (el backend puede aceptar un query param)
+                  _loadDashboardData();
                 },
               );
             }).toList(),
@@ -168,19 +208,18 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text('Error al cargar datos: \${snapshot.error}', style: const TextStyle(color: AppTheme.error)),
-                  );
+                  return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
                 } else if (!snapshot.hasData) {
-                  return const SizedBox();
+                  return const Center(child: Text('No hay datos disponibles.'));
                 }
 
                 final data = snapshot.data!;
+
                 return Column(
                   children: [
                     _buildMetricCard(
                       title: 'Puntos Canjeados (Global)',
-                      value: '\${data.globalPointsRedeemed}',
+                      value: '${data.globalPointsRedeemed}',
                       trend: 'Actualizado ahora',
                       icon: Icons.stars,
                       isPositive: true,
@@ -188,7 +227,7 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
                     const SizedBox(height: 16),
                     _buildMetricCard(
                       title: 'Tours Completados',
-                      value: '\${data.totalToursCompleted}',
+                      value: '${data.totalToursCompleted}',
                       trend: 'Actualizado ahora',
                       icon: Icons.explore,
                       isPositive: true,
@@ -196,7 +235,7 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
                     const SizedBox(height: 16),
                     _buildMetricCard(
                       title: 'Usuarios Totales',
-                      value: '\${data.totalUsers}',
+                      value: '${data.totalUsers}',
                       trend: 'Actualizado ahora',
                       icon: Icons.people,
                       isPositive: null,
@@ -204,7 +243,7 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
                     const SizedBox(height: 16),
                     _buildMetricCard(
                       title: 'Alertas del Sistema',
-                      value: '\${data.activeAlerts}',
+                      value: '${data.activeAlerts}',
                       trend: data.activeAlerts > 0 ? 'Requieren atención' : 'Todo en orden',
                       icon: data.activeAlerts > 0 ? Icons.warning_amber_rounded : Icons.check_circle_outline,
                       isPositive: data.activeAlerts == 0,
@@ -219,36 +258,21 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
               child: ElevatedButton.icon(
                 onPressed: () async {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Iniciando carga de datos...')),
+                    const SnackBar(content: Text('Iniciando carga de datos global...')),
                   );
                   final seeder = DatabaseSeeder();
                   await seeder.seedAll();
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Datos cargados exitosamente')),
+                      const SnackBar(content: Text('Base de datos poblada exitosamente.')),
                     );
+                    _loadDashboardData(); // Refresh the dashboard metrics
                   }
                 },
-                icon: const Icon(Icons.cloud_upload, color: AppTheme.onPrimary),
-                label: const Text('Cargar Datos Iniciales a Firebase', style: TextStyle(color: AppTheme.onPrimary, fontWeight: FontWeight.bold)),
+                icon: const Icon(Icons.rocket_launch, color: AppTheme.onPrimary),
+                label: const Text('Generar Datos de Prueba Globales', style: TextStyle(color: AppTheme.onPrimary, fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primary,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                onPressed: () {
-                  context.go('/');
-                },
-                icon: const Icon(Icons.logout, color: AppTheme.error),
-                label: const Text('Cerrar Sesión', style: TextStyle(color: AppTheme.error, fontWeight: FontWeight.bold)),
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: AppTheme.error),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 ),
@@ -257,6 +281,110 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
             const SizedBox(height: 100),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildFilterButton(String text, IconData icon, {bool isPrimary = false}) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: isPrimary ? AppTheme.primary : AppTheme.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(20),
+        border: isPrimary ? null : Border.all(color: AppTheme.primary.withValues(alpha: 0.2)),
+        boxShadow: isPrimary ? [
+          const BoxShadow(color: Color.fromRGBO(240, 101, 67, 0.3), blurRadius: 10, offset: Offset(0, 4))
+        ] : null,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 18, color: isPrimary ? AppTheme.onPrimary : AppTheme.primary),
+          const SizedBox(width: 8),
+          Text(
+            text,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: isPrimary ? AppTheme.onPrimary : AppTheme.onSurface,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMetricCard({
+    required String title,
+    required String value,
+    required String trend,
+    required IconData icon,
+    bool? isPositive,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: AppTheme.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromRGBO(39, 101, 124, 0.05),
+            blurRadius: 20,
+            offset: Offset(0, 10),
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: AppTheme.onSurfaceVariant, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.w800,
+              color: AppTheme.onSurface,
+              letterSpacing: -1,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              if (isPositive != null)
+                Icon(
+                  isPositive ? Icons.trending_up : Icons.trending_down,
+                  size: 16,
+                  color: isPositive ? Colors.green : Colors.red,
+                ),
+              if (isPositive != null) const SizedBox(width: 4),
+              Text(
+                trend,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: isPositive == null
+                      ? AppTheme.onSurfaceVariant
+                      : (isPositive ? Colors.green : Colors.red),
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -276,128 +404,15 @@ class _AdminDashboardTabState extends State<AdminDashboardTab> {
       ),
       actions: [
         IconButton(
+          icon: const Icon(Icons.refresh, color: AppTheme.primary),
+          onPressed: _loadDashboardData,
+          tooltip: 'Recargar Datos',
+        ),
+        IconButton(
           icon: const Icon(Icons.notifications_active_outlined, color: AppTheme.primary),
-          onPressed: () {
-            context.push('/admin/notifications');
-          },
+          onPressed: () => context.push('/admin/notifications'),
         ),
       ],
-    );
-  }
-
-  Widget _buildFilterButton(String text, IconData icon, {bool isPrimary = false}) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: isPrimary ? AppTheme.primaryContainer : AppTheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: isPrimary ? AppTheme.onPrimaryContainer : AppTheme.onSurfaceVariant),
-          const SizedBox(width: 8),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: isPrimary ? AppTheme.onPrimaryContainer : AppTheme.onSurfaceVariant,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMetricCard({
-    required String title,
-    required String value,
-    required String trend,
-    required IconData icon,
-    bool? isPositive,
-  }) {
-    Color trendColor;
-    if (isPositive == true) {
-      trendColor = Colors.green;
-    } else if (isPositive == false) {
-      trendColor = AppTheme.error;
-    } else {
-      trendColor = AppTheme.onSurfaceVariant;
-    }
-
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: AppTheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: const Color.fromRGBO(39, 101, 124, 0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(icon, size: 16, color: AppTheme.onSurfaceVariant),
-                  const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: AppTheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800,
-                  color: AppTheme.onSurface,
-                  letterSpacing: -1,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  if (isPositive != null)
-                    Icon(
-                      isPositive ? Icons.trending_up : Icons.trending_down,
-                      size: 16,
-                      color: trendColor,
-                    ),
-                  if (isPositive != null) const SizedBox(width: 4),
-                  Text(
-                    trend,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: trendColor,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Icon(
-            icon,
-            size: 80,
-            color: AppTheme.surfaceContainerHighest.withValues(alpha: 0.5),
-          ),
-        ],
-      ),
     );
   }
 }

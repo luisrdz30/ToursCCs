@@ -41,22 +41,28 @@ class DatabaseSeeder {
           'totalPoints': 1250,
           'level': 5,
           'currentMascot': 'León Marino',
+          'documentId': '1234567890',
         }
       });
       print('Datos en Firestore actualizados para: ${u['email']} (Rol: ${u['role']})');
     }
     
-    // Sign out to not leave the last created user logged in
-    await _auth.signOut();
-    
-    // Generar también el resto de los datos (tours, negocios, etc.) para que la base no quede vacía
-    await seedAll();
-
     print('--- CREACIÓN DE CUENTAS COMPLETADA ---');
   }
 
   Future<void> seedAll() async {
     print('--- INICIANDO SEED DE BASE DE DATOS ---');
+    // We insert a mock tourist directly into Firestore so the QR scanner can find it
+    // without messing with FirebaseAuth state
+    await _db.collection('users').doc('mock_tourist_qr').set({
+      'name': 'Turista de Prueba QR',
+      'email': 'turista_qr@test.com',
+      'role': 'tourist',
+      'documentId': '1234567890',
+      'points': 500,
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+
     await _seedTours();
     await _seedBusinesses();
     await _seedPromotions();

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/services/database_seeder.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../../../core/theme/app_theme.dart';
 
 class AdminContentTab extends StatelessWidget {
@@ -51,12 +49,12 @@ class AdminContentTab extends StatelessWidget {
             
             _buildFeatureCard(
               context,
-              icon: Icons.grid_on,
-              title: 'Wordle Cultural',
-              description: 'Gestiona las palabras del día, pistas y recompensas para el minijuego.',
+              icon: Icons.spellcheck,
+              title: 'Wordle Turístico',
+              description: 'Agrega o edita las palabras de 5 letras, su significado, curiosidades y los puntos que otorgan.',
               color: const Color(0xFF6AAB9C), // Verde Wordle
               onTap: () {
-                context.push('/admin/wordle');
+                // TODO: Navegar a Wordle management
               },
             ),
             const SizedBox(height: 16),
@@ -68,7 +66,7 @@ class AdminContentTab extends StatelessWidget {
               description: 'Gestiona los cromos digitales que los turistas obtienen al escanear QR en tours o negocios.',
               color: const Color(0xFFE5A93D), // Dorado
               onTap: () {
-                context.push('/admin/stickers');
+                // TODO: Navegar a Cromos management
               },
             ),
             const SizedBox(height: 16),
@@ -80,39 +78,13 @@ class AdminContentTab extends StatelessWidget {
               description: 'Vincula cómics, audios y videos de YouTube a tours o ubicaciones específicas.',
               color: const Color(0xFF5A4FCF), // Púrpura oscuro
               onTap: () {
-                context.push('/admin/multimedia');
+                // TODO: Navegar a Multimedia management
               },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _seedData(context),
-        label: const Text('Generar Datos'),
-        icon: const Icon(Icons.auto_awesome),
-        backgroundColor: AppTheme.secondary,
-        foregroundColor: Colors.white,
-      ),
     );
-  }
-
-  Future<void> _seedData(BuildContext context) async {
-    try {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Generando datos...')));
-      final seeder = DatabaseSeeder();
-      await seeder.seedAll();
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Datos generados exitosamente. (Recarga la pantalla)')),
-        );
-      }
-    } catch (e) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error al generar: $e')),
-        );
-      }
-    }
   }
 
   Widget _buildFeatureCard(BuildContext context, {

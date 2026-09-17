@@ -70,3 +70,15 @@ classDiagram
     Users "1" -- "*" Promotions : Redeems >
     Users "1" -- "*" Notifications : Receives >
     Tours "1" -- "*" ScheduledTours : Has >
+
+    class PointLogs {
+        <<Collection>>
+        +String id
+        +String touristId
+        +String touristName
+        +int points
+        +String type "earned_from_partner, earned_from_admin"
+        +DateTime createdAt
+    }
+
+    Users "1" --> "0..*" PointLogs : "recibe puntos"

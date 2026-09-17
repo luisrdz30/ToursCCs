@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../../../core/theme/app_theme.dart';
 import '../../../../../core/models/tour_dto.dart';
 
@@ -15,35 +16,24 @@ class AdminToursTab extends StatelessWidget {
         elevation: 0,
         leading: const Icon(Icons.storefront, color: AppTheme.primary),
         title: const Text(
-          'Partner Portal',
+          'Gestión de Tours',
           style: TextStyle(
             color: AppTheme.primary,
             fontWeight: FontWeight.bold,
-            letterSpacing: -0.5,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_none, color: AppTheme.primary),
-            onPressed: () {},
-          ),
-        ],
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Admin Dashboard',
-              style: TextStyle(fontSize: 12, color: AppTheme.onSurfaceVariant, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Gestión de\nTours',
+                  'Todos los\nTours',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w800,
@@ -57,7 +47,7 @@ class AdminToursTab extends StatelessWidget {
                     context.push('/admin/add-tour');
                   },
                   icon: const Icon(Icons.add, color: AppTheme.onPrimary, size: 16),
-                  label: const Text('Add\nNew', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                  label: const Text('Crear\nNuevo', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primary,
                     foregroundColor: AppTheme.onPrimary,
@@ -67,61 +57,35 @@ class AdminToursTab extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-            Row(
-              children: [
-                Expanded(
-                  child: _buildMetricCard(Icons.flag_outlined, '12', 'Active Tours', AppTheme.tertiary),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: _buildMetricCard(Icons.group_outlined, '340', 'Monthly Guests', AppTheme.secondary),
-                ),
-              ],
-            ),
             const SizedBox(height: 32),
-            const Text(
-              'Existing Tours',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.onSurface),
-            ),
-            const SizedBox(height: 16),
-            _buildTourCard(
-              context: context,
-              tour: TourDto(
-                id: '1',
-                title: 'Tour Histórico',
-                description: 'Explore the colonial...',
-                durationMinutes: 180,
-                price: 0,
-                isActive: true,
-                imageUrl: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=200&auto=format&fit=crop',
-              ),
-            ),
-            const SizedBox(height: 16),
-            _buildTourCard(
-              context: context,
-              tour: TourDto(
-                id: '2',
-                title: 'Gran Tour por Quito',
-                description: 'Full day...',
-                durationMinutes: 480,
-                price: 0,
-                isActive: true,
-                imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=200&auto=format&fit=crop',
-              ),
-            ),
-            const SizedBox(height: 16),
-            _buildTourCard(
-              context: context,
-              tour: TourDto(
-                id: '3',
-                title: 'Gastronomy Walk',
-                description: 'Local markets and...',
-                durationMinutes: 240,
-                price: 0,
-                isActive: false,
-                imageUrl: '',
-              ),
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance.collection('tours').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                  return const Center(
+                    child: Text('No hay tours registrados', style: TextStyle(color: AppTheme.onSurfaceVariant)),
+                  );
+                }
+
+                final tours = snapshot.data!.docs.map((doc) {
+                  final data = doc.data() as Map<String, dynamic>;
+                  return TourDto.fromJson(data, id: doc.id);
+                }).toList();
+
+                return ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: tours.length,
+                  separatorBuilder: (context, index) => const SizedBox(height: 16),
+                  itemBuilder: (context, index) {
+                    final tour = tours[index];
+                    return _buildTourCard(context: context, tour: tour, rawData: snapshot.data!.docs[index].data() as Map<String, dynamic>);
+                  },
+                );
+              },
             ),
             const SizedBox(height: 100),
           ],
@@ -130,42 +94,10 @@ class AdminToursTab extends StatelessWidget {
     );
   }
 
-  Widget _buildMetricCard(IconData icon, String value, String label, Color color) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppTheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(39, 101, 124, 0.05),
-            blurRadius: 10,
-            offset: Offset(0, 4),
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: color),
-          const SizedBox(height: 16),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: AppTheme.onSurface),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(fontSize: 12, color: AppTheme.onSurfaceVariant),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildTourCard({
     required BuildContext context,
     required TourDto tour,
+    required Map<String, dynamic> rawData,
   }) {
     final bool isDraft = !tour.isActive;
     return Container(
@@ -193,6 +125,9 @@ class AdminToursTab extends StatelessWidget {
                   ? DecorationImage(image: NetworkImage(tour.imageUrl!), fit: BoxFit.cover)
                   : null,
             ),
+            child: (tour.imageUrl == null || tour.imageUrl!.isEmpty) 
+                ? const Icon(Icons.map, color: AppTheme.onSurfaceVariant) 
+                : null,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -215,7 +150,7 @@ class AdminToursTab extends StatelessWidget {
                   children: [
                     const Icon(Icons.access_time, size: 12, color: AppTheme.tertiary),
                     const SizedBox(width: 4),
-                    Text('${tour.durationMinutes ~/ 60} horas', style: const TextStyle(fontSize: 10, color: AppTheme.tertiary, fontWeight: FontWeight.bold)),
+                    Text('${(tour.durationMinutes / 60).toStringAsFixed(1)} horas', style: const TextStyle(fontSize: 10, color: AppTheme.tertiary, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ],
@@ -225,7 +160,8 @@ class AdminToursTab extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  context.push('/admin/edit-tour', extra: tour);
+                  rawData['id'] = tour.id;
+                  context.push('/admin/edit-tour', extra: rawData);
                 },
                 icon: const Icon(Icons.edit, color: AppTheme.tertiary, size: 20),
                 style: IconButton.styleFrom(
@@ -240,7 +176,7 @@ class AdminToursTab extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
-                  isDraft ? 'Borrador' : 'Activo',
+                  isDraft ? 'Inactivo' : 'Activo',
                   style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,

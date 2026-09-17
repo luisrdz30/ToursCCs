@@ -32,7 +32,8 @@ class _AdminWordleScreenState extends State<AdminWordleScreen> {
               children: [
                 TextField(
                   controller: wordCtrl,
-                  decoration: const InputDecoration(labelText: 'Palabra', hintText: 'Ej. CACAO o PICHINCHA'),
+                  decoration: const InputDecoration(labelText: 'Palabra (5 letras)', hintText: 'Ej. CACAO'),
+                  maxLength: 5,
                   textCapitalization: TextCapitalization.characters,
                 ),
                 const SizedBox(height: 8),
@@ -72,8 +73,8 @@ class _AdminWordleScreenState extends State<AdminWordleScreen> {
             ElevatedButton(
               onPressed: () async {
                 final word = wordCtrl.text.toUpperCase().trim();
-                if (word.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('La palabra no puede estar vacía')));
+                if (word.length != 5) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('La palabra debe tener exactamente 5 letras')));
                   return;
                 }
                 
@@ -141,7 +142,6 @@ class _AdminWordleScreenState extends State<AdminWordleScreen> {
             itemBuilder: (context, index) {
               final doc = docs[index];
               return ListTile(
-                onTap: () => _showAddEditDialog(doc),
                 title: Text(doc['word'], style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, letterSpacing: 2)),
                 subtitle: Text('${doc['points']} pts • ${doc['meaning']}'),
                 trailing: Row(

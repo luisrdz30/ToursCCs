@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../../../core/theme/app_theme.dart';
 
 class AdminUsersTab extends StatefulWidget {
@@ -13,6 +14,11 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _docController = TextEditingController();
+  String _selectedCountry = 'Ecuador';
+  String _selectedRole = 'tourist';
+  bool _isLoading = false;
+
+  final List<String> _countries = ['Ecuador', 'Colombia', 'Perú', 'México', 'Estados Unidos', 'España'];
 
   @override
   void dispose() {
@@ -20,6 +26,47 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
     _emailController.dispose();
     _docController.dispose();
     super.dispose();
+  }
+
+  Future<void> _saveUser() async {
+    if (_nameController.text.trim().isEmpty || _emailController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Por favor llena los campos obligatorios')),
+      );
+      return;
+    }
+
+    setState(() => _isLoading = true);
+
+    try {
+      final docRef = FirebaseFirestore.instance.collection('users').doc();
+      await docRef.set({
+        'id': docRef.id,
+        'name': _nameController.text.trim(),
+        'email': _emailController.text.trim(),
+        'role': _selectedRole,
+        'language': 'es',
+        'country': _selectedCountry,
+        'documentId': _docController.text.trim(),
+        'points': 0,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+
+      if (mounted) {
+        _nameController.clear();
+        _emailController.clear();
+        _docController.clear();
+        context.push('/admin/user-success');
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al guardar: $e')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
+    }
   }
 
   @override
@@ -53,7 +100,7 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
             const Icon(Icons.flight_takeoff, color: AppTheme.primary, size: 32),
             const SizedBox(height: 16),
             const Text(
-              'Registro de Nuevo\nTurista',
+              'Registro de Nuevo\nUsuario',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w800,
@@ -64,7 +111,7 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
             ),
             const SizedBox(height: 12),
             const Text(
-              'Complete los siguientes campos con la información oficial del viajero para generar su perfil en el ecosistema TravelSmart AI.',
+              'Complete los siguientes campos con la información oficial del usuario para generar su perfil en el ecosistema TravelSmart AI.',
               style: TextStyle(
                 fontSize: 14,
                 color: AppTheme.onSurfaceVariant,
@@ -72,38 +119,6 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
               ),
             ),
             const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppTheme.tertiaryContainer.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppTheme.tertiary.withValues(alpha: 0.3)),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Icon(Icons.badge_outlined, color: AppTheme.tertiary, size: 20),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Credenciales Seguras',
-                          style: TextStyle(fontWeight: FontWeight.bold, color: AppTheme.onSurface, fontSize: 14),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Una vez que completes el registro, enviaremos tus credenciales de acceso de forma segura a tu correo electrónico. Asegúrate de proporcionar una dirección válida.',
-                          style: TextStyle(color: AppTheme.onSurfaceVariant, fontSize: 12, height: 1.4),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(height: 32),
             Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
@@ -120,7 +135,7 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildFieldLabel('Nombre Completo'),
+                  _buildFieldLabel('Nombre Completo *'),
                   _buildTextField(
                     controller: _nameController,
                     hintText: 'Ej. Ana García',
@@ -128,7 +143,7 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
                   ),
                   const SizedBox(height: 16),
                   
-                  _buildFieldLabel('Correo Electrónico'),
+                  _buildFieldLabel('Correo Electrónico *'),
                   _buildTextField(
                     controller: _emailController,
                     hintText: 'tu@email.com',
@@ -146,15 +161,12 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
                         isExpanded: true,
-                        hint: Row(
-                          children: const [
-                            Icon(Icons.public, color: AppTheme.primary, size: 20),
-                            SizedBox(width: 12),
-                            Text('Selecciona tu país', style: TextStyle(color: AppTheme.onSurfaceVariant)),
-                          ],
-                        ),
-                        items: const [],
-                        onChanged: (val) {},
+                        value: _selectedCountry,
+                        icon: const Icon(Icons.keyboard_arrow_down, color: AppTheme.primary),
+                        items: _countries.map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
+                        onChanged: (val) {
+                          if (val != null) setState(() => _selectedCountry = val);
+                        },
                       ),
                     ),
                   ),
@@ -168,27 +180,28 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
                   ),
                   const SizedBox(height: 16),
                   
+                  _buildFieldLabel('Perfil Asignado (Rol)'),
                   Container(
-                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceContainer,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: const [
-                            Icon(Icons.assignment_ind_outlined, color: AppTheme.primary, size: 20),
-                            SizedBox(width: 12),
-                            Text('Perfil Asignado', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-                          ],
-                        ),
-                        const Text(
-                          'Turista',
-                          style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold, fontSize: 14),
-                        )
-                      ],
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        isExpanded: true,
+                        value: _selectedRole,
+                        icon: const Icon(Icons.keyboard_arrow_down, color: AppTheme.primary),
+                        items: const [
+                          DropdownMenuItem(value: 'tourist', child: Text('Turista')),
+                          DropdownMenuItem(value: 'driver', child: Text('Chofer')),
+                          DropdownMenuItem(value: 'partner', child: Text('Negocio (Partner)')),
+                          DropdownMenuItem(value: 'admin', child: Text('Administrador')),
+                        ],
+                        onChanged: (val) {
+                          if (val != null) setState(() => _selectedRole = val);
+                        },
+                      ),
                     ),
                   ),
                   const SizedBox(height: 32),
@@ -196,33 +209,22 @@ class _AdminUsersTabState extends State<AdminUsersTab> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
-                        context.push('/admin/user-success');
-                      },
+                      onPressed: _isLoading ? null : _saveUser,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppTheme.primary,
                         foregroundColor: AppTheme.onPrimary,
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 0,
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('Crear Cuenta', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                          SizedBox(width: 8),
-                          Icon(Icons.arrow_forward, size: 20),
-                        ],
-                      ),
+                      child: _isLoading 
+                          ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: AppTheme.onPrimary, strokeWidth: 2))
+                          : const Text(
+                              'Crear Perfil',
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  const Center(
-                    child: Text(
-                      'Al crear una cuenta, aceptas nuestros\nTérminos de Servicio y Política de\nPrivacidad.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 10, color: AppTheme.onSurfaceVariant, height: 1.5),
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),
