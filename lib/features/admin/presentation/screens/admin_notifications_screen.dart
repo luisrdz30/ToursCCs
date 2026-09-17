@@ -21,6 +21,7 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
   final ScrollController _scrollController2 = ScrollController();
   bool _showScrollTop = false;
   String _filterMode = 'Todas'; // 'Todas', 'Activas', 'Inactivas'
+  String _targetFilter = 'Todos'; // 'Todos', 'Turistas', 'Choferes', 'Negocios'
 
   late Stream<DocumentSnapshot> _userStream;
   late Stream<QuerySnapshot> _notificationsStream;
@@ -117,6 +118,11 @@ class _AdminNotificationsScreenState extends State<AdminNotificationsScreen> wit
       if (_filterMode == 'Activas' && !isActive) return false;
       if (_filterMode == 'Inactivas' && isActive) return false;
       
+      final targetRole = data['targetRole'] ?? 'all';
+      if (_targetFilter == 'Turistas' && targetRole != 'tourist') return false;
+      if (_targetFilter == 'Choferes' && targetRole != 'driver') return false;
+      if (_targetFilter == 'Negocios' && targetRole != 'business') return false;
+
       final isRead = readList.contains(doc.id);
       return showRead ? isRead : !isRead;
     }).toList();
